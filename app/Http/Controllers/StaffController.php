@@ -151,6 +151,11 @@ else{
     {
         
     }
+    public function viewStaffMember(){
+        $data=Staff::all();
+        return view('board/viewStaff',['staffs'=>$data]);
+
+    }
 
     /**
      * Remove the specified resource from storage.

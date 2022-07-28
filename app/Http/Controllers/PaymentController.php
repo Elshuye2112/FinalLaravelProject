@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 
@@ -34,7 +34,7 @@ class PaymentController extends Controller
     $payment->waysOfPayment=$request->input('waysOfPayment');
     $payment->accountID=$request->input('accountID');
     $payment->save();
-    return 'success';
+    return redirect()->back();
 
 
 
@@ -45,26 +45,30 @@ class PaymentController extends Controller
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Payment  $payment
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Payment $payment)
     {
         return $payment::all();
+    }
+    public function viewCashIn(){
+        $cashin='cashin';
+        $result=DB::select('select paymentID,dateOfPayment,typesOfPayment,amount,cashier,waysOfPayment,accountID from payments where typesOfPayment=?',[$cashin]);
+
+        return view('financeOfficer/viewCashin',['cashin'=>$result]);
+    }
+    public function viewCashOut(){
+        //  $data=Payment::paginate(5);
+         $cashout='cashout';
+         $result=DB::select('select paymentID,dateOfPayment,typesOfPayment,amount,cashier,waysOfPayment,accountID from payments where typesOfPayment=?',[$cashout]);
+
+         
+         return view('financeOfficer/viewCashout',['cashout'=>$result]);
     }
 
     /**
@@ -75,7 +79,7 @@ class PaymentController extends Controller
      */
     public function edit(Payment $payment)
     {
-        //
+       
     }
 
     /**

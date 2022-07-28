@@ -127,14 +127,14 @@ Route::post('/registerGClinic',[GratitudeClinicController::class,'create']);
 Route::get('/board',function(){
     return view('board/boardHomepage');
 });
-Route::get('/boardStaffView',[BoardController::class,'boardStaffView']);
+// Route::get('/boardStaffView',[BoardController::class,'boardStaffView']);
 Route::get('/registerGc',function(){
     return view('board.registerGrClinic');
 });
 Route::get('/sendNotification',function(){
     return view('board.sendNotification');
 });
-Route::view('/viewStaff','board/viewStaff');
+Route::get('/viewStaff',[StaffController::class,'viewStaffMember']);
 Route::get('/viewDetailOfStaff/{id}',[StaffController::class,'viewProfile']);
 Route::get('/viewMember',[BoardController::class,'show']);
 //
@@ -178,20 +178,17 @@ Route::get('/viewNotificaton',function(){
 });
 
 //fainance officer
+Route::get('/registerPayment',function(){
+    return view('financeOfficer/registerPayment');
+});
 Route::get('showPayment',[PaymentController::class,'show']);
 Route::post('/createPayment',[PaymentController::class,'create']);
 Route::get('/financeOfficer',function(){
     return view('financeOfficer/financeOfficerHomepage');
 });
-Route::get('/viewCashin',function(){
-    return view('financeOfficer/viewCashin');
-});
-Route::get('/viewCashout',function(){
-    return view('financeOfficer/viewCashout');
-});
-Route::get('/registerPayment',function(){
-    return view('financeOfficer/registerPayment');
-});
+Route::get('/viewCashin',[PaymentController::class,'viewCashIn']);
+Route::get('/viewCashout',[PaymentController::class,'viewCashOut']);
+
 Route::get('/generateReport',function(){
     return view('financeOfficer/generateReport');
 });
