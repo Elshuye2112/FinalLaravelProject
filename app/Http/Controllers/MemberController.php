@@ -30,7 +30,7 @@ class MemberController extends Controller
     {
 
 
-
+ $data= Member::all();
 
     }
 
