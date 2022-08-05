@@ -52,7 +52,7 @@
     <td>
     
         
-        <a href={{"/viewProfileStaff/".$staff->employeeID}} class='btn btn-primary'>view</a>
+        <a href={{"/viewStaffProfile/".$staff->employeeID}} class='btn btn-primary'>view</a>
     </td>
  
     </tr> 

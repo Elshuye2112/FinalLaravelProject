@@ -52,7 +52,7 @@
     
         <!-- <a href="" class='btn btn-danger '>delete</a> -->
         <a href={{"/edit/".$staff->employeeID}} class='btn btn-success'>edit</a>
-        <a href={{"/viewProfile/".$staff->employeeID}} class='btn btn-primary'>view</a>
+        <a href={{"/viewProfileStaff/".$staff->employeeID}} class='btn btn-primary'>view</a>
     </td>
 
  

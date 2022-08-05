@@ -13,6 +13,11 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\GratitudeClinicController;
 use App\Http\Controllers\RegisterThreatedIndividualController;
 use App\Http\Controllers\BoardController;
+use App\Http\Controllers\NotificationPractice;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HealthExtensionController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,14 +73,18 @@ Route::get('/search',function () {
     return view('healthEx/searchMember');
 });
 Route::post('/searchMember',[MemberController::class,'searchMember']);
-Route::get('/viewnotification',function () {
-    return view('healthEx/viewNotification');
-});
-Route::get('/sendnotification',function () {
-    return view('healthEx/sendNotification');
-});
+// Route::get('/viewnotification',function () {
+//     return view('healthEx/viewNotification');
+// });
+Route::get("/sendnotification",[HealthExtensionController::class,'displayNotificationpage']);
+Route::post('/notificationFromHealthEx',[HealthExtensionController::class,'sendNotification']);
+
+// Route::get('/sendNotification',[NotificationPractice::class,'send']);
+
 Route::get('/giveMembershipID/{id}',[MemberController::class,'giveMembershipID']);
 Route::get('/generateMembershipID',[MemberController::class,'generateMembershipID']);
+Route::get('/viewRequestFromMember',[HealthExtensionController::class,'viewRequest']);
+Route::delete('deleteRequest/{id}',[HealthExtensionController::class,'deleteRequest'])->name('request.delete');
 // Route::get('/viewRegistredMember',function () {
 //     return view('healthEx/viewMembers');
 // });
@@ -94,9 +103,7 @@ Route::get('/mviewnotification',function () {
 Route::get('/memberProfile',function () {
     return view('memberpage/viewProfile');
 });
-Route::get('/memberRequest',function () {
-    return view('memberpage/updateRequest');
-});
+Route::get('/memberRequest',[UpdateRequestController::class,'updateRequest']);
 Route::post('/storeRequest',[UpdateRequestController::class,'store']);
 ///////////////////////admin
 Route::get('/admin',function () {
@@ -120,6 +127,7 @@ Route::get('/viewBySearch',[StaffController::class,'viewBySearch']);
 Route::get('/view',[StaffController::class,'show']);
 Route::post('/acountCreate',[StaffController::class,'create']);
 Route::get('/viewProfileStaff/{id}',[StaffController::class,'viewProfileStaff']);
+Route::post('/notificationFromAdmin',[AdminController::class,'sendNotification']);
 //Route::get('/viewProfile/{id}',[StaffController::class,'viewProfile']);
 
 /////////////board
@@ -137,6 +145,8 @@ Route::get('/sendNotification',function(){
 Route::get('/viewStaff',[StaffController::class,'viewStaffMember']);
 Route::get('/viewDetailOfStaff/{id}',[StaffController::class,'viewProfile']);
 Route::get('/viewMember',[BoardController::class,'show']);
+Route::get('/viewStaffProfile/{id}',[BoardController::class,'viewStaffProfile']);
+
 //
 Route::get('/boardViewProfile/{id}',[BoardController::class,'BoardViewProfile']);
 Route::get('/account',function(){
@@ -146,6 +156,8 @@ Route::view('/registerscheme','board/registerscheme');
 Route::post('/insert',[BankAccountController::class,'create']);
 Route::get('/show',[BankAccountController::class,'show']);
 Route::post('/insertScheme',[SchemeController::class,'create']);
+Route::post('/sendNotificationdemlew',[BoardController::class,'sendNotification']);
+
 //Cardofficer
 
 Route::post('/registertreated',[RegisterThreatedIndividualController::class,'create']);

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Member;
 use Illuminate\Support\Facades\DB;
 use App\Models\Staff;
+use App\Notifications\EmailNotification;
+use Illuminate\Support\Facades\Notification as FacadsNotification;
 
 class BoardController extends Controller
 {
@@ -27,6 +29,12 @@ class BoardController extends Controller
     public function create()
     {
         //
+    }
+    public function viewStaffProfile($id){
+        $staff=Staff::find($id);
+        // return $staff;
+       return view('board.viewStaffProfile',['staff'=>$staff]);
+
     }
 public function boardStaffView(){
     $staffs=Staff::all();
@@ -80,6 +88,23 @@ public function boardStaffView(){
     public function edit($id)
     {
         //
+    }
+    public function sendNotification(Request $request){
+        $member = Member::all();
+         
+        $project = [
+            'greeting' => $request->greeting,',',
+            'body' => $request->body,
+            'thanks' => $request->thanks,
+            'actionText' => 'View Project',
+            'actionURL' => url('/'),
+           
+        ];
+  
+        FacadsNotification::send($member, new EmailNotification($project));
+   
+        dd('Notification sent!');
+
     }
 
     /**

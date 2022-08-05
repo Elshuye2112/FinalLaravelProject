@@ -47,6 +47,11 @@ class MemberController extends Controller
         
         'photo'=>'image|nullable|max:1999',
         'phone'=>'required|min:10|numeric',
+        'fName'=>'required|min:3',
+        'mName'=>'required|min:3',
+        'lName'=>'required|min:3',
+        'email'=>'required|regex:/(.+)@(.+)\.(.+)/i',
+        'password'=>'required|min:4',
        
       ]);       
       if($request->hasfile('photo')){

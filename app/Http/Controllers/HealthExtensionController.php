@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Member;
+use App\Models\Staff;
+use DB;
+use App\Models\UpdateRequest;
+use App\Notifications\EmailNotification;
+use Illuminate\Support\Facades\Notification as FacadsNotification;
 
 class HealthExtensionController extends Controller
 {
@@ -11,9 +17,42 @@ class HealthExtensionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+public function index()
     {
         //
+    }
+    public function displayNotificationpage(){
+        return view('healthEx.sendNotification');
+    }
+    public function sendNotification(Request $request) 
+    {
+    	$member = Member::all();
+         
+        $project = [
+            'greeting' => $request->greeting,',',
+            'body' => $request->body,
+            'thanks' => $request->thanks,
+            'actionText' => 'View Project',
+            'actionURL' => url('/'),
+           
+        ];
+  
+        FacadsNotification::send($member, new EmailNotification($project));
+   
+        dd('Notification sent!');
+    }
+
+    public function viewRequest(){
+        $data=UpdateRequest::orderBy('created_at', 'desc')->get();
+
+
+        return view('healthEx.viewRequests',['data'=>$data]) ;
+    }
+    public function deleteRequest($id){
+        $req=UpdateRequest::find($id);
+        $req->delete();
+        return redirect()->back()->with('success','deleted successfully');
+
     }
 
     /**
@@ -36,6 +75,7 @@ class HealthExtensionController extends Controller
     {
         //
     }
+
 
     /**
      * Display the specified resource.

@@ -51,8 +51,9 @@
             <li class="link" > <a href="{{ url('/register') }}">register</a></li>
             <li class="link" > <a href="{{ url('/search') }}">search member</a></li>
             <li class="link" > <a href="{{ url('/sendnotification') }}" >send notification</a></li>
-            <li class="link" > <a href="{{ url('/viewnotification') }}" >View notification</a></li>
+            <!-- <li class="link" > <a href="{{ url('/viewnotification') }}" >View notification</a></li> -->
             <li class="link" > <a href="{{ url('/listOfMembers') }}" >View members</a></li>
+            <li><a href="{{url('/viewRequestFromMember')}}">View Request</a></li>
             <li lass='link'><a href="{{ url('/listOfChildren') }}">View children</a></li>
         </div>
         </ul>

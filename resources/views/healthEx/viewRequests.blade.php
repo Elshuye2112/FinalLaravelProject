@@ -1,6 +1,6 @@
-@extends('admin.adminHomepage')
+@extends('healthEx/healthExtensionHome')
 @section('content')
-<h4>Welcome to view staff account page</h4>
+<h4>View Requests page</h4><hr>
 <style>
     a{
         margin-left:5px;
@@ -25,51 +25,37 @@
 </style>
 <table>
 
-<tr > 
-    <th>Employee ID</th>
-    <th>First name</th>
-    <th>Last Name</th>
-    <th>Role</th>
-    <th>Phone</th>
-    <th colspan='3' ><center>Actions</center></th> 
+<tr>
+    <th>memberID</th>
+    <th>subject</th>
+    <th>Description</th> 
+    <th>Date of send</th> 
+    <th>Action</th>
+    
 </tr>
 
-     @foreach($staffs as $staff)
-    <tr >
-    <td>{{$staff->employeeID}}</td>
-    <td>{{$staff->firstName}}</td>
-    <td>{{$staff->lastName}}</td>
-     <td>{{$staff->role}}</td>
-    <td>{{$staff->phone}}</td>
-    <td>
-    <form method="POST" action="{{ route('staff.delete', $staff->employeeID) }}">
+    @foreach($data as $req)
+
+    <tr>
+    <td>{{$req->memberID}}</td>
+    <td>{{$req->subject}}</td>
+    <td>{{$req->description}}</td>
+    <td>{{$req->created_at}}</td>
+   
+    <td> 
+    <form method="POST" action="{{ route('request.delete', $req->id) }}">
         @csrf
      <input name="_method" type="hidden" value="DELETE">
      <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
     </form>
 
     </td>
-    <td>
-    
-        <!-- <a href="" class='btn btn-danger '>delete</a> -->
-        <a href={{"/edit/".$staff->employeeID}} class='btn btn-success'>edit</a>
-        <a href={{"/viewProfileStaff/".$staff->employeeID}} class='btn btn-primary'>view</a>
-    </td>
 
- 
-    
- 
-    </tr> 
+    </tr>
     @endforeach
 
+
 </table>
-
-<style>
-    .w-5{
-        display:none;
-    }
-</style>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
  
@@ -92,5 +78,4 @@
       });
   
 </script>
-
 @endsection

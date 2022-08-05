@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Staff;
+use App\Notifications\EmailNotification;
+use Illuminate\Support\Facades\Notification as FacadsNotification;
 
 class AdminController extends Controller
 {
@@ -81,4 +84,20 @@ class AdminController extends Controller
     {
         //
     }
-}
+    public function sendNotification(Request $request){
+        $staff = Staff::all();
+        $project = [
+            'greeting' => $request->greeting,',',
+            'body' => $request->body,
+            'thanks' => $request->thanks,
+            'actionText' => 'View Project',
+            'actionURL' => url('/'),
+           
+        ];
+  
+        FacadsNotification::send($staff, new EmailNotification($project));
+   
+        dd('Notification sent!');
+    }
+    }
+

@@ -34,16 +34,24 @@ class UpdateRequestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function updateRequest(){
+        return view('memberpage/updateRequest');
+    }
     public function store(Request $request)
     {
        
           $updateRequest = new UpdateRequest();
+          
           $updateRequest->memberID=$request->input('memberID');
           $updateRequest->subject=$request->input('subject');
           $updateRequest->description=$request->input('description');
-          $updateRequest->save();
-          return $updateRequest::all();
-
+         $result= $updateRequest->save();
+         if($result){ 
+          return redirect()->back()->with('success','The request send properly');
+        }
+         else{
+            return redirect()->back()->with('fail','The request is not successfull');
+         }
 
     }
 
