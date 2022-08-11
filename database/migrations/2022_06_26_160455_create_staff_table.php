@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('staff', function (Blueprint $table) {
             $table->string('employeeID')->primary();
             $table->string('firstName');
+            $table->string('middleName')->default('Derbew');
             $table->string('lastName');
             $table->date('dateOfBirth');
             $table->string('gender');
@@ -31,6 +32,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('role');
             $table->string('schemeID');
+            $table->string('photo');
             $table->timestamps();
         });
     }

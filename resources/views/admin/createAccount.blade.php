@@ -95,7 +95,7 @@ input[type=submit]:hover {
       <div style="padding: 20px">
         <div class="container">
             <h4>health Insurance scheme staff registration</h4><hr>
-            <form action="{{url('/acountCreate')}}" method='post'>
+            <form action="{{url('/acountCreate')}}"  method='post' enctype="multipart/form-data">
                
             @csrf
             <div>
@@ -103,45 +103,62 @@ input[type=submit]:hover {
                     <div class="bodyleft">
 
                     <label for="employeeID">Employee ID</label><br>
-                        <input type="text" id="employeeID" name="employeeID" placeholder="enter id of the employee.."
-                            required><br>
+                        <input type="text" id="employeeID" name="employeeID" placeholder="enter id of the employee.."><br>
+                        <span style='color:red'>@error('employeeID'){{$message}}@enderror</span><br>
+
                         <label for="fname">First Name</label><br>
-                        <input type="text" id="fname" name="fName" placeholder="enter first name of the employee.."
-                            required><br>
+                        <input type="text" id="fname" name="fName" placeholder="enter first name of the employee.."><br>
+                        <span style='color:red'>@error('fName'){{$message}}@enderror</span><br>
+                        <label for="mname">Middle Name</label><br>
+                        <input type="text" id="mname" name="mName" placeholder="enter second name of the employee.."><br>
+                        <span style='color:red'>@error('mName'){{$message}}@enderror</span><br>
+
                         <label for="lname">Last Name</label><br>
-                        <input type="text" id="lname" name="lName" placeholder="enter last name of employe .."
-                            required><br>
+                        <input type="text" id="lname" name="lName" placeholder="enter last name of employe .."><br>
+                        <span style='color:red'>@error('lName'){{$message}}@enderror</span><br>
+
                         <label for="dateofbirth">Date of birth</label><br>
                         <input type="date" id="DOB" name="dateofbirth"
-                            placeholder="enter date of birth of employe.." required><br>
+                            placeholder="enter date of birth of employe.." ><br>
+                            <span style='color:red'>@error('dateofbirth'){{$message}}@enderror</span><br>
+
                             <label style="padding: 6px">Gender :</label><br>
                         <input type="radio" value="Male" name="gender" checked> <label>Male</label>
                         <input type="radio" value="Female" name="gender"><label>Female</label>
                         <input type="radio" value="Other" name="gender"><label> Other</label><br>
                         <label for="Email">Email</label><br>
-                        <input type="text" id="email" name="email" placeholder="enter email of the employe.."
-                            required><br>
+                        <input type="text" id="email" name="email" placeholder="enter email of the employe.."><br>
+                        <span style='color:red'>@error('email'){{$message}}@enderror</span><br>
+
                         <label for="Address">Region</label><br>
-                        <input type="text" id="adress" name="region" placeholder="enter address of the employe.."
-                            required><br>
+                        <input type="text" id="adress" name="region" placeholder="enter address of the employe.."><br>
+                        <span style='color:red'>@error('region'){{$message}}@enderror</span><br>
+
                             <label for="Address">Zone</label><br>
-                        <input type="text" id="adress" name="zone" placeholder="enter address of the employe.."
-                            required><br>
+                        <input type="text" id="adress" name="zone" placeholder="enter address of the employe.."><br>
+                        <span style='color:red'>@error('zone'){{$message}}@enderror</span><br>
+
                             <label for="Address">Woreda</label><br>
-                        <input type="text" id="adress" name="woreda" placeholder="enter address of the employe.."
-                            required><br>
+                        <input type="text" id="adress" name="woreda" placeholder="enter address of the employe.."><br>
+                        <span style='color:red'>@error('woreda'){{$message}}@enderror</span><br>
+
 
                     </div>
                     <div class="bodyright">
                     <label for="Address">Kebele</label><br>
-                        <input type="text" id="adress" name="kebele" placeholder="enter address of the employe.."
-                            required><br>
+                        <input type="text" id="adress" name="kebele" placeholder="enter address of the employe.."><br>
+                        <span style='color:red'>@error('kebele'){{$message}}@enderror</span><br>
+
                         <label for="Address">phone</label><br>
                         <input type="tel" id="phone" name="phone"
-                             placeholder="enter mobile number of the employe.."required> <br>
+                             placeholder="enter mobile number of the employe.."> <br>
+                             <span style='color:red'>@error('phone'){{$message}}@enderror</span><br>
+
                         <label for="profession">profession type</label><br>
                         <input type="text" id="profession" name="profession"
-                            placeholder="enter the profession of the employe.. "required> <br>
+                            placeholder="enter the profession of the employe.. "> <br>
+                            <span style='color:red'>@error('profession'){{$message}}@enderror</span><br>
+
                         <label for="Education level">Education level</label><br>
                         <select id="educationlevel" name="educationlevel">
                             <option value="masters">masters</option>
@@ -149,12 +166,17 @@ input[type=submit]:hover {
                             <option value="TVET">TVET</option>
                             <option value="deploma">deploma</option>
                         </select><br>
+
                         <label for="username">User name</label><br>
                         <input type="text" id="username" name="userName"
-                            placeholder="enter the user name of the employe.." required> <br>
+                            placeholder="enter the user name of the employe.."> <br>
+                            <span style='color:red'>@error('userName'){{$message}}@enderror</span><br>
+
                         <label for="password">password</label><br>
                         <input type="password" id="password" name="password"
-                            placeholder="enter the password of the employe.." required><br>
+                            placeholder="enter the password of the employe.." ><br>
+                            <span style='color:red'>@error('password'){{$message}}@enderror</span><br>
+
                         <label for="role">Role of staff</label><br>
                         <select id="role" name="role">
                             <option value="board">board</option>
@@ -163,9 +185,15 @@ input[type=submit]:hover {
                             <option value="healthExtension">health_extension</option>
                             <option value="clinicalAuditor">Clinical Auditor</option>
                         </select><br>
+                        <span style='color:red'>@error('role'){{$message}}@enderror</span><br>
+
                         <label for="Address">Scheme ID</label><br>
-                        <input type="text" id="adress" name="schemeID" placeholder="enter the id of the organization.."
-                            required><br>
+                        <input type="text" id="adress" name="schemeID" placeholder="enter the id of the organization.."><br>
+                        <span style='color:red'>@error('schemeID'){{$message}}@enderror</span><br>
+
+            <label for="photo">upload photo</label><br>
+            <input type="file" id="photo" name="photo"><br>
+            <span style='color:red'>@error('photo'){{$message}}@enderror</span><br>
                     </div>
                 </div>
                 <div class="buttonContainer">

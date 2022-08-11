@@ -44,12 +44,27 @@
     <td>{{$member->status}}</td>
     <td>{{$member->phone}}</td>
     <td>
-        <img style='width:100px;' src="../storage/images/{{$member->photo}}" alt="image doesn't exist">
+        <img style='width:50px;' src="../storage/images/{{$member->photo}}" alt="image doesn't exist">
     </td>
-    <td><a href={{"/boardViewProfile/".$member->memberID}} class='btn btn-primary'>familyMember</a>
-</td>
+    <td><a href={{"/boardViewProfile/".$member->memberID}} class='btn btn-primary'>familyMember</a></td>
 </tr>
 @endforeach
+</table>
+
+<!-- customize the pagination -->
+<div class="col-md-12" >
+ {{ $members->links('vender.pagination.custom')}}
+</div>
+<!-- <span>
+    {{$members->links()}}
+
+    
+</span>
+<style>
+    .w-5{
+        display:none;
+    }
+</style> -->
 
 
 @endsection

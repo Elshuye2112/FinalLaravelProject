@@ -40,8 +40,14 @@ class ChildrenController extends Controller
     {    
         $this->validate($request,
       [  
-        'memberID'=>'required',
-        'photo'=>'image|nullable|max:1999'
+        'memberID'=>'required|exists:members,memberID|max:255',
+        'photo'=>'nullable|mimes:jpeg,png,jpg,gif|image|size:1024|' ,
+        'fName'=>'required|min:3|string',
+        'mName'=>'required|min:3|string',
+        'lName'=>'required|min:3|string',
+        'status'=>'required|',
+        'dateOfBirth'=>'required|date',
+
 
       ]);       
       if($request->hasfile('photo')){
@@ -86,7 +92,7 @@ class ChildrenController extends Controller
      */
     public function show(Children $children)
     {
-        $data=$children::all();
+        $data=$children::paginate(5);
         return view('healthEx/viewChildren',['children'=>$data]);
     }
 

@@ -34,9 +34,13 @@
     @endforeach
 
 </table>
-
+<!-- customise the pagination -->
+<div class="col-md-12" >
+ {{ $children->links('vender.pagination.custom')}}
+</div>
+<!-- 
 <span>
-    {{$children->link()}}
+    {{$children->links()}}
 
     }
 </span>
@@ -44,5 +48,5 @@
     .w-5{
         display:none;
     }
-</style>
+</style> -->
 @endsection

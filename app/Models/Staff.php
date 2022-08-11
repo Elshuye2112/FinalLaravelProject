@@ -17,6 +17,7 @@ class Staff extends Model
         'employeeID',
         'adminID',
         'firstName',
+        'middleName',
         'lastName',
         'dateOfBirth',
          'gender',
@@ -31,6 +32,7 @@ class Staff extends Model
          'userName',
          'password',
          'role',
+         'photo',
          'schemeID'
     ];
 }

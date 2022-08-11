@@ -34,6 +34,7 @@
     <th>SchemeID</th>
     <th>Email</th>
     <th>User Name</th>
+    <th>Photo</th>
     <th colspan='3' ><center>Actions</center></th> 
 </tr>
 
@@ -46,6 +47,9 @@
     <td>{{$staff->schemeID}}</td>
     <td>{{$staff->email}}</td>
     <td>{{$staff->userName}}</td>
+    <td>
+        <img style='width:50px;' src="../storage/images/{{$staff->photo}}" alt="image doesn't exist">
+    </td>
     <td>
     <form method="POST" action="{{ route('staff.delete', $staff->employeeID) }}">
         @csrf

@@ -6,7 +6,10 @@
     box-sizing: border-box;
    }
    div.body{
-       background-color: azure;
+       /* background-color: azure; */
+      
+  
+
        text-align: center;
        height: calc(100vh - 60px);
        width:100%;

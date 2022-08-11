@@ -49,7 +49,7 @@
     <td>{{$data->lastName}}</td>
     
     <td>
-        <img style='width:100px;' src="../storage/images/{{$data->photo}}" alt="image doesn't exist">
+        <img style='height:50px;' src="../storage/images/{{$data->photo}}" alt="image doesn't exist">
     </td>
  
 

@@ -31,6 +31,7 @@
     <th>Last Name</th>
     <th>Role</th>
     <th>Phone</th>
+    <th>photo</th>
     <th colspan='3' ><center>Actions</center></th> 
 </tr>
 
@@ -42,10 +43,13 @@
      <td>{{$staff->role}}</td>
     <td>{{$staff->phone}}</td>
     <td>
+        <img style='width:50px;' src="../storage/images/{{$staff->photo}}" alt="image doesn't exist">
+    </td>
+    <td>
     <form method="POST" action="{{ route('staff.delete', $staff->employeeID) }}">
         @csrf
      <input name="_method" type="hidden" value="DELETE">
-     <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
+     <button type="submit" class="btn  btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>delete</button>
     </form>
 
     </td>
@@ -63,12 +67,21 @@
     @endforeach
 
 </table>
+<!-- customize the pagination -->
+<div class="col-md-12" >
+ {{ $staffs->links('vender.pagination.custom')}}
+</div>
+
+<!-- <span>
+    {{$staffs->links()}}
+</span>
 
 <style>
     .w-5{
         display:none;
+       
     }
-</style>
+</style> -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">

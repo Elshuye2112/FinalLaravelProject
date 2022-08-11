@@ -16,8 +16,21 @@ use App\Http\Controllers\BoardController;
 use App\Http\Controllers\NotificationPractice;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HealthExtensionController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ResetPasswordController;
 
+  
 
+// reset password
+
+ Route::get('/forget-password', [ForgotPasswordController::class,'getEmail']);
+ Route::post('/forget-passwords', [ForgotPasswordController::class,'postEmail']);
+ Route::get('/reset-password', [ForgotPasswordController::class,'getPasswordReset']);
+ Route::post('/reset', [ResetPasswordController::class,'updatePassword']);
+// Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+// Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+// Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+// Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,8 +45,22 @@ use App\Http\Controllers\HealthExtensionController;
 // Route::get('/',function(){
 //     return('home');
 // });
-Route::get('/', function () {
-    return view('Home/navBar');
+// Route::get('/', function () {
+//     return view('Home/navBar');
+// });
+Route::get('/about',function(){
+    return view('Home.about');
+});
+Route::get('help',function(){
+    return view('Home.help');
+});
+Route::view('/','Home.homepage');
+Route::view('/contact','Home.contact');
+Route::view('/feedback','Home.feedback');
+Route::view('/services','Home.services');
+Route::get('/localization/{lang}',function($lang){
+     App::setlocale($lang);
+    return view('localizationpractice');
 });
  
 Auth::routes();
@@ -142,7 +169,7 @@ Route::get('/registerGc',function(){
 Route::get('/sendNotification',function(){
     return view('board.sendNotification');
 });
-Route::get('/viewStaff',[StaffController::class,'viewStaffMember']);
+Route::get('/viewStaff',[BoardController::class,'boardStaffView']);
 Route::get('/viewDetailOfStaff/{id}',[StaffController::class,'viewProfile']);
 Route::get('/viewMember',[BoardController::class,'show']);
 Route::get('/viewStaffProfile/{id}',[BoardController::class,'viewStaffProfile']);
@@ -190,14 +217,15 @@ Route::get('/viewNotificaton',function(){
 });
 
 //fainance officer
+Route::get('/financeOfficer',function(){
+    return view('financeOfficer/financeOfficerHomepage');
+});
 Route::get('/registerPayment',function(){
     return view('financeOfficer/registerPayment');
 });
 Route::get('showPayment',[PaymentController::class,'show']);
 Route::post('/createPayment',[PaymentController::class,'create']);
-Route::get('/financeOfficer',function(){
-    return view('financeOfficer/financeOfficerHomepage');
-});
+
 Route::get('/viewCashin',[PaymentController::class,'viewCashIn']);
 Route::get('/viewCashout',[PaymentController::class,'viewCashOut']);
 

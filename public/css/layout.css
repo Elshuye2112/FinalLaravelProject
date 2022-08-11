@@ -74,12 +74,14 @@
         display: block;
         line-height: 7px;
     }
-    ul.active{
+    .active{
       background-color: white;
       color: black;
       width: 98%;
       height: 40px;
       padding-bottom: 10px;
+      border-radius: 10px;
+
    }
    @media screen and (max-width: 600px) {
     input{

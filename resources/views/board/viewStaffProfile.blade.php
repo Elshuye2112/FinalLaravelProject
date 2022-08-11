@@ -34,6 +34,7 @@
     <th>SchemeID</th>
     <th>Email</th>
     <th>User Name</th>
+    <th>Photo</th>
 </tr>
  <tr >
     <td>{{$staff->employeeID}}</td>
@@ -44,7 +45,10 @@
     <td>{{$staff->schemeID}}</td>
     <td>{{$staff->email}}</td>
     <td>{{$staff->userName}}</td>
+    
     <td>
+        <img style='height:50px;' src="../storage/images/{{$staff->photo}}" alt="image doesn't exist">
+    </td>
    
 </tr>
 @endsection

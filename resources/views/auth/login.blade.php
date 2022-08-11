@@ -36,7 +36,8 @@
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                              <input  id='password' type="checkbox" onClick="viewPassword()"> viewPassword
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -48,14 +49,14 @@
 
                         <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
+                                <!-- <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="row mb-0">
@@ -64,13 +65,24 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                               <!-- @if (Route::has('password.request')) -->
+                                    <a class="btn btn-link" href="{{url('/reset-password')}}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                @endif
+                                <!--@endif -->
                             </div>
                         </div>
+                        <div><script>
+function viewPassword() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+</div>
                     </form>
                 </div>
             </div>

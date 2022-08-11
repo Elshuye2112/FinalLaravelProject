@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Staff;
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Models\AdminAcount;
+use App\Models\Scheme;
 use Illuminate\Support\Facades\Hash;
+use Image;
 
 class StaffController extends Controller
 {
@@ -25,14 +28,56 @@ class StaffController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request){ 
+        
+        $this->validate($request,
+        [  
+          'employeeID'=>'required|unique:staff|max:255',
+          'phone'=>'required|numeric',
+          'fName'=>'required|min:3',
+          'mName'=>'required|min:3',
+          'lName'=>'required|min:3',
+          'userName'=>'required|unique:staff|max:255',
+          'email'=>'required|unique:staff|regex:/(.+)@(.+)\.(.+)/i',
+          'password'=>'required|min:4',
+          'dateofbirth'=>'required|date',
+          'region'=>'required',
+          'zone'=>'required',
+          'woreda'=>'required',
+          'kebele'=>'required',
+          'profession'=>'required',
+           'photo'=>'image|required|mimes:jpeg,png,jpg,gif,svg',
+          'schemeID'=>'required|exists:schemes,schemeID'
+        ]);  
+          
+        if($request->hasfile('photo')){
+          //getfilename with extension
+          $fileNameWEx=$request->file('photo')->getClientOriginalName();
+          //get just file name
+          $fileName=pathinfo($fileNameWEx,PATHINFO_FILENAME);
+          //just get extension
+          $extension=$request->file('photo')->getClientOriginalExtension();
+          //file Name to store
+          $fileNameToStore=$fileName.'_'.time().'.'.$extension;
+          //upload image
+          $path=$request->file('photo')->storeAs('public/images',$fileNameToStore);
+  
+        }
+        else{
+           
+          $fileNameToStore='no image to store';
+        }
+      
+
         $email=$request->session()->get("loginEmail");
         $admin=AdminAcount::where('email','=',$email)->first();
         $adminID=$admin->id;
+
 
         $staff=new Staff();
         $staff->employeeID=$request->input('employeeID');
         $staff->adminID=$adminID;
         $staff->firstName= $request->input('fName');
+        $staff->middleName=$request->input('mName');
         $staff->lastName=$request->input('lName');
         $staff->dateOfBirth= $request->input('dateofbirth');
         $staff->gender= $request->input('gender');
@@ -42,14 +87,23 @@ class StaffController extends Controller
         $staff->email =$request->input('email');
         $staff->kebele=$request->input('kebele');
         $staff->phone= $request->input('phone');
+
         $staff->profession= $request->input('profession');
         $staff->levelOfEducation=  $request->input('educationlevel');
         $staff->userName=$request->input('userName');
-        $staff->password=$request->input('password');
+        //hashing the password
+        $hashPassword=Hash::make($request->input('password'));
+        $staff->password=$hashPassword;
         $staff->role = $request->input('role');
         $staff->schemeID=$request->input('schemeID');
+        $staff->photo=$fileNameToStore;
         $staff->save();
-        return 'saved successfully';
+        if($staff)
+        return redirect()->back()->with('success','register successfully');
+else{
+   return redirect()->back()->with('fail','not register successfully');
+
+}
     }
 
     /**
@@ -106,6 +160,42 @@ class StaffController extends Controller
         
     }
     public  function updateAcount(Request $request){
+        // $this->validate($request,
+        // [  
+        //   'employeeID'=>'required|unique:staff|max:255',
+        //   'phone'=>'required|numeric',
+        //   'fName'=>'required|min:3',
+        //   'mName'=>'required|min:3',
+        //   'lName'=>'required|min:3',
+        //   'userName'=>'required|unique:staff|max:255',
+        //   'email'=>'required|unique:staff|regex:/(.+)@(.+)\.(.+)/i',
+        //   'password'=>'required|min:4',
+        //   'dateofbirth'=>'required|date',
+        //   'region'=>'required',
+        //   'zone'=>'required',
+        //   'woreda'=>'required',
+        //   'kebele'=>'required',
+        //   'profession'=>'required',
+        //   'photo'=>'image|required|mimes:jpeg,png,jpg,gif,svg',
+        //  ]);  
+          
+        if($request->hasfile('photo')){
+          //getfilename with extension
+          $fileNameWEx=$request->file('photo')->getClientOriginalName();
+          //get just file name
+          $fileName=pathinfo($fileNameWEx,PATHINFO_FILENAME);
+          //just get extension
+          $extension=$request->file('photo')->getClientOriginalExtension();
+          //file Name to store
+          $fileNameToStore=$fileName.'_'.time().'.'.$extension;
+          //upload image
+          $path=$request->file('photo')->storeAs('public/images',$fileNameToStore);
+  
+        }
+        else{
+           
+          $fileNameToStore='no image to store';
+        }
         // for session
        $email=$request->session()->get("loginEmail");
         $admin=AdminAcount::where('email','=',$email)->first();
@@ -114,6 +204,7 @@ class StaffController extends Controller
        $staff=Staff::find($request->input('employeeID'));
         $staff->adminID=1;
         $staff->firstName= $request->input('fName');
+        $staff->middleName= $request->input('mName');
         $staff->lastName=$request->input('lName');
         $staff->dateOfBirth= $request->input('dateofbirth');
        $staff->gender= $request->input('gender');
@@ -126,9 +217,12 @@ class StaffController extends Controller
         $staff->profession= $request->input('profession');
         $staff->levelOfEducation=  $request->input('educationlevel');
         $staff->userName=$request->input('userName');
-        $staff->password=$request->input('password');
+        $hashPassword=Hash::make($request->input('password'));
+        $staff->password=$hashPassword;
         $staff->role = $request->input('role');
+        $staff->photo=$fileNameToStore;
         $staff->schemeID=$request->input('schemeID');
+        
         $staff->save();
         if($staff)
          return redirect()->back()->with('success','update successfully');
@@ -152,7 +246,7 @@ else{
         
     }
     public function viewStaffMember(){
-        $data=Staff::all();
+        $data=Staff->paginate(5);
         return view('board/viewStaff',['staffs'=>$data]);
 
     }

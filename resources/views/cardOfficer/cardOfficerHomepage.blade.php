@@ -68,11 +68,11 @@
     </nav>
    <div class='left'>
       <ul>
-        <li> <a href="{{url('/validateEligibility')}}" class='active'>Search for eligibility</a></li>
-        <li>  <a href="{{url('/viewNotification') }}">View Notification</a></li>
-        <li>  <a href="{{url('/registerIndividual') }}" >Register treated individuals</a></li>
+        <li> <a href="{{url('/validateEligibility')}}" class="{{'validateEligibility'==request()->path()? 'active':''}}">Search for eligibility</a></li>
+        <li>  <a href="{{url('/viewNotification') }}" class="{{'viewNotification'==request()->path()? 'active':''}}">View Notification</a></li>
+        <li>  <a href="{{url('/registerIndividual') }}" class="{{'registerIndividual'==request()->path()? 'active':''}}" >Register treated individuals</a></li>
         <!-- <li>  <a href="{{ url('/generatReport') }}">Generate report</a></li> -->
-        <li><a href="{{url('/viewThreatedIndividual')}}">View Threated Individual</a></li>
+        <li><a href="{{url('/viewThreatedIndividual')}}" class="{{'viewThreatedIndividual'==request()->path()? 'active':''}}">View Threated Individual</a></li>
       </ul>
    </div>
    <div id='content' class='right'>

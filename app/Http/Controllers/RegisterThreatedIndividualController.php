@@ -24,7 +24,13 @@ class RegisterThreatedIndividualController extends Controller
      */
     public function create(Request $request)
     {
-        
+        $this->validate($request,[
+        'memberID'=>'required|exists:members|max:255',
+        'phone'=>'required|min:10|numeric',
+        'fName'=>'required|min:3',
+        'lName'=>'required|min:3',
+        'clinicID'=>'required|exists:gratitude_clinics,g_clinicID|max:255',
+        ]);
         $email=$request->session()->get("loginEmail");
         $cardOfficer=staff::where('email','=',$email)->first();
         $cardOfficerID=$cardOfficer->employeeID;

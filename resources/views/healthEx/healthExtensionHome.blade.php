@@ -48,13 +48,13 @@
       <div class='left'>
         <ul id="mySide">
           <div mySide>
-            <li class="link" > <a href="{{ url('/register') }}">register</a></li>
-            <li class="link" > <a href="{{ url('/search') }}">search member</a></li>
-            <li class="link" > <a href="{{ url('/sendnotification') }}" >send notification</a></li>
+            <li class="link" > <a href="{{ url('/register') }}" class="{{'register'==request()->path()? 'active':''}}">register</a></li>
+            <li class="link" > <a href="{{ url('/search') }}" class="{{'search'==request()->path()? 'active':''}}">search member</a></li>
+            <li class="link" > <a href="{{ url('/sendnotification') }}" class="{{'sendnotification'==request()->path()? 'active':''}}">send notification</a></li>
             <!-- <li class="link" > <a href="{{ url('/viewnotification') }}" >View notification</a></li> -->
-            <li class="link" > <a href="{{ url('/listOfMembers') }}" >View members</a></li>
-            <li><a href="{{url('/viewRequestFromMember')}}">View Request</a></li>
-            <li lass='link'><a href="{{ url('/listOfChildren') }}">View children</a></li>
+            <li class="link" > <a href="{{ url('/listOfMembers') }}" class="{{'listOfMembers'==request()->path()? 'active':''}}">View members</a></li>
+            <li><a href="{{url('/viewRequestFromMember')}}" class="{{'viewRequestFromMember'==request()->path()? 'active':''}}">View Request</a></li>
+            <li lass='link'><a href="{{ url('/listOfChildren') }}" class="{{'listOfChildren'==request()->path()? 'active':''}}">View children</a></li>
         </div>
         </ul>
 

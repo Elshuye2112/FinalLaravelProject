@@ -69,8 +69,8 @@
     </nav>
    <div class='left'>
    <ul>
-   <li> <a href="{{ url('registerClinicalAudit') }}" class='active'>Register clinical audit </a></li>
-   <li>  <a href="{{ url('viewNotificaton') }}">View Notification</a></li>
+   <li> <a href="{{ url('registerClinicalAudit') }}" class="{{'registerClinicalAudit'==request()->path()? 'active':''}}">Register clinical audit </a></li>
+   <li>  <a href="{{ url('viewNotificaton') }}" class="{{'viewNotificaton'==request()->path()? 'active':''}}">View Notification</a></li>
     </ul>
    </div> 
 

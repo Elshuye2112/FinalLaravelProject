@@ -44,13 +44,13 @@
     <td>{{$member->status}}</td>
     <td>{{$member->phone}}</td>
     <td>
-        <img style='width:100px;' src="../storage/images/{{$member->photo}}" alt="image doesn't exist">
+        <img style='height:70px;' src="../storage/images/{{$member->photo}}" alt="image doesn't exist">
     </td>
     <td>
     <form method="POST" action="{{ route('member.delete', $member->memberID) }}">
         @csrf
      <input name="_method" type="hidden" value="DELETE">
-     <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
+     <button type="submit" class="btn btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
     </form>
 
     </td>
@@ -68,7 +68,11 @@
     @endforeach
 
 </table>
-<span>
+<!-- customize the pagination -->
+<div class="col-md-12" >
+ {{ $members->links('vender.pagination.custom')}}
+</div>
+<!-- <span>
     {{$members->links()}}
 
     
@@ -77,7 +81,7 @@
     .w-5{
         display:none;
     }
-</style>
+</style> -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">

@@ -94,7 +94,9 @@ input[type=submit]:hover {
                     <label for="memberID">MemberID</label>
                   </div>
                   <div class="col-75">
-                    <input type="text" id="memberID" name="memberID" placeholder="enter first memberID of the patient.." required >
+                    <input type="text" id="memberID" name="memberID" placeholder="enter first memberID of the patient.."  >
+                    <span style='color:red'>@error('memberID'){{$message}}@enderror</span><br>
+
                   </div>
                 </div>
                 <div class="row">
@@ -102,7 +104,9 @@ input[type=submit]:hover {
                     <label for="fname">First Name</label>
                   </div>
                   <div class="col-75">
-                    <input type="text" id="fname" name="fName" placeholder="enter first name of the patient.." required >
+                    <input type="text" id="fname" name="fName" placeholder="enter first name of the patient.."  >
+                    <span style='color:red'>@error('fName'){{$message}}@enderror</span><br>
+
                   </div>
                 </div>
                 <div class="row">
@@ -111,7 +115,9 @@ input[type=submit]:hover {
                   </div>
                   
                   <div class="col-75">
-                    <input type="text" id="lname" name="lName" placeholder="enter last name of patient .." required>
+                    <input type="text" id="lname" name="lName" placeholder="enter last name of patient .." >
+                    <span style='color:red'>@error('lName'){{$message}}@enderror</span><br>
+
                   </div>
                  
                 </div>
@@ -120,7 +126,9 @@ input[type=submit]:hover {
                       <label for="familyID">phone</label>
                     </div>
                     <div class="col-75">
-                      <input type="tel" id="phone" name="phone" placeholder="enter phone number of the patient.." required>
+                      <input type="tel" id="phone" name="phone" placeholder="enter phone number of the patient.." >
+                      <span style='color:red'>@error('phone'){{$message}}@enderror</span><br>
+
                     </div>
                   </div>
                 
@@ -129,7 +137,9 @@ input[type=submit]:hover {
                     <label for="Clinic">Clinic ID</label>
                   </div>
                   <div class="col-75">
-                    <input type="text" id="clinic" name="clinicID" placeholder="write the gratitude clinic where patient treated" required>
+                    <input type="text" id="clinic" name="clinicID" placeholder="write the gratitude clinic where patient treated" >
+                    <span style='color:red'>@error('clinicID'){{$message}}@enderror</span><br>
+
                   </div>
                 </div>
                 <br>

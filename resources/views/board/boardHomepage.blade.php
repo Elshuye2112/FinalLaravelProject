@@ -43,12 +43,12 @@
     <div>
      <div class='left'>
         <ul>
-         <li>  <a href="{{url('/registerGc') }}" >Register gratitude clinic</a></li>
-         <li>  <a href="{{ url('/viewMember') }}" class='active'>View members</a></li>
-         <li>  <a href="{{ url('/viewStaff') }}">View Staff Members</a></li>
-         <li>  <a href="{{ url('/sendNotification') }}">Send notification</a></li>
-         <li>  <a href="{{ url('/account') }}">Register account</a></li>
-         <li>  <a href="{{ url('/registerscheme') }}">Register scheme</a></li>
+         <li>  <a href="{{url('/registerGc') }}" class="{{'registerGc'==request()->path()? 'active':''}}">Register gratitude clinic</a></li>
+         <li>  <a href="{{ url('/viewMember') }}" class="{{'viewMember'==request()->path()? 'active':''}}">View members</a></li>
+         <li>  <a href="{{ url('/viewStaff') }}" class="{{'viewStaff'==request()->path()? 'active':''}}">View Staff Members</a></li>
+         <li>  <a href="{{ url('/sendNotification') }}" class="{{'sendNotification'==request()->path()? 'active':''}}">Send notification</a></li>
+         <li>  <a href="{{ url('/account') }}" class="{{'account'==request()->path()? 'active':''}}">Register account</a></li>
+         <li>  <a href="{{ url('/registerscheme') }}" class="{{'registerscheme'==request()->path()? 'active':''}}">Register scheme</a></li>
 
         </ul>
       </div>

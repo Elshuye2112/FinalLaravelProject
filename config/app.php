@@ -183,6 +183,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        'Intervention\Image\ImageServiceProvider',
+
 
         /*
          * Package Service Providers...
@@ -213,6 +216,9 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Image' => 'Intervention\Image\Facades\Image'
+
+
 
     ])->toArray(),
 

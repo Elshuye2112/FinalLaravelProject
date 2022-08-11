@@ -37,8 +37,8 @@ class BoardController extends Controller
 
     }
 public function boardStaffView(){
-    $staffs=Staff::all();
-    return view('board/boardviewStaffMembers',['staffs'=>$staffs]);
+    $staffs=Staff::paginate(5);
+    return view('board/viewStaff',['staffs'=>$staffs]);
 }
     /**
      * Store a newly created resource in storage.
@@ -60,7 +60,7 @@ public function boardStaffView(){
     public function show()
     {   
         
-        $member = Member::all();
+        $member = Member::paginate(5);
         // return view('healthEx.viewMembers');
         // DB::table('members')->paginate(15) //you can  use in iin theplace of $member
          return view('board/viewMembers',['members'=>$member]);

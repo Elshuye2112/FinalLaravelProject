@@ -59,10 +59,10 @@ a{
     <div>
         <div class='left'>
             <ul>
-                <li> <a href="{{ url('/create') }}" class='active'>Create staff acount </a></li>
-                <li><a href="{{url('/toSearch') }}" >Search</a></li>
-                <li><a href="{{url('/view') }}" >view staff acount</a></li>
-                <li><a href="{{url('/adminSendNotification') }}" >Send notification</a></li>
+                <li> <a href="{{ url('/create') }}" class="{{'create'==request()->path()? 'active':''}}">Create staff acount </a></li>
+                <li><a href="{{url('/toSearch') }}" class="{{'toSearch'==request()->path()? 'active':''}}">Search</a></li>
+                <li><a href="{{url('/view') }}" class="{{'view'==request()->path()? 'active':''}}">view staff acount</a></li>
+                <li><a href="{{url('/adminSendNotification') }}" class="{{'adminSendNotification'==request()->path()? 'active':''}}">Send notification</a></li>
              </ul>
            </div>
            <div id='content' class='right'>

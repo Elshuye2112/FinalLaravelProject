@@ -44,9 +44,9 @@
   </nav>
    <div class='left'>
    <ul>
-   <li> <a href="{{ url('/memberProfile') }}" class='active'>View profile</a></li>
-   <li> <a href="{{ url('/memberRequest') }}">Request update</a></li>
-   <li> <a href="{{url('/mviewnotification') }}" >View notification</a></li>
+   <li> <a href="{{ url('/memberProfile') }}" class="{{'memberProfile'==request()->path()? 'active':''}}">View profile</a></li>
+   <li> <a href="{{ url('/memberRequest') }}" class="{{'memberRequest'==request()->path()? 'active':''}}">Request update</a></li>
+   <li> <a href="{{url('/mviewnotification') }}" class="{{'mviewnotification'==request()->path()? 'active':''}}">View notification</a></li>
     </ul>
    </div> 
    <div id='content' class='right'>

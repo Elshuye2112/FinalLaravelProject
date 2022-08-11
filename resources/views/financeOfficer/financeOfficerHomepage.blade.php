@@ -70,11 +70,11 @@
     </nav>
    <div class='left'>
    <ul>
-   <li> <a href="{{ url('/viewCashin') }}" class='active'>View cashin</a></li>
-   <li> <a href="{{ url('/viewCashout') }}">View cash out</a></li>
-   <li> <a href="{{url('/registerPayment') }}" >Register payment</a></li>
-   <li> <a href="{{url('/generateReport') }}" >Generate report</a></li>
-   <li> <a href="{{url('/financeViewNotification') }}" >View  notification</a></li>
+   <li> <a href="{{ url('/viewCashin') }}" class="{{'viewCashin'==request()->path()? 'active':''}}">View cashin</a></li>
+   <li> <a href="{{ url('/viewCashout') }}" class="{{'viewCashout'==request()->path()? 'active':''}}">View cash out</a></li>
+   <li> <a href="{{url('/registerPayment') }}" class="{{'registerPayment'==request()->path()? 'active':''}}">Register payment</a></li>
+   <li> <a href="{{url('/generateReport') }}" class="{{'generateReport'==request()->path()? 'active':''}}">Generate report</a></li>
+   <li> <a href="{{url('/financeViewNotification') }}" class="{{'financeViewNotification'==request()->path()? 'active':''}}" >View  notification</a></li>
     </ul>
    </div>
    <div id='content' class='right'>

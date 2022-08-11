@@ -62,7 +62,7 @@
                         <input type="file" id="photo" name="photo" value='{{$data->photo}}'><br>
                     </div>
                     <div class="buttonContainer">
-                        <button type="submit" class="btn btn-primary"> Register</button>
+                        <button type="submit" class="btn btn-primary"> Update</button>
                         <button type='reset' class='btn btn-danger'>Reset</button>
                     </div>
                 </div>

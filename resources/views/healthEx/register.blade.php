@@ -18,7 +18,8 @@
                 <div>
                     <div class="bodyleft">
                     <label> Member ID </label><br>
-                        <input type="text" name="memberID" placeholder="memberID" size="15" required /> <br>
+                        <input type="text" name="memberID" placeholder="memberID" size="15"  /> <br>
+                        <span style='color:red'>@error('memberID'){{$message}}@enderror</span><br>
                         <label> Firstname </label><br>
                         <input type="text" name="fName" placeholder="Firstname" size="15" /> <br>
                         <span style='color:red'>@error('fName'){{$message}}@enderror</span><br>
@@ -37,36 +38,47 @@
                         <span style='color:red'>@error('dateOfBirth'){{$message}}@enderror</span><br>
                         <label> Phone :</label><br>
                         <input type="text" name="phone" placeholder="phone no." size="10"><br>
-                        <span style='coolor:red'>@error('phone'){{$message}}@enderror</span><br>
+                        <span style='color:red'>@error('phone'){{$message}}@enderror</span><br>
+                
                         <label> Status :</label><br>
-                        <input type="text" name="status" placeholder="renewal status of member" size="10"><br>
+                        <select name="status" id="">
+                            <option value="renewed">renewed</option>
+                            <option value="not_renewed">not renewed</option>
+                        </select>
                         <span style='color:red'>@error('status'){{$message}}@enderror</span><br>
                         <label for="email"><b>Email</b></label><br>
                         <input type="email" placeholder="Enter Email" name="email" ><br>
                         <span style='color:red'>@error('email'){{$message}}@enderror</span><br>
-                        <label for="email"><b>Occupation</b></label><br>
-                        <input type="text" placeholder="Enter occupation" name="occopation" required><br>
+                   
                     </div>
                     <div class="bodyright">
-                    
+                       <label for="occupation"><b>Occupation</b></label><br>
+                        <input type="text" placeholder="Enter occupation" name="occopation"><br>
                         <label>Region </label><br>
-                        <input type="text" placeholder="Enter region address" name="region" required><br>
+                        <input type="text" placeholder="Enter region address" name="region" ><br>
+                        <span style='color:red'>@error('region'){{$message}}@enderror</span><br>
 
                         <label>Zone </label><br>
-                        <input type="text" placeholder="inter zone address" name="zone" required><br>
+                        <input type="text" placeholder="enter zone address" name="zone" ><br>
+                        <span style='color:red'>@error('zone'){{$message}}@enderror</span><br>
+
                         <label>Woreda </label><br>
-                        <input type="text" placeholder="inter wereda address" name="woreda" required><br>
+                        <input type="text" placeholder="enter wereda address" name="woreda" ><br>
+                        <span style='color:red'>@error('woreda'){{$message}}@enderror</span><br>
+
                         <label>Kebele</label><br>
-                        <input type="text" placeholder="inter kebele" name="kebele" required><br>
+                        <input type="text" placeholder="enter kebele" name="kebele" ><br>
+                        <span style='color:red'>@error('kebele'){{$message}}@enderror</span><br>
+
                         <label for="psw"><b>UserName</b></label><br>
-                        <input type="text" placeholder="user name" name="uName" required><br>
-                        <span style='color:red'>@error('uName'){{$message}}@enderror</span><br>
+                        <input type="text" placeholder="user name" name="userName" ><br>
+                        <span style='color:red'>@error('userName'){{$message}}@enderror</span><br>
                         <label for="psw"><b>Password</b></label><br>
                         <input type="password" placeholder="Enter Password" name="password"><br>
                         <span style='color:red'>@error('password'){{$message}}@enderror</span><br>
                         <label for="photo">upload photo</label><br>
                         <input type="file" id="photo" name="photo"><br>
-                        <span>@error('photo'){{$message}}@enderror</span><br>
+                        <span style='color:red'>@error('photo'){{$message}}@enderror</span><br>
                     </div>
                     <div class="buttonContainer">
                         <button type="submit" class="btn btn-primary"> Register</button>

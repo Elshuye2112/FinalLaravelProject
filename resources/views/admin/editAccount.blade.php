@@ -98,10 +98,10 @@ input[type=submit]:hover {
             @if(Session::has('success'))
                     <div class='alert alert-success'>{{Session::get('success')}}</div>
                     @endif
-                    @if(Session::has('fail'))
+            @if(Session::has('fail'))
                     <div class='alert alert-danger'>{{Session::get('fail')}}</div>
                     @endif
-            <form action="{{url('/updateAcount')}}" method='post'>
+            <form action="{{url('/updateAcount')}}" method='post'  enctype="multipart/form-data">
                
             @csrf
             <div>
@@ -159,13 +159,15 @@ input[type=submit]:hover {
                             <option value="healthExtension">health_extension</option>
                             <option value="clinicalAuditor">Clinical Auditor</option>
                         </select><br>
+                        <label for="photo">upload photo</label><br>
+                      <input type="file" id="photo" name="photo" value="{{$staff->photo}}"><br>
                         <!-- <label for="schemeID">Scheme ID</label><br> -->
                         <input type="hidden" id="schemeID" name="schemeID" value='{{$staff->schemeID}}'><br>
                     </div>
                 </div>
                 <div class="buttonContainer">
-                  <input class="btn btn-danger" type="reset" value="Reset">
-                  <input class="btn btn-primary" type="submit" value="Register">
+                  <input class="btn btn-danger" type="reset" value="reset">
+                  <input class="btn btn-primary" type="submit" value="udate">
                 </div>
             </form>
         </div>

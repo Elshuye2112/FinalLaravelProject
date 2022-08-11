@@ -44,14 +44,22 @@ class MemberController extends Controller
     {
       $this->validate($request,
       [  
-        
-        'photo'=>'image|nullable|max:1999',
+        'memberID'=>'required|unique:members|max:255',
+        'photo'=>'nullable|mimes:jpeg,png,jpg,gif|image|' ,
         'phone'=>'required|min:10|numeric',
-        'fName'=>'required|min:3',
-        'mName'=>'required|min:3',
-        'lName'=>'required|min:3',
-        'email'=>'required|regex:/(.+)@(.+)\.(.+)/i',
+        'fName'=>'required|min:3|string',
+        'mName'=>'required|min:3|string',
+        'lName'=>'required|min:3|string',
+        'userName'=>'required|unique:members|max:255',
+        'email'=>'required|unique:members|regex:/(.+)@(.+)\.(.+)/i',
         'password'=>'required|min:4',
+        'status'=>'required',
+        'dateOfBirth'=>'required|date',
+        'region'=>'required',
+        'zone'=>'required',
+        'woreda'=>'required',
+        'kebele'=>'required'
+
        
       ]);       
       if($request->hasfile('photo')){
@@ -91,16 +99,17 @@ class MemberController extends Controller
       $member->woreda=$request->input('woreda');
       $member->kebele=$request->input('kebele');
       $member->email=$request->input('email');
-      $member->userName=$request->input('uName');
-      $password= $request->input('password');
-    // $hashedPassword=Hash::make($password);
+      $member->userName=$request->input('userName');
 
-      $member->password=$request->input('password');
+      //hashing password
+      $hashedPassword=Hash::make($request->input('password'));
+
+      $member->password=$hashedPassword;
      // $member->member_employeeID=$request->input('employeeID');
       $member->member_employeeID=$staffID;
       $member->save();
     
-      return $member::all();
+      return redirect()->back()->with('success','Successfully registered');
       // ->back()->with('success','member registered successfully');
        
 
@@ -273,11 +282,11 @@ class MemberController extends Controller
       $not_renewed='not_renewed';
       if($data->status==$renewed){
         $data->update(['status'=>$not_renewed]);
-        return redirect()->back();
+        return redirect()->back()->with('success','not renewed');
       }
       else {
         $data->update(['status'=>$renewed]);
-        return redirect()->back();
+        return redirect()->back()->with('success','renewed');
       }
      
     }
