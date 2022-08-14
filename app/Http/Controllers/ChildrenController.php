@@ -41,11 +41,11 @@ class ChildrenController extends Controller
         $this->validate($request,
       [  
         'memberID'=>'required|exists:members,memberID|max:255',
-        'photo'=>'nullable|mimes:jpeg,png,jpg,gif|image|size:1024|' ,
+        'photo'=>'nullable|mimes:jpeg,png,jpg,gif|image' ,
         'fName'=>'required|min:3|string',
         'mName'=>'required|min:3|string',
         'lName'=>'required|min:3|string',
-        'status'=>'required|',
+        'disablity'=>'required',
         'dateOfBirth'=>'required|date',
 
 
@@ -81,7 +81,8 @@ class ChildrenController extends Controller
         $children->photo=$fileNameToStore;
         $children->employeeID=$staffID;
         $children->save();
-        return Children::all();
+        return redirect()->back()->with('success','successfully registered family member');
+
     }
 
     /**
@@ -93,6 +94,8 @@ class ChildrenController extends Controller
     public function show(Children $children)
     {
         $data=$children::paginate(5);
+       
+
         return view('healthEx/viewChildren',['children'=>$data]);
     }
 
@@ -105,9 +108,10 @@ class ChildrenController extends Controller
     public function edit($id)
     {
       $data=Children::find($id) ;
+    
       return view('healthEx.editFamilyMember',['data'=>$data]);
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -115,8 +119,43 @@ class ChildrenController extends Controller
      * @param  \App\Models\Children  $children
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Children $children)
-    {
+    public function update(Request $request){ 
+     
+      if($request->hasfile('photo')){
+      //getfilename with extension
+      $fileNameWEx=$request->file('photo')->getClientOriginalName();
+      //get just file name
+      $fileName=pathinfo($fileNameWEx,PATHINFO_FILENAME);
+      //just get extension
+      $extension=$request->file('photo')->getClientOriginalExtension();
+      //file Name to store
+      $fileNameToStore=$fileName.'_'.time().'.'.$extension;
+      //upload image
+      $path=$request->file('photo')->storeAs('public/images',$fileNameToStore);
+
+    }
+    else{
+      $fileNameToStore='no image to store';
+    }
+
+     $email=$request->session()->get("loginEmail");
+     $staff=Staff::where('email','=',$email)->first();
+     $staffID=$staff->employeeID;
+
+      $children= Children::find($request->id);
+      $children->id=$request->id;
+      $children->memberID=$request->input('memberID');
+      $children->firstName=$request->input('fName');
+      $children->middleName=$request->input('mName');
+      $children->lastName=$request->input('lName');
+      $children->dateOfBirth=$request->input('dateOfBirth');
+      $children->gender=$request->input('gender');
+      $children->status=$request->input('disablity');
+      $children->photo=$fileNameToStore;
+      $children->employeeID=$staffID;
+      $children->save();
+      return redirect()->back()->with('success','successfully updated family member');
+    
         
     }
     public function viewDetail($id){
@@ -136,7 +175,9 @@ class ChildrenController extends Controller
         //$child=Children::find($id);
         //$child->delete();
         DB::delete('delete from childrens where id=?',[$id]);
-        return $id;
+       // return $id;
+       return redirect()->back()->with('success','successfully updated family member');
+
     }
 
     //card Officer 

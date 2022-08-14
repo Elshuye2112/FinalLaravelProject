@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="css/layout.css">
 </head>
-<h4>You can view cashout's here </h4><hr>
+<h4>{{__('field.cashoutHeader')}}</h4><hr>
 <style>
     a{
         margin-left:5px;
@@ -28,10 +28,10 @@
 </style>
 <table>
     <tr>
-        <th>Cashier</th>
-        <th>Amount</th>
-        <th>Date Of Payment</th>
-        <th>Ways Of Payment</th>
+        <th>{{__('field.cashier')}}</th>
+        <th>{{__('field.amount')}}</th>
+        <th>{{__('field.dateOfPayment')}}</th>
+        <th>{{__('field.waysOfPayment')}}</th>
     </tr>
     @foreach($cashout as $data)
     <tr>

@@ -13,11 +13,11 @@
 <body>
     <div style="padding: 20px">
         <div class="container">
-            <h4>Welcome to update page</h4><hr>
+            <!-- <h4>Welcome to update page</h4><hr> -->
             <div style="padding: 30px">
                 <form class="example" action="{{url('/viewBySearch')}}" method='get'>
                     @csrf
-                    <label for="search"> input the searching ID</label><br>
+                    <label for="search"> {{__('field.searchByID')}}</label><br>
                     <input type="text" placeholder="Search.." name="employeeID" class='input 5rem'>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                 </form>

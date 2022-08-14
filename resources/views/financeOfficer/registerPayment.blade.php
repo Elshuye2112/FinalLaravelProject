@@ -82,75 +82,84 @@ input[type=submit]:hover {
 <body>
     <div style="padding: 20px">
     <div class="container">
-        <h4> payment register</h4><hr>
+        <h4> {{__('field.registerPayment')}}</h4><hr>
         <div style="padding: 30px">
       <form action="{{url('/createPayment')}}" method='post'>
+      @if(Session::has('success'))
+        <div class='alert alert-success'>{{Session::get('success')}}</div>
+        @endif
+        @if(Session::has('fail'))
+        <div class='alert alert-danger'>{{Session::get('fail')}}</div>
+        @endif 
       @csrf
       <div class="row">
         <div class="col-25">
-          <label for="id">Payment ID</label>
+          <label for="id">{{__('field.paymentID')}}</label>
         </div>
         <div class="col-75">
-          <input type="text" id="date" name="paymentID" placeholder="enter the id of payment">
+          <input type="text" id="date" >
         </div>
       </div>
         <div class="row">
         <div class="col-25">
-          <label for="date">Date of payment</label>
+          <label for="date">{{__('field.dateOfPayment')}}</label>
         </div>
         <div class="col-75">
-          <input type="Date" id="date" name="dateOfPayment" placeholder="enter the date of payment">
+          <input type="Date" id="date" name="dateOfPayment" >
         </div>
       </div>
       <div class="row">
         <div class="col-25">
-          <label for="fname">Type of payment</label>
+          <label for="fname">{{__('field.typesOfPayment')}}</label>
         </div>
         <div class="col-75">
         <select id="type" name="type">
-            <option value="cashin">cashin</option>
-            <option value="cashout">cashout</option>
+            <option value="cashin">{{__('field.cashin')}}</option>
+            <option value="cashout">{{__('field.cashout')}}</option>
           </select>
         </div>
       </div>
       <div class="row">
         <div class="col-25">
-          <label for="amount">Amount of money</label>
+          <label for="amount">{{__('field.amount')}}</label>
         </div>
         <div class="col-75">
-          <input type="text" id="cashier" name="amount" placeholder="enter the payment amount in birr">
+          <input type="text" id="cashier" name="amount">
         </div>
       </div>
 
         <div class="row">
         <div class="col-25">
-          <label for="cashier">Reciever/payer</label>
+          <label for="cashier">{{__('field.cashier')}}</label>
         </div>
         <div class="col-75">
-          <input type="text" id="cashier" name="cashier" placeholder="enter the reciever/payer of payment">
+          <input type="text" id="cashier" name="cashier" >
         </div>
       </div>
 
       <div class="row">
         <div class="col-25">
-          <label for="waysofpayment">ways of payment</label>
+          <label for="waysofpayment">{{__('field.waysOfPayment')}}</label>
         </div>
-      <div class="col-75">
-        <textarea id="ways of payment" name="waysOfPayment" placeholder=" write ways of payment" style="height:100px"></textarea>
+        <div class="col-75">
+        <select id="type" name="waysOfPayment">
+            <option value="in-cash">{{__('field.byCash')}}</option>
+            <option value="by-bank">{{__('field.byBank')}}</option>
+          </select>
         </div>
       </div>
         <div class="row">
         <div class="col-25">
-          <label for="account">ID of account</label>
+          <label for="account">{{__('field.acountID')}}</label>
         </div>
         <div class="col-75">
-          <input type="text" id="AccountID" name="accountID" placeholder="enter the account the payment occure ">
+          <input type="text" id="AccountID" name="accountID" >
         </div>
       </div>
       <br>
       <div class="buttonContainer">
-        <input class="btn btn-danger" type="reset" value="Reset">
-        <input class="btn btn-primary" type="submit" value="Submit">
+        <input class="btn btn-danger" type="reset" value="{{__('field.reset')}}">
+        <input class="btn btn-primary" type="submit" value="{{__('field.register')}}">
       </div>
       </form>
     </div>

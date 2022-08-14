@@ -207,7 +207,7 @@ else{
         $staff->middleName= $request->input('mName');
         $staff->lastName=$request->input('lName');
         $staff->dateOfBirth= $request->input('dateofbirth');
-       $staff->gender= $request->input('gender');
+        $staff->gender= $request->input('gender');
         $staff->region=$request->input('region');
         $staff->zone=  $request->input('zone');
         $staff->woreda=$request->input('woreda');

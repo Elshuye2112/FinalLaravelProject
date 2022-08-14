@@ -1,7 +1,8 @@
 @extends('board.boardHomepage')
 @section('content')
 
-<h4>Welcome to the view Members page</h4><hr>
+<h4>{{__('field.listOfMember')}}</h4><hr>
+
 <style>
     a{
         margin-left:5px;
@@ -27,12 +28,14 @@
 <table>
 
 <tr > 
-    <th>Member id</th>
-    <th>First name</th>
-    <th>Last Name</th>
-    <th>Status</th>
-    <th>Phone</th>
-    <th>Photo</th> 
+    <th>{{__('field.memberID')}}</th>
+    <th>{{__('field.fName')}}</th>
+    <th>{{__('field.mName')}}</th>
+    <th>{{__('field.lName')}}</th>
+    <th>{{__('field.status')}}</th>
+    <th>{{__('field.phone')}}</th>
+    <th>{{__('field.photo')}}</th> 
+    <th>{{__('field.familyMember')}}</th>
     
 </tr>
 
@@ -40,13 +43,14 @@
     <tr >
     <td>{{$member->memberID}}</td>
     <td>{{$member->firstName}}</td>
+    <td>{{$member->middleName}}</td>
     <td>{{$member->lastName}}</td>
     <td>{{$member->status}}</td>
     <td>{{$member->phone}}</td>
     <td>
         <img style='width:50px;' src="../storage/images/{{$member->photo}}" alt="image doesn't exist">
     </td>
-    <td><a href={{"/boardViewProfile/".$member->memberID}} class='btn btn-primary'>familyMember</a></td>
+    <td><a href={{"/boardViewProfile/".$member->memberID}} class='btn btn-primary'>{{__('field.view')}}</a></td>
 </tr>
 @endforeach
 </table>

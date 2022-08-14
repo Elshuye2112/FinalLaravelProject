@@ -46,8 +46,12 @@ class GratitudeClinicController extends Controller
         $gratitudeClinic->staffID=$boardID;
         $gratitudeClinic->accountID= $request->input('accountID');
 
-        $gratitudeClinic->save();
-        return 'saaved successfully';
+        $result=$gratitudeClinic->save();
+        if($result)
+        return redirect()->back()->with('success','registered successfully');
+        else{
+            return redirect()->with('fail','not registered');
+        }
     }
 
     /**

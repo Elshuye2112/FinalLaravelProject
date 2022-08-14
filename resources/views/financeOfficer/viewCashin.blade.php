@@ -25,13 +25,13 @@
         background-color:#ddd;
     }
 </style>
-<h4>You can view cashin's here</h4><hr>
+<h4>{{__('field.cashinHeader')}}</h4><hr>
 <table>
     <tr>
-        <th>Cashier</th>
-        <th>Amount</th>
-        <th>Date Of Payment</th>
-        <th>Ways Of Payment</th>
+        <th>{{__('field.cashier')}}</th>
+        <th>{{__('field.amount')}}</th>
+        <th>{{__('field.dateOfPayment')}}</th>
+        <th>{{__('field.waysOfPayment')}}</th>
     </tr>
     @foreach($cashin as $data)
     <tr>
@@ -42,5 +42,6 @@
     </tr>
     @endforeach
 </table>
+
 
 @endsection

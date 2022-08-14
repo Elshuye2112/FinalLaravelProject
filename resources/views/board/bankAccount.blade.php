@@ -5,54 +5,33 @@
     <link rel="stylesheet" href="css/inputForm.css">
 </head>
 <body>
-    <div style="padding: 30px">
+    <div style="padding: 20px">
         <div class="container">
-            <center><h2>Register account of scheme and  gratitude clinic</center><hr>
+            <center><h2>{{__('field.registerAcountHeader')}}</center><hr>
+            <div style="padding: 30px">
               <form  method='post' action="{{url('/insert')}}">
                 @csrf
-                        <div class="row">
-                          <div class="col-25">
-                            <label for="account-id">ID of account</label>
-                          </div>
-                          <div class="col-75">
-                            <input type="text" id="Name" name="accountID" placeholder="enter the id of the account " required>
-                          </div>
-                        </div>
-                       
-                
+                            <label for="account-id">{{__('field.acountID')}}</label><br>
+                                      <input type="text" id="Name" name="accountID" ><br>
+                   
+                              <label for="lname">{{__('field.acountName')}}</label><br>
+                           
+                              <input type="text" id="account_name" name="ownerName"  ><br>
+                           
+                              <label for="Account-number">{{__('field.acountNo')}}</label>
                           
-                          <div class="row">
-                            <div class="col-25">
-                              <label for="lname">Account Name</label>
-                            </div>
-                            <div class="col-75">
-                              <input type="text" id="account_name" name="ownerName" placeholder="enter account name of the ganization e.g poly campas" required>
-                            </div>
-                          </div>
-
-                          <div class="row">
-                            <div class="col-25">
-                              <label for="Account-number">Account number</label>
-                            </div>
-                            <div class="col-75">
-                              <input type="text" id="Account-number" name="accountNumber" placeholder="enter the account number of the of the rganization" required>
-                            </div>
-                          </div>
-
-                          <div class="row">
-                            <div class="col-25">
-                              <label for="acountType">Account type</label>
-                            </div>
-                            <div class="col-75">
-                              <input type="text" id="account_type" name="accountType" placeholder="enter the account type e.g commercial bank" required>
-                            </div>
-                          </div>
-
+                              <input type="text" id="Account-number" name="accountNumber" ><br>
+                          
+                              <label for="acountType">{{__('field.acountType')}}</label><br>
+                            
+                              <input type="text" id="account_type" name="accountType" ><br>
+                            
                           <div class="buttonContainer" id="button">
-                            <input class="btn btn-danger" type="reset" value="Reset">
-                            <input class="btn btn-primary" type="submit" value="Register">
+                            <input class="btn btn-danger" type="reset" value="{{__('field.reset')}}">
+                            <input class="btn btn-primary" type="submit" value="{{__('field.register')}}">
                         </div>
               </form>
+              </div>
             </div>
     </div>
 </body>

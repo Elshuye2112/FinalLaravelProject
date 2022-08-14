@@ -53,9 +53,9 @@
               <img src="assets/logo.jpg"  width="50px" alt="logo is no available" />
           </div>
           <div class="final" >
-          Finance officers  page
+          {{__('field.financeofficerpage')}} 
           </div>
-           <div> <a class="logout" href="{{url('/logout')}}" >logout</a></div>
+           <div> <a class="logout" href="{{url('/logout')}}" >{{__('navbar.logout')}}</a></div>
         </div>
         <!-- responsive navbar toggle button -->
         {{--  <input type="checkbox" id="nav-check">
@@ -70,11 +70,11 @@
     </nav>
    <div class='left'>
    <ul>
-   <li> <a href="{{ url('/viewCashin') }}" class="{{'viewCashin'==request()->path()? 'active':''}}">View cashin</a></li>
-   <li> <a href="{{ url('/viewCashout') }}" class="{{'viewCashout'==request()->path()? 'active':''}}">View cash out</a></li>
-   <li> <a href="{{url('/registerPayment') }}" class="{{'registerPayment'==request()->path()? 'active':''}}">Register payment</a></li>
-   <li> <a href="{{url('/generateReport') }}" class="{{'generateReport'==request()->path()? 'active':''}}">Generate report</a></li>
-   <li> <a href="{{url('/financeViewNotification') }}" class="{{'financeViewNotification'==request()->path()? 'active':''}}" >View  notification</a></li>
+   <li> <a href="{{url('/registerPayment') }}" class="{{'registerPayment'==request()->path()? 'active':''}}">{{__('field.registerpayment')}} </a></li>
+   <li> <a href="{{ url('/viewCashin') }}" class="{{'viewCashin'==request()->path()? 'active':''}}">{{__('field.viewcashin')}} </a></li>
+   <li> <a href="{{ url('/viewCashout') }}" class="{{'viewCashout'==request()->path()? 'active':''}}">{{__('field.viewcashout')}} </a></li>
+   <li> <a href="{{url('/generateReport') }}" class="{{'generateReport'==request()->path()? 'active':''}}">{{__('field.search')}} </a></li>
+   <li> <a href="{{url('/financeViewNotification') }}" class="{{'financeViewNotification'==request()->path()? 'active':''}}" >{{__('field.viewnotification')}} </a></li>
     </ul>
    </div>
    <div id='content' class='right'>

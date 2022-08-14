@@ -18,8 +18,11 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HealthExtensionController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\LangController;
 
   
+Route::get('/', [LangController::class, 'index']);
+Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
 
 // reset password
 
@@ -49,19 +52,29 @@ use App\Http\Controllers\ResetPasswordController;
 //     return view('Home/navBar');
 // });
 Route::get('/about',function(){
+    // App::setlocale('amh');
     return view('Home.about');
 });
 Route::get('help',function(){
+    // App::setlocale('amh');
     return view('Home.help');
 });
-Route::view('/','Home.homepage');
-Route::view('/contact','Home.contact');
-Route::view('/feedback','Home.feedback');
-Route::view('/services','Home.services');
-Route::get('/localization/{lang}',function($lang){
-     App::setlocale($lang);
-    return view('localizationpractice');
+// Route::get('/',[LangController::class,'change']);
+
+//  Route::view('/','Home.homepage');
+Route::get('/contact',function(){
+    // App::setlocale('amh');
+    return view('Home.contact');
 });
+Route::get('/services',function(){
+    // App::setlocale('amh');
+    return view('Home.services');
+});
+// Route::get('/localization/{lang}',functionRoute::get('lang/home', [LangController::class, 'index']);
+// Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');($lang){
+//      App::setlocale($lang);
+//     return view('localizationpractice');
+// });
  
 Auth::routes();
 Route::get('/login',[CustomAuthController::class,'login']);
@@ -82,9 +95,10 @@ Route::get('/listOfMembers',[MemberController::class,'show']);
 Route::delete('/deleteMember/{id}',[MemberController::class,'destroy'])->name('member.delete');
 Route::get('/listOfChildren',[ChildrenController::class,'show']);
 Route::get('/viewProfile/{id}',[MemberController::class,'viewProfile']);
-Route::get('/edit/{id}',[MemberController::class,'edit']);
-Route::get('/viewProfile/edit/{id}',[ChildrenController::class,'edit']);
-
+Route::get('/editMember/{id}',[MemberController::class,'edit']);
+// Route::get('/viewProfile/edit/{id}',[ChildrenController::class,'edit']);
+Route::get('/viewProfile/editFamilyMemberInfo/{id}',[ChildrenController::class,'edit']);
+Route::post('/updateChildren',[ChildrenController::class,'update']);
 Route::post('/update',[MemberController::class,'update']);
 Route::get('/extension', function (){
     return view('healthEx/healthExtensionHome');
@@ -96,7 +110,8 @@ route::get('/viewchild',function (){
     return view('healthEx/viewCild');
 });
 Route::get('/renew/{id}',[MemberController::class,'renew']);
-Route::get('/search',function () {
+Route::get('/search',function () {Route::get('lang/home', [LangController::class, 'index']);
+    Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
     return view('healthEx/searchMember');
 });
 Route::post('/searchMember',[MemberController::class,'searchMember']);
@@ -127,9 +142,7 @@ Route::get('/familyMember',function(){
 Route::get('/mviewnotification',function () {
     return view('memberpage/viewNotification');
 });
-Route::get('/memberProfile',function () {
-    return view('memberpage/viewProfile');
-});
+Route::get('/memberProfile',[MemberController::class,'memberViewProfile']);
 Route::get('/memberRequest',[UpdateRequestController::class,'updateRequest']);
 Route::post('/storeRequest',[UpdateRequestController::class,'store']);
 ///////////////////////admin
@@ -138,6 +151,7 @@ Route::get('/admin',function () {
 });
 
 Route::get('/create',function (){
+    App::setlocale('amh');
     return view('admin/createAccount');
 });
 Route::get('/edit/{id}',[StaffController::class,'editAccount']);

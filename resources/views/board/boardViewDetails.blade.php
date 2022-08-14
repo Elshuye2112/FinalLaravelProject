@@ -3,7 +3,7 @@
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
-<h4>Welcome to the view Members page</h4><hr>
+<h4>{{__('field.viewMembersHeader')}}</h4><hr>
 <style>
 <style>
     a{
@@ -32,11 +32,11 @@
 <table>
 
 <tr> 
-<th>ID</th>
-    <th>MemberID</th>
-    <th> FirstName</th>
-    <th> LastName</th>
-    <th> photo</th>
+    <th>{{__('field.id')}}</th>
+    <th>{{__('field.memberID')}}</th>
+    <th> {{__('field.fName')}}</th>
+    <th> {{__('field.mName')}}</th>
+    <th> {{__('field.photo')}}</th>
   
 
 </tr>

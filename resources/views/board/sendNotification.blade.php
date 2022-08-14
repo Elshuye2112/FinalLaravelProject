@@ -5,45 +5,27 @@
     <link rel="stylesheet" href="css/inputForm.css">
 </head>
 <body>
-    <div style="padding: 30px">
+    <div style="padding: 20px">
         <div class="container">
-            <center><h2>Send Notification</center><hr>
+            <center><h2>{{__('field.sendNotification')}}</center><hr>
+            <div style="padding:30px;">
               <form  method='post' action="{{url('/sendNotificationdemlew')}}">
   
                 @csrf
-                        <div class="row">
-                          <div class="col-25">
-                            <label for="greeting">Greeting</label>
-                          </div>
-                          <div class="col-75">
-                            <input type="text" id="Name" name="greeting" placeholder="greeting " required>
-                          </div>
-                        </div>
-                       
-                
-                          
-                          <div class="row">
-                            <div class="col-25">
-                              <label for="body">body/content</label>
-                            </div>
-                            <div class="col-75">
-                              <textarea type="text" id="name" name="body">content</textarea>
-                            </div>
-                          </div>
-
-                          <div class="row">
-                            <div class="col-25">
-                              <label for="thanks">thanks</label>
-                            </div>
-                            <div class="col-75">
-                              <input type="text" id="thanks" name="thanks" placeholder "thanks" required>
-                            </div>
-                          </div>
-                          <div class="buttonContainer" id="button">
-                            <input class="btn btn-danger" type="reset" value="Reset">
-                            <input class="btn btn-primary" type="submit" value="Register">
+                            <label for="greeting">{{__('field.greeting')}}</label><br>
+                  
+                            <input type="text" id="Name" name="greeting" ><br>
+                             <label for="body">{{__('field.body')}}</label><br>
+                              <textarea type="text" id="name" name="body" style="height:100px">
+                            </textarea><br>
+                              <label for="thanks">{{__('field.thanks')}}</label><br>
+                              <input type="text" id="thanks" name="thanks" > <br>
+                              <div class="buttonContainer" id="button">
+                            <input class="btn btn-danger" type="reset" value="{{__('field.reset')}}">
+                            <input class="btn btn-primary" type="submit" value="{{__('field.send')}}">
                         </div>
               </form>
+              </div>
             </div>
     </div>
 </body>

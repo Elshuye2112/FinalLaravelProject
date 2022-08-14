@@ -4,10 +4,10 @@
 <table>
 
 <tr> 
-    <th>First Name</th>
-    <th>Middle Name</th>
-    <th>Last Name</th>
-      <th>Photo</th>
+    <th>{{__('field.fName')}}</th>
+    <th>{{__('field.mName')}}</th>
+    <th>{{__('field.lName')}}</th>
+      <th>{{__('field.photo')}}</th>
 
 </tr>
   @foreach($result as $data)

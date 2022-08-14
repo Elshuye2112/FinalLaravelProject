@@ -212,12 +212,9 @@ class MemberController extends Controller
      * @return \Illuminate\Http\Response
      */
   
-    public function update(Request $request, Children $child)
+    public function update(Request $request)
     {
-      $email=$request->session()->get("loginEmail");
-      $staff=Staff::where('email','=',$email)->first();
-      $staffID=$staff->employeeID;
-      ///
+      
       if($request->hasfile('photo')){
         //getfilename with extension
         $fileNameWEx=$request->file('photo')->getClientOriginalName();
@@ -234,19 +231,42 @@ class MemberController extends Controller
       else{
         $fileNameToStore='no image to store';
       }
-      ///
-      $child->memberID=$request->memberID;
-      $child->firstName=$request->fName;
-      $child->middleName=$request->mName;
-      $child->lastName=$request->lName;
-      $child->dateOfBirth=$request->dateOfBirth;
-      $child->gender=$request->gender;
-      $child->status=$request->disablity;
-      $child->photo=$fileNameToStore;
-      $child->employeeID=$staffID;
+       $email=$request->session()->get("loginEmail");
+       $staff=Staff::where('email','=',$email)->first();
+       $staffID=$staff->employeeID;
+       //$staffID=DB::select('select employeeID from staff where email=?',[$email]);
+
+      $member=Member::find($request->memberID);
+      $member->memberID=$request->input('memberID');
+      $member->firstName=$request->input('fName');
+      $member->middleName=$request->input('mName');
+      $member->lastName=$request->input('lName');
+      $member->dateOfBirth=$request->input('dateOfBirth');
+      $member->gender=$request->input('gender');
+      $member->phone=$request->input('phone');
+      $member->status=$request->input('status');
+      $member->photo=$fileNameToStore;
+      $member->occopation=$request->input('occopation');
+      $member->region=$request->input('region');
+      $member->zone=$request->input('zone');
+      $member->woreda=$request->input('woreda');
+      $member->kebele=$request->input('kebele');
+      $member->email=$request->input('email');
+      $member->userName=$request->input('userName');
+
+      //hashing password
+      $hashedPassword=Hash::make($request->input('password'));
+
+      $member->password=$hashedPassword;
+     // $member->member_employeeID=$request->input('employeeID');
+      $member->member_employeeID=$staffID;
+      $member->save();
+    
+      return redirect()->back()->with('success','successfully updated');
+      // ->back()->with('success','member registered successfully');
+       
+
    
-      $child->save();
-     return $child;     
     }
 
     /**
@@ -275,6 +295,17 @@ class MemberController extends Controller
        }
       
    
+    }
+    public function memberViewProfile(){
+
+      $email=Session()->get('loginEmail');
+     $data=DB::table('members')
+     ->join('childrens','members.memberID','=','childrens.memberID')
+     ->select('childrens.id','childrens.memberID','childrens.firstName',
+     'childrens.lastName','members.photo','childrens.photo')
+     ->where('members.email','=',$email)
+     ->get();
+     return view('memberpage/viewProfile',['family'=>$data]); 
     }
     public function renew($id){
       $data=Member::find($id);

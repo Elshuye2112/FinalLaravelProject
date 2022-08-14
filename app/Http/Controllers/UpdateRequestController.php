@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\UpdateRequest;
 use Illuminate\Http\Request;
+use App\Models\Member;
+use DB;
 
 class UpdateRequestController extends Controller
 {
@@ -38,12 +40,15 @@ class UpdateRequestController extends Controller
         return view('memberpage/updateRequest');
     }
     public function store(Request $request)
-    {
-       
-          $updateRequest = new UpdateRequest();
-          
+    { $updateRequest = new UpdateRequest();
+
+      $result2 = DB::table('members')
+           ->where('memberID',$request->memberID)
+           ->pluck('member_employeeID')
+           ->first();
           $updateRequest->memberID=$request->input('memberID');
           $updateRequest->subject=$request->input('subject');
+          $updateRequest->extension_id=$result2;
           $updateRequest->description=$request->input('description');
          $result= $updateRequest->save();
          if($result){ 

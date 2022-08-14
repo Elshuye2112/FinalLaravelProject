@@ -12,78 +12,77 @@
         <div style="padding: 30px">
             <div class="container">
                 <center>
-                    <h3 style="color:rgb(19, 112, 252)">Membership registration form</h3>
+                    <h3 style="color:rgb(19, 112, 252)">{{__('field.registerMemberForm')}}</h3>
                 </center>
                 <hr>
                 <div>
                     <div class="bodyleft">
-                    <label> Member ID </label><br>
-                        <input type="text" name="memberID" placeholder="memberID" size="15"  /> <br>
+                    <label> {{__('field.memberID')}}</label><br>
+                        <input type="text" name="memberID" placeholder="{{__('memberID')}}" size="15"  /> <br>
                         <span style='color:red'>@error('memberID'){{$message}}@enderror</span><br>
-                        <label> Firstname </label><br>
+                        <label> {{__('field.fName')}} </label><br>
                         <input type="text" name="fName" placeholder="Firstname" size="15" /> <br>
                         <span style='color:red'>@error('fName'){{$message}}@enderror</span><br>
-                        <label> Middlename: </label><br>
+                        <label> {{__('field.mName')}} </label><br>
                         <input type="text" name="mName" placeholder="Middlename" size="15" /> <br>
                         <span style='color:red'>@error('mName'){{$message}}@enderror</span><br>
-                        <label> Lastname: </label><br>
+                        <label> {{__('field.lName')}} </label><br>
                         <input type="text" name="lName" placeholder="Lastname" size="15" /> <br>
                         <span style='color:red'>@error('lName'){{$message}}@enderror</span><br>
-                        <label style="padding: 6px">Gender :</label><br>
-                        <input type="radio" value="Male" name="gender" checked> <label>Male</label>
-                        <input type="radio" value="Female" name="gender"><label>Female</label>
-                        <label for="dateofbirth">Date of birth</label><br>
-                        <input type="date" id="DOB" name="dateOfBirth"
-                        placeholder="enter date of birth of employe.."><br>
+                        <label style="padding: 6px">{{__('field.gender')}}</label><br>
+                        <input type="radio" value="Male" name="gender" checked> <label>{{__('field.wond')}}</label>
+                        <input type="radio" value="Female" name="gender"><label>{{__('field.set')}}</label><br>
+                        <label for="dateofbirth">{{__('field.dateOfBirth')}}</label><br>
+                        <input type="date" id="DOB" name="dateOfBirth"><br>
                         <span style='color:red'>@error('dateOfBirth'){{$message}}@enderror</span><br>
-                        <label> Phone :</label><br>
-                        <input type="text" name="phone" placeholder="phone no." size="10"><br>
+                        <label> {{__('field.phone')}}</label><br>
+                        <input type="text" name="phone"  size="10"><br>
                         <span style='color:red'>@error('phone'){{$message}}@enderror</span><br>
                 
-                        <label> Status :</label><br>
+                        <label> {{__('field.status')}}</label><br>
                         <select name="status" id="">
-                            <option value="renewed">renewed</option>
-                            <option value="not_renewed">not renewed</option>
+                            <option value="renewed">{{__('field.renewed')}}</option>
+                            <option value="not_renewed">{{__('field.notRenewed')}}</option>
                         </select>
                         <span style='color:red'>@error('status'){{$message}}@enderror</span><br>
-                        <label for="email"><b>Email</b></label><br>
-                        <input type="email" placeholder="Enter Email" name="email" ><br>
+                        <label for="email"><b>{{__('field.email')}}</b></label><br>
+                        <input type="email"  name="email" ><br>
                         <span style='color:red'>@error('email'){{$message}}@enderror</span><br>
                    
                     </div>
                     <div class="bodyright">
-                       <label for="occupation"><b>Occupation</b></label><br>
-                        <input type="text" placeholder="Enter occupation" name="occopation"><br>
-                        <label>Region </label><br>
-                        <input type="text" placeholder="Enter region address" name="region" ><br>
+                       <label for="occupation"><b>{{__('field.occopation')}}</b></label><br>
+                        <input type="text"  name="occopation"><br>
+                        <label>{{__('field.region')}} </label><br>
+                        <input type="text"  name="region" ><br>
                         <span style='color:red'>@error('region'){{$message}}@enderror</span><br>
 
-                        <label>Zone </label><br>
-                        <input type="text" placeholder="enter zone address" name="zone" ><br>
+                        <label>{{__('field.zone')}} </label><br>
+                        <input type="text"  name="zone" ><br>
                         <span style='color:red'>@error('zone'){{$message}}@enderror</span><br>
 
-                        <label>Woreda </label><br>
-                        <input type="text" placeholder="enter wereda address" name="woreda" ><br>
+                        <label>{{__('field.woreda')}} </label><br>
+                        <input type="text"  name="woreda" ><br>
                         <span style='color:red'>@error('woreda'){{$message}}@enderror</span><br>
 
-                        <label>Kebele</label><br>
-                        <input type="text" placeholder="enter kebele" name="kebele" ><br>
+                        <label>{{__('field.kebele')}}</label><br>
+                        <input type="text"  name="kebele" ><br>
                         <span style='color:red'>@error('kebele'){{$message}}@enderror</span><br>
 
-                        <label for="psw"><b>UserName</b></label><br>
-                        <input type="text" placeholder="user name" name="userName" ><br>
+                        <label for="useName"><b>{{__('field.userName')}}</b></label><br>
+                        <input type="text" name="userName" ><br>
                         <span style='color:red'>@error('userName'){{$message}}@enderror</span><br>
-                        <label for="psw"><b>Password</b></label><br>
-                        <input type="password" placeholder="Enter Password" name="password"><br>
+                        <label for="psw"><b>{{__('field.password')}}</b></label><br>
+                        <input type="password"  name="password"><br>
                         <span style='color:red'>@error('password'){{$message}}@enderror</span><br>
-                        <label for="photo">upload photo</label><br>
+                        <label for="photo">{{__('field.upload')}}</label><br>
                         <input type="file" id="photo" name="photo"><br>
                         <span style='color:red'>@error('photo'){{$message}}@enderror</span><br>
                     </div>
                     <div class="buttonContainer">
-                        <button type="submit" class="btn btn-primary"> Register</button>
-                        <button type='reset' class='btn btn-danger'>Reset</button>
-                        <a href="{{ url('familyMember') }}" class='btn btn-primary'>Add member +</a>
+                        <button type="submit" class="btn btn-primary"> {{__('field.register')}}</button>
+                        <button type='reset' class='btn btn-danger'>{{__('field.reset')}}</button>
+                        <a href="{{ url('familyMember') }}" class='btn btn-primary'>{{__('field.addMember')}}</a>
                     </div>
                 </div>
             </div>

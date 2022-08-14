@@ -22,15 +22,15 @@
         background-color:#ddd;
     }
 </style>
-<h1>you can display the individual here</h1>
+<h1>{{__('field.individualDetail')}}</h1>
 <table>
     <tr>
-    <th>MemberID</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>G-clinic Name</th>
-    <th>Phone number</th>
-    <th>DateOf Threatement</th>
+    <th>{{__('field.memberID')}}</th>
+    <th>{{__('field.fName')}}</th>
+    <th>{{__('field.lName')}}</th>
+    <th>{{__('field.clinicID')}}</th>
+    <th>{{__('field.phone')}}</th>
+    <th>{{__('field.dateOfTreatment')}}</th>
     </tr>
     @foreach($allData as $data)
     <tr>
@@ -43,6 +43,6 @@
     </tr>
     @endforeach
 </table>
-<a href="{{ url('/generatReport') }}">Generate report</a>
+<a href="{{ url('/generatReport') }}">{{__('field.generateReport')}}</a>
 
 @endsection

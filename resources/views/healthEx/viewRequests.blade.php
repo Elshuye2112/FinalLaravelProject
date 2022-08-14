@@ -1,6 +1,6 @@
 @extends('healthEx/healthExtensionHome')
 @section('content')
-<h4>View Requests page</h4><hr>
+<h4>{{__('field.viewRequestHeader')}}</h4><hr>
 <style>
     a{
         margin-left:5px;
@@ -26,11 +26,14 @@
 <table>
 
 <tr>
-    <th>memberID</th>
-    <th>subject</th>
-    <th>Description</th> 
-    <th>Date of send</th> 
-    <th>Action</th>
+
+    <th>          {{__('field.memberID')}} 
+</th>
+    <th>{{__('field.subject')}} </th>
+    <th>{{__('field.Description')}} </th> 
+    <th>{{__('field.Dateofsend')}} </th> 
+    <th>{{__('field.actions')}} </th> 
+
     
 </tr>
 
@@ -46,7 +49,7 @@
     <form method="POST" action="{{ route('request.delete', $req->id) }}">
         @csrf
      <input name="_method" type="hidden" value="DELETE">
-     <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
+     <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>{{__('field.deleteI')}}</button>
     </form>
 
     </td>

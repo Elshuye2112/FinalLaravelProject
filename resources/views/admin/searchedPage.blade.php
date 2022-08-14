@@ -26,17 +26,19 @@
 <table>
 
 <tr > 
-    <th>Employee ID</th>
-    <th>First name</th>
-    <th>Last Name</th>
-    <th>Role</th>
-    <th>Phone</th>
-    <th colspan='3' ><center>Actions</center></th> 
+    <th>{{__('field.employeeID')}}</th>
+    <th>{{__('field.fName')}}</th>
+    <th>{{__('field.mName')}}</th>
+    <th>{{__('field.lName')}}</th>
+    <th>{{__('field.role')}}</th>
+    <th>{{__('field.phone')}}</th>
+    <th colspan='3' ><center>{{__('field.actions')}}</center></th> 
 </tr>
 
       <tr >
     <td>{{$staff->employeeID}}</td>
     <td>{{$staff->firstName}}</td>
+    <td>{{$staff->middleName}}</td>
     <td>{{$staff->lastName}}</td>
      <td>{{$staff->role}}</td>
     <td>{{$staff->phone}}</td>
@@ -44,15 +46,15 @@
     <form method="POST" action="{{ route('staff.delete', $staff->employeeID) }}">
         @csrf
      <input name="_method" type="hidden" value="DELETE">
-     <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
+     <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>{{__('field.deleteI')}}</button>
     </form>
 
     </td>
     <td>
     
         <!-- <a href="" class='btn btn-danger '>delete</a> -->
-        <a href={{"/edit/".$staff->employeeID}} class='btn btn-success'>edit</a>
-        <a href={{"/viewProfileStaff/".$staff->employeeID}} class='btn btn-primary'>view</a>
+        <a href={{"/edit/".$staff->employeeID}} class='btn btn-success'>{{__('field.edit')}}</a>
+        <a href={{"/viewProfileStaff/".$staff->employeeID}} class='btn btn-primary'>{{__('field.view')}}</a>
     </td>
 
  

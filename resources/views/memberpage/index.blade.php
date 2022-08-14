@@ -27,9 +27,9 @@
               <img src="assets/logo.jpg"  width="50px" alt="logo is no available" />
           </div>
           <div class="final" >
-           Member page
+          {{__('field.mamberpage')}} 
           </div>
-           <div> <a class="logout" href="{{url('/logout')}}" >logout</a></div>
+           <div> <a class="logout" href="{{url('/logout')}}" >{{__('navbar.logout')}}</a></div>
         </div>
         <!-- responsive navbar toggle button -->
         {{--  <input type="checkbox" id="nav-check">
@@ -44,9 +44,11 @@
   </nav>
    <div class='left'>
    <ul>
-   <li> <a href="{{ url('/memberProfile') }}" class="{{'memberProfile'==request()->path()? 'active':''}}">View profile</a></li>
-   <li> <a href="{{ url('/memberRequest') }}" class="{{'memberRequest'==request()->path()? 'active':''}}">Request update</a></li>
-   <li> <a href="{{url('/mviewnotification') }}" class="{{'mviewnotification'==request()->path()? 'active':''}}">View notification</a></li>
+   <li> <a href="{{ url('/memberProfile') }}" class="{{'memberProfile'==request()->path()? 'active':''}}">  {{__('field.viewprofile')}} 
+</a></li>
+   <li> <a href="{{ url('/memberRequest') }}" class="{{'memberRequest'==request()->path()? 'active':''}}"> {{__('field.requestupdate')}} 
+</a></li>
+   <!-- <li> <a href="{{url('/mviewnotification') }}" class="{{'mviewnotification'==request()->path()? 'active':''}}">View notification</a></li> -->
     </ul>
    </div> 
    <div id='content' class='right'>

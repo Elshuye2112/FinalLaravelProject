@@ -4,10 +4,10 @@
 
 <table>
     <tr>
-        <td>ID</td>
-        <td>Fname</td>
-        <td>Photo</td>
-        <td>Desability</td>
+        <td>{{__('field.memberID')}}</td>
+        <td>{{__('field.fName')}}>
+        <td>{{__('field.photo')}}</td>
+        <td>{{__('field.disability')}}</td>
     </tr>
    
     <tr>

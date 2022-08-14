@@ -14,10 +14,9 @@
 <body>
     <div style="padding: 20px">
         <div class="container">
-            <h4>Welcome to renew page</h4><hr>
             <div style="padding: 30px">
                 <form class="example" action="{{url('/responseOfValidation')}}" method='post'>
-                    <label for="search"> input the searching ID</label><br>
+                    <label for="search"> {{__('field.searchByID')}}</label><br>
                     @csrf
                     <input type="text" placeholder="Search.." name="search" class='input 5rem'>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>

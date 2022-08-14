@@ -1,6 +1,6 @@
 @extends('board.boardHomepage')
 @section('content')
-<h4>Staff members </h4>
+<h4>{{__('field.individualDetail')}} </h4>
 <style>
     a{
         margin-left:5px;
@@ -26,19 +26,21 @@
 <table>
 
 <tr > 
-    <th>Employee ID</th>
-    <th>First name</th>
-    <th>Last Name</th>
-    <th>Role</th>
-    <th>Phone</th>
-    <th>SchemeID</th>
-    <th>Email</th>
-    <th>User Name</th>
-    <th>Photo</th>
+    <th>{{__('field.memberID')}}</th>
+    <th>{{__('field.fName')}}</th>
+    <th>{{__('field.mName')}}</th>
+    <th>{{__('field.lName')}}</th>
+    <th>{{__('field.role')}}</th>
+    <th>{{__('field.phone')}}</th>
+    <th>{{__('field.schemeID')}}</th>
+    <th>{{__('field.email')}}</th>
+    <th>{{__('field.userName')}}</th>
+    <th>{{__('field.photo')}}</th>
 </tr>
  <tr >
     <td>{{$staff->employeeID}}</td>
     <td>{{$staff->firstName}}</td>
+    <td>{{$staff->middleName}}</td>
     <td>{{$staff->lastName}}</td>
      <td>{{$staff->role}}</td>
     <td>{{$staff->phone}}</td>

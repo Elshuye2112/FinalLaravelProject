@@ -1,9 +1,10 @@
 <?php 
 return [
-    'welcome'=>'Welcome to our page',
+    'welcome'=>'CBHIIS',
     'homepage'=>'homepage',
     'profile'=>'profile',
-    'about'=>'about'
+    'about'=>'about',
+     'contact'=>'contact'
     
 ]
 ?>

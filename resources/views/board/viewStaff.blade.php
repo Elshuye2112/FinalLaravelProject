@@ -1,6 +1,6 @@
 @extends('board/boardHomepage')
 @section('content')
-<h4>Welcome to view staff account page</h4>
+<h4>{{__('field.listOfStaff')}}</h4>
 <style>
     a{
         margin-left:5px;
@@ -26,19 +26,21 @@
 <table>
 
 <tr > 
-    <th>Employee ID</th>
-    <th>First name</th>
-    <th>Last Name</th>
-    <th>Role</th>
-    <th>Phone</th>
-    <th>Photo</th>
-    <th colspan='3' ><center>Actions</center></th> 
+    <th>{{__('field.memberID')}}</th>
+    <th>{{__('field.fName')}}</th>
+    <th>{{__('field.mName')}}</th>
+    <th>{{__('field.lName')}}</th>
+    <th>{{__('field.role')}}</th>
+    <th>{{__('field.phone')}}</th>
+    <th>{{__('field.photo')}}</th>
+    <th colspan='3' ><center>{{__('field.actions')}}</center></th> 
 </tr>
 
      @foreach($staffs as $staff)
     <tr >
     <td>{{$staff->employeeID}}</td>
     <td>{{$staff->firstName}}</td>
+    <td>{{$staff->middleName}}</td>
     <td>{{$staff->lastName}}</td>
      <td>{{$staff->role}}</td>
     <td>{{$staff->phone}}</td>
@@ -48,7 +50,7 @@
     <td>
     
         
-        <a href={{"/viewStaffProfile/".$staff->employeeID}} class='btn btn-primary'>view</a>
+        <a href={{"/viewStaffProfile/".$staff->employeeID}} class='btn btn-primary'>{{__('field.view')}}</a>
     </td>
  
     </tr> 

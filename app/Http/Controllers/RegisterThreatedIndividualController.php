@@ -23,7 +23,8 @@ class RegisterThreatedIndividualController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
-    {
+    { 
+        
         $this->validate($request,[
         'memberID'=>'required|exists:members|max:255',
         'phone'=>'required|min:10|numeric',
@@ -31,6 +32,7 @@ class RegisterThreatedIndividualController extends Controller
         'lName'=>'required|min:3',
         'clinicID'=>'required|exists:gratitude_clinics,g_clinicID|max:255',
         ]);
+        
         $email=$request->session()->get("loginEmail");
         $cardOfficer=staff::where('email','=',$email)->first();
         $cardOfficerID=$cardOfficer->employeeID;
@@ -44,8 +46,12 @@ class RegisterThreatedIndividualController extends Controller
         $RegisterThreated->gratitudeclinicID=  $request->input('clinicID');
         $RegisterThreated->cardOfficerID= $cardOfficerID;
 
-        $RegisterThreated->save();
-        return 'saaved successfully';
+        $result=$RegisterThreated->save();
+        if($result)
+        return redirect()->back()->with('success','successfully registered');
+        else{
+            return redirect()->back()->with('fail','Not registered');
+        }
     }
     public function generateReport(){
         // $data=new RegisterThreatedIndividual();

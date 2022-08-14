@@ -4,7 +4,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>CHBII</title>
+   <title>CBHIIS</title>
    <link rel="stylesheet" href="../css/layout.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!-- Optional theme -->
@@ -50,9 +50,9 @@
               <img src="../assets/logo.jpg"  width="50px" alt="logo is no available" />
           </div>
           <div class="final" >
-           Welcome to Card Officer  page
+          {{__('field.wellcometocardofficerpage')}} 
           </div>
-           <div> <a class="logout" href="{{url('/logout')}}" >logout</a>
+           <div> <a class="logout" href="{{url('/logout')}}" >{{__('navbar.logout')}}</a>
          </div>
         </div>
         <!-- responsive navbar toggle button -->
@@ -68,11 +68,11 @@
     </nav>
    <div class='left'>
       <ul>
-        <li> <a href="{{url('/validateEligibility')}}" class="{{'validateEligibility'==request()->path()? 'active':''}}">Search for eligibility</a></li>
-        <li>  <a href="{{url('/viewNotification') }}" class="{{'viewNotification'==request()->path()? 'active':''}}">View Notification</a></li>
-        <li>  <a href="{{url('/registerIndividual') }}" class="{{'registerIndividual'==request()->path()? 'active':''}}" >Register treated individuals</a></li>
+        <li> <a href="{{url('/validateEligibility')}}" class="{{'validateEligibility'==request()->path()? 'active':''}}">{{__('field.searchforeligablity')}} </a></li>
+        <li>  <a href="{{url('/viewNotification') }}" class="{{'viewNotification'==request()->path()? 'active':''}}">{{__('field.viewnotification')}} </a></li>
+        <li>  <a href="{{url('/registerIndividual') }}" class="{{'registerIndividual'==request()->path()? 'active':''}}" >{{__('field.registertreatedindividual')}} </a></li>
         <!-- <li>  <a href="{{ url('/generatReport') }}">Generate report</a></li> -->
-        <li><a href="{{url('/viewThreatedIndividual')}}" class="{{'viewThreatedIndividual'==request()->path()? 'active':''}}">View Threated Individual</a></li>
+        <li><a href="{{url('/viewThreatedIndividual')}}" class="{{'viewThreatedIndividual'==request()->path()? 'active':''}}">{{__('field.viewtreatedindividual')}} </a></li>
       </ul>
    </div>
    <div id='content' class='right'>

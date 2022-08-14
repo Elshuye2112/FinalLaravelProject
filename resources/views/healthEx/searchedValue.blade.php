@@ -27,19 +27,21 @@
 <table>
 
 <tr > 
-    <th>Member id</th>
-    <th>First name</th>
-    <th>Last Name</th>
-    <th>Status</th>
-    <th>Phone</th>
-    <th>Photo</th> 
-    <th colspan='4' ><center>Actions</center></th> 
+    <th>{{__('field.memberID')}}</th>
+    <th>{{__('field.fName')}}</th>
+    <th>{{__('field.mName')}}</th>
+    <th>{{__('field.lName')}}</th>
+    <th>{{__('field.status')}}</th>
+    <th>{{__('field.phone')}}</th>
+    <th>{{__('field.photo')}}</th> 
+    <th colspan='4' ><center>{{__('field.actions')}}</center></th> 
 </tr>
 
    
     <tr >
     <td>{{$member->memberID}}</td>
     <td>{{$member->firstName}}</td>
+    <td>{{$member->middleName}}</td>
     <td>{{$member->lastName}}</td>
     <td>{{$member->status}}</td>
     <td>{{$member->phone}}</td>
@@ -50,18 +52,18 @@
     <form method="POST" action="{{ route('member.delete', $member->memberID) }}">
         @csrf
      <input name="_method" type="hidden" value="DELETE">
-     <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
+     <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>{{__('field.deleteI')}}</button>
     </form>
 
     </td>
     
     <td>
-    <a href={{"/edit/".$member->memberID}} class='btn btn-success'>edit</a>
-    <a href={{"/renew/".$member->memberID}} class='btn btn-success'>renew</a>
+    <a href={{"/edit/".$member->memberID}} class='btn btn-success'>{{__('field.edit')}}</a>
+    <a href={{"/renew/".$member->memberID}} class='btn btn-success'>{{__('field.renewed')}}</a>
 
 
-    <a href={{"/viewProfile/".$member->memberID}} class='btn btn-primary'>family Membere</a>
-   <a href={{"/giveMembershipID/".$member->memberID}} class='btn btn-success'>Give Membership id</a>
+    <a href={{"/viewProfile/".$member->memberID}} class='btn btn-primary'>{{__('field.familyMember')}}</a>
+   <a href={{"/giveMembershipID/".$member->memberID}} class='btn btn-success'>{{__('field.giveMembershipID')}}</a>
    
 </td>
     </tr> 

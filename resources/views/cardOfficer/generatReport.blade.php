@@ -23,15 +23,15 @@
 <!-- <head>
     <link rel="stylesheet" href="css/layout.css">
 </head> -->
-<h4>Threated Individuals</h4><hr>
+<h4>{{__('field.treatedIndividual')}}</h4><hr>
 <table>
     <tr>
-    <th>MemberID</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>G-clinic Name</th>
-    <th>Phone number</th>
-    <th>DateOf Threatement</th>
+    <th>{{__('field.memberID')}}</th>
+    <th>{{__('field.fName')}}</th>
+    <th>{{__('field.mName')}}</th>
+    <th>{{__('field.gClinicName')}}</th>
+    <th>{{__('field.phone')}}</th>
+    <th>{{__('field.dateOfTreatment')}}</th>
     </tr>
     @foreach($treated as $data)
     <tr>

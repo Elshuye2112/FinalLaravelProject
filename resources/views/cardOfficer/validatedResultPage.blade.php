@@ -28,13 +28,13 @@
 </style>
 <table id='customers'>
     <tr>
-    <th>MemberID</th>
-    <th>First Name</th>
-    <th>Middle Name</th>
-    <th>Last Name</th>
-    <th>Status</th>
-    <th>Photo</th>
-    <th>Family Members</th>
+    <th>{{__('field.memberID')}}</th>
+    <th>{{__('field.fName')}}</th>
+    <th>{{__('field.mName')}}</th>
+    <th>{{__('field.lName')}}</th>
+    <th>{{__('field.status')}}</th>
+    <th>{{__('field.photo')}}</th>
+    <th>{{__('field.familyMember')}}</th>
    
     </tr>
     @foreach($result as $data)
@@ -47,7 +47,7 @@
         <td>
         <img style='width:100px; height:70px;' src="../storage/images/{{$data->photo}}" alt="image doesn't exist">
     </td>
-    <td><a href={{'/listOfFamily/'.$data->memberID }}>view Family Members</a></td>
+    <td><a href={{'/listOfFamily/'.$data->memberID }}>{{__('field.viewFamilyMember')}}</a></td>
         
     </tr>
     @endforeach

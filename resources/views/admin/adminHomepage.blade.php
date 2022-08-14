@@ -5,6 +5,13 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Administor</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
    <link rel="stylesheet" href="{{asset('css/layout.css')}}">
    
@@ -45,24 +52,24 @@ a{
               <img src="../assets/logo.jpg"  width="50px" alt="logo is no available" />
           </div>
           <div class="final" >
-           Admin page
+          {{__('field.adminpage')}} 
           </div>
-          <div> <a class="logout" href="{{url('/logout')}}">logout</a></div>
+          <div> <a class="logout" href="{{url('/logout')}}"><i class="fas fa-user"></i></a></div>
         </div>
     </div>
         <div class='card' id='account' style="display:none">
         <h3>the account name</h3>
         <h3>your email</h3>
-        <button onClick=" window.location {{route('logout')}}">logout</button>
+        <button onClick=" window.location {{route('logout')}}">{{__('navbar.logout')}}</button>
         </div>
     </nav>
     <div>
         <div class='left'>
             <ul>
-                <li> <a href="{{ url('/create') }}" class="{{'create'==request()->path()? 'active':''}}">Create staff acount </a></li>
-                <li><a href="{{url('/toSearch') }}" class="{{'toSearch'==request()->path()? 'active':''}}">Search</a></li>
-                <li><a href="{{url('/view') }}" class="{{'view'==request()->path()? 'active':''}}">view staff acount</a></li>
-                <li><a href="{{url('/adminSendNotification') }}" class="{{'adminSendNotification'==request()->path()? 'active':''}}">Send notification</a></li>
+                <li> <a href="{{ url('/create') }}" class="{{'create'==request()->path()? 'active':''}}">{{__('field.createstaff')}}  </a></li>
+                <li><a href="{{url('/toSearch') }}" class="{{'toSearch'==request()->path()? 'active':''}}">{{__('field.search')}} </a></li>
+                <li><a href="{{url('/view') }}" class="{{'view'==request()->path()? 'active':''}}">{{__('field.viewstaffaccount')}} </a></li>
+                <li><a href="{{url('/adminSendNotification') }}" class="{{'adminSendNotification'==request()->path()? 'active':''}}">{{__('field.sendnotification')}} </a></li>
              </ul>
            </div>
            <div id='content' class='right'>

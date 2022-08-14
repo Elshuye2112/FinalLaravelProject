@@ -1,6 +1,6 @@
 @extends('admin.adminHomepage')
 @section('content')
-<h4>Welcome to view staff account page</h4>
+<h4>{{__('field.individualDetail')}}</h4>
 <style>
     a{
         margin-left:5px;
@@ -26,21 +26,23 @@
 <table>
 
 <tr > 
-    <th>Employee ID</th>
-    <th>First name</th>
-    <th>Last Name</th>
-    <th>Role</th>
-    <th>Phone</th>
-    <th>SchemeID</th>
-    <th>Email</th>
-    <th>User Name</th>
-    <th>Photo</th>
-    <th colspan='3' ><center>Actions</center></th> 
+    <th>{{__('field.employeeID')}}</th>
+    <th>{{__('field.fName')}}</th>
+    <th>{{__('field.mName')}}</th>
+    <th>{{__('field.lName')}}</th>
+    <th>{{__('field.role')}}</th>
+    <th>{{__('field.phone')}}</th>
+    <th>{{__('field.schemeID')}}</th>
+    <th>{{__('field.email')}}</th>
+    <th>{{__('field.userName')}}</th>
+    <th>{{__('field.photo')}}</th>
+    <th colspan='3' ><center>{{__('field.actions')}}</center></th> 
 </tr>
 
     <tr >
     <td>{{$staff->employeeID}}</td>
     <td>{{$staff->firstName}}</td>
+    <td>{{$staff->middleName}}</td>
     <td>{{$staff->lastName}}</td>
      <td>{{$staff->role}}</td>
     <td>{{$staff->phone}}</td>
@@ -53,15 +55,15 @@
     <td>
     <form method="POST" action="{{ route('staff.delete', $staff->employeeID) }}">
         @csrf
-     <input name="_method" type="hidden" value="DELETE">
-     <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
+     <input name="_method" type="hidden" value="Delete">
+     <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>{{__('field.deleteI')}}</button>
     </form>
 
     </td>
     <td>
     
         <!-- <a href="" class='btn btn-danger '>delete</a> -->
-        <a href={{"/edit/".$staff->employeeID}} class='btn btn-success'>edit</a>
+        <a href={{"/edit/".$staff->employeeID}} class='btn btn-success'>{{__('field.edit')}}</a>
     </td>
 
  

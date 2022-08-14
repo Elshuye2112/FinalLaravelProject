@@ -1,9 +1,13 @@
 @extends('healthEx/healthExtensionHome')
 @section('content')
+<link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}" />
+
+
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 <h4>Welcome to the view Members page</h4><hr>
+
 <style>
 <style>
     a{
@@ -32,12 +36,12 @@
 <table>
 
 <tr> 
-<th>ID</th>
-    <th>MemberID</th>
-    <th> FirstName</th>
-    <th> LastName</th>
-    <th> photo</th>
-    <th colspan='2'> Actions</th>
+    <th>ID</th>
+    <th>{{__('field.memberID')}}</th>
+    <th> {{__('field.fName')}}</th>
+    <th> {{__('field.mName')}}</th>
+    <th> {{__('field.photo')}}</th>
+    <th colspan='2'> {{__('field.actions')}}</th>
 
 </tr>
   @foreach($family as $data)
@@ -46,13 +50,13 @@
     <td>{{$data->id}}</td>
     <td>{{$data->memberID}}</td>
     <td>{{$data->firstName}}</td>
-    <td>{{$data->lastName}}</td>
+    <td>{{$data->middleName}}</td>
     
     <td>
         <img style='width:100px;' src="../storage/images/{{$data->photo}}" alt="image doesn't exist">
     </td>
     <td>
-        <a href={{"edit/".$data->id}} class='btn btn-success'>edit</a>
+        <a href={{"editFamilyMemberInfo/".$data->id}} class='btn btn-success'>{{__('field.edit')}}</a>
 
     </td>
     <td>        
@@ -60,7 +64,7 @@
      <form method="POST" action="{{ route('children.delete', $data->id) }}">
         @csrf
      <input name="_method" type="hidden" value="DELETE">
-     <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
+     <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>{{__('field.deleteI')}}</button>
     </form>
     </td>
 

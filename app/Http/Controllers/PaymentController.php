@@ -33,15 +33,12 @@ class PaymentController extends Controller
     $payment->cashier=$request->input('cashier');
     $payment->waysOfPayment=$request->input('waysOfPayment');
     $payment->accountID=$request->input('accountID');
-    $payment->save();
-    return redirect()->back();
-
-
-
-
-
-    
-    
+    $result=$payment->save();
+    if($result)
+    return redirect()->back()->with('success','successfully registered');
+  else{
+    return redirec()->back()->with('fail','Not registered successfully');
+  }
 
     }
 
