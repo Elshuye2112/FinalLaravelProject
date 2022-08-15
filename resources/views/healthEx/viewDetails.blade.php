@@ -50,7 +50,7 @@
     <td>{{$data->id}}</td>
     <td>{{$data->memberID}}</td>
     <td>{{$data->firstName}}</td>
-    <td>{{$data->middleName}}</td>
+    <td>{{$data->lastName}}</td>
     
     <td>
         <img style='width:100px;' src="../storage/images/{{$data->photo}}" alt="image doesn't exist">

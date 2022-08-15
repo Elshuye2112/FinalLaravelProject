@@ -109,7 +109,71 @@ return[
 'schemeRegisterHeader'=>'Register community based health insurance scheme',
 'treatedIndividualHeader'=>'List of treated  members ',
 'services'=>'Services',
-///admin
+'next'=>'Next',
+'prev'=>'Previous',
+'forgot'=>'Forgot Your Password?',
+'viewPassword'=>'View password',
+'sendPasswordLink'=>'Send Password Reset Link',
+'resetPassword'=>'Reset Password',
+'passwordConfirm'=>'Confirm password',
+'amharic'=>'አማርኛ',
+'english'=>'English',
+'more'=>'more',
+'about-c1p1'=>'The Agency is working on implementation of two types of health insurance
+systems in the country.The first type of health insurance system is Community Based Health Insurance (CBHI),
+ which comprises the community engaged in the informal sectors of the economy.',
+ 'about-c1p2'=>'The second type of health insurance system is Social Health Insurance (SHI), which comprises the population engaged in the formal sectors of the economy. SHI has been widely implemented in many European, Asian and African countries for years, and now preparatory activities are being finalized to commence implementation of SHI in Ethiopia too.',
+ 'about-c2p1'=>'The Ethiopian Health Insurance Agency was established as an 
+ autonomous federal government organ through Regulation No. 191/2010 with the 
+ objective of implementing health insurance system in the country. The Agency
+  has established 24 branch  offices to implement the health insurance system
+   all over the country',
+   'about-c3p1'=>'A CBHI National Coordination Unit was set up under the supervision of the FMOH/Ethiopian Health Insurance Agency (EHIA) to serve as the executive unit.
+   Health Insurance is one of the strategies to overcome financial challenges through prepaying and pooling fund. It is objected to protect catastrophic health expenditure at the time of health care need.',
+   'about-c3p2'=>'Community Based Health insurance is one of health insurance type that consists members of informal sectors (communities who are engaged in informal sectors). The sustainability of it could be affected by the three components of health Insurance (provider, purchaser and member factors).',
+   'footer-tabout'=>'About us',
+   'contact-us'=>'Contact us',
+   'footer-babout'=>'The Ethiopian Health Insurance Agency was established as an autonomous federal government organ through Regulation No. 191/2010 with the objective of implementing health insurance system in the country. The Agency has established 24 branch offices to implement the health insurance system all over the country',
+  
+   'ourObjective'=>'Our objectives',
+   'objectiveli1'=>'Protect people from health emergencies',
+   'objectiveli2'=>'Accelerate progress towards universal health coverage',
+   'objectiveli3'=>'Woreda transformation ',
+   'objectiveli4'=>'Improve health system responsiveness',
+   'coment'=>'Comment here about the services',
+   'home-c1p1'=>'Universal health coverage (UHC) is a simple but inspiring concept, which has raised fast
+    up the global health agenda that is everyone “whether rich or poor‟ gets the health care they need without suffering financial hardship',
+   'home-c1p2'=>'It aims to ensure people have access to the high-quality health care that they need when they need it, without suffering financial hardship
+
+   Community based health insurance scheme is a mechanism of distributing or pooling of risk among individuals.',
+   'home-c2p1'=>'Community Based Health Insurance Information (CBHII) is a system that reaches out to the part of the communities which is involved in the informal economy
+    sector in Rural, Urban and Pastoral areas in the country.',
+    'home-c2p2'=>'Community Based Health Insurance is a system that is designed to minimize the pressure of healthrelated expenses upon parts of the community who are involved in the informal economy sector and to prevent their fall into povert
+
+    Community based health insurance scheme is a mechanism of distributing or pooling of risk among individuals.',
+    'home-c3p1'=>'CBHI is a way to improve equitable access to health service, sharing costs among members and reducing the financial burdens of health care on the poor.
+
+    Community-based health insurance scheme involves three stakeholders. These are the insurer, the insured and the service provider',
+    'home-c3p2'=>'The use of information and communication technology to create cooperative working environment between these stakeholders in the scheme can improve the accessibility and use of health care services at a point of service 
+    irrespective of time and geographical location',
+    'service-c1p1'=>'A total of 181 (35.4%) household members visited the health  
+    institutions with one sick person within a month, and 185 (36.2%) were sick for 1–5 days',
+    'service-c1p2'=>'The majority of the household members recognized that health centers (479, 93.8%) and hospitals (444, 86.9%) entered into a contract to treat members within the acceptable distance range',
+    'service-c1p3'=>'Receive and investigate suggestions and complaints by members regarding service provision and provide appropriate solutions',
+    'service-c2p1'=>'The CBHI benefit package covers all outpatient and inpatient services at the health center and nearby hospital level except false teeth, eye glasses, and cosmetic procedures',
+    'service-c2p2'=>'Women and children are empowered and better served: Because CBHI scheme members can access health services with no fee at time of service, women and children in particular are benefiting from this system. A mother and her children can access health services without asking the male head of household for money by simply taking her CBHI membership card to the facility',
+    'service-c3p1'=>'A CBHI National Coordination Unit was set up under the supervision of the FMOH/Ethiopian Health Insurance Agency (EHIA) to serve as the executive unit.
+    Create conducive conditions to expand and strengthen health insurance, encourage and coordinate those engaged in the field',
+    'service-c3p2'=>'Approximately three quarters (391, 76.5%) of the household members agreed that the health care providers favored CBHI members in the course of treatments and about half (251, 49.1%) of the household members agreed the total CBHI members’ cost of care was tolerable, with the large majority of the households (480, 93.9%) being self-sponsored
+    After joining a CBHI scheme, members have a one-month waiting period before they can use covered services.',
+
+
+
+
+
+
+
+//admin
 'adminpage'=>'admin page',
 'createstaff'=>'create staff account',
 'search'=>'search',

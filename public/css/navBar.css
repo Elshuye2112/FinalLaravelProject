@@ -1,118 +1,222 @@
-*{
-    padding:0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-   }
-   div.body{
-       /* background-color: azure; */
-      
-  
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
 
-       text-align: center;
-       height: calc(100vh - 60px);
-       width:100%;
-   }
-   nav div.right{
-       float: right;
-   }
-   nav{
-       background: #0082e6;
-       height: 50px;
-       width:100%;
-       position:sticky;
-   }
-   label.logo{
-       color: white;
-       font-size: 34px;
-       line-height: 50px;
-       padding: 0 100px;
-       font-weight: bold;
-   }
-   nav ul{
-       float: right;
-       margin-right: 20px;
-   }
-   nav ul li{
-       display:inline-block;
-       line-height: 50px;
-       margin: 0 5px;
-   }
-   nav ul li a{
-      color: white;
-      font-size: 16;
-      padding: 7px 13px;
-      border-radius:4px ;
-      -webkit-border-radius:4px ;
-      -moz-border-radius:4px ;
-      -ms-border-radius:4px ;
-      -o-border-radius:4px ;
-   }
-   a.active,a:hover{
-       background:#1b9bff;
-       transition: .5s;
-       -webkit-transition: .5s;
-       -moz-transition: .5s;
-       -ms-transition: .5s;
-       -o-transition: .5s;
-   }
-   .checkbtn{
-       font-size: 30px;
-       color: white;
-       float: right;
-       line-height: 50px;
-       margin-right: 40px;
-       cursor: pointer;
-       display: none;
-   }
-   #check{
-       display: none;
-     }
-     @media (max-width: 952px){
-       label.logo{
-         font-size: 30px;
-         padding-left: 50px;
-       }
-       nav ul li a{
-         font-size: 16px;
-       }
-     }
-     @media (max-width: 858px){
-       .checkbtn{
-         display: block;
-       }
-       ul{
-         position: fixed;
-         width: 25%;
-         height: 100vh;
-         background: #2c3e50;
-         top: 50px;
-         left: -100%;
-         text-align: center;
-         transition: all .5s;
-       }
-       nav ul li{
-         display: block;
-         margin: 30px 0;
-         line-height: 30px;
-       }
-       nav ul li a{
-         font-size: 20px;
-       }
-       a:hover,a.active{
-         background: none;
-         color: #0082e6;
-       }
-       #check:checked ~ ul{
-         left: 0;
-       }
-       div.body{
-           width: calc(100%-25%);
-       }
-     }
-     section{
-       background: url(bg1.jpg) no-repeat;
-       background-size: cover;
-       height: calc(100vh - 60px);
-     }
+*{
+ padding:0;
+ margin: 0;
+ text-decoration: none;
+ list-style: none;
+ box-sizing: border-box;
+ font-family:sans-serif;
+}
+.wellcome{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #0082e6;
+    color: white;
+    position: fixed;
+    top: 0;
+    bottom: 2px;
+    text-shadow: 2px 2px 4px #000000;
+    margin-bottom:1px ;
+    z-index: 3;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+
+}
+div.body{
+    background-color: rgb(224, 233, 233);
+    text-align: center;
+    width:100%;
+}
+nav div.right{
+    float: right;
+}
+nav{
+    background: #c6c9cc;
+    height: 50px;
+    width:100%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    position: fixed;
+    top: 63px;
+    z-index: 10;
+}
+label.logo{
+    color: white;
+    font-size: 34px;
+    line-height: 50px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+nav ul li{
+    display:inline-block;
+    line-height: 50px;
+    margin: 0 5px;
+}
+nav ul li a{
+   color:#0082e6;
+   font-size: 16;
+   padding: 7px 13px;
+   border-radius:4px ;
+   -webkit-border-radius:4px ;
+   -moz-border-radius:4px ;
+   -ms-border-radius:4px ;
+   -o-border-radius:4px ;
+}
+.active,a:hover{
+    color: white;
+    background:#0082e6;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 50px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+  }
+  .footer{
+    height: 400px;
+    background-color: white;
+    margin: 40px;
+}
+/* .columuns{
+    columns: 4;
+    padding: 30px;
+}
+.colCards{
+    height: max-content;
+    padding: 40px;
+    width:100%;
+    margin:20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    background-color: white;
+} */
+.card-columns{
+    column-count: 4;
+    margin-top: 30px;
+    align-items: center;
+}
+.card{
+    width:30%;
+    height: max-content;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    margin: 30px;
+    background-color: #ffffffef;
+    padding: 10px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    z-index: 0;
+}
+  @media (max-width: 952px){
+    label.logo{
+      font-size: 30px;
+      padding-left: 50px;
+    }
+    nav ul li a{
+      font-size: 16px;
+    }
+  }
+  @media screen and (max-width: 858px){
+    .checkbtn{
+      display: block;
+    }
+    .wellcome h1{
+        font-size:18px;
+    }
+    .card-columns{
+        column-count: 2;
+        margin-top: 30px;
+    }
+    ul{
+      position: fixed;
+      width: 40%;
+      height: 100vh;
+      background: #2c3e50;
+      top: 50px;
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+    }
+    nav ul li{
+      display: block;
+      margin: 30px 0;
+      line-height: 30px;
+    }
+    nav ul li a{
+      font-size: 20px;
+    }
+    p{
+        padding-left: 10px;
+        padding-right: 10px;
+        line-height: 40px;
+    }
+    a:hover,a.active{
+      background: none;
+      color: #0082e6;
+    }
+    .colorBach{
+        background-color:#21618c ;
+    }
+    #check:checked ~ ul{
+      left: 0;
+    }
+    div.body{
+        width: calc(100%-25%);
+    }
+    .columuns{
+        columns: 2;
+    }
+  }
+  section{
+    background: url(bg1.jpg) no-repeat;
+    background-size: cover;
+    height: calc(100vh - 60px);
+  }
+  /*///////////////////////////*/
+  /*
+.card-deck{
+    display: flex;
+    padding: 30px;
+}
+*/
+/* .card-columns {
+    @include media-breakpoint-only(sm) {
+      column-count: 2;
+    }
+}
+.card-columns{
+    column-count: 4;
+    margin-top: 30px;
+}
+.card{
+    width: 290px;
+    height: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    margin: 30px;
+    background-color: #ffffffef;
+    padding: 10px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+.card-img-top{
+    width: 200px;
+    height: 100px;
+}*/
+
+

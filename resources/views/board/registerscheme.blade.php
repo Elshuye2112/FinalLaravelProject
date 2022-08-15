@@ -14,7 +14,7 @@
                         
                             <label for="schemeID">{{__('field.schemeID')}}</label><br>
 
-                            <input type="text" id="Name" name="schemeID" ><br>
+                            <input type="text" id="Name" name="schemeID" required><br>
                          
                               <label for="lname">{{__('field.name')}}</label><br>
                             
@@ -44,9 +44,9 @@
                            
                               <input type="email" id="email" name="email" ><br>
                             
-                              <label for="bankAccountID">{{__('field.acountID')}} </label><br>
+                              <label for="bankAccountID">{{__('field.acountID')}}  </label><br>
                             
-                              <input type="text" id="bankaccountID" name="accountID" >
+                              <input type="text" id="bankaccountID" name="accountID" required>
                           <div class="buttonContainer" id="button">
                             <input class="btn btn-danger" type="reset" value="{{__('field.reset')}}">
                             <input class="btn btn-primary" type="submit" value="{{__('field.register')}}">

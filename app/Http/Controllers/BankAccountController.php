@@ -23,7 +23,7 @@ class BankAccountController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
-    { 
+    {    
 
 
         if($request){
@@ -32,11 +32,15 @@ class BankAccountController extends Controller
              $bankAccount->ownerName=$request->input('ownerName');
              $bankAccount->accountNumber=$request->input('accountNumber');
              $bankAccount->type=$request->input('accountType');
-             $bankAccount->save();
+            $result= $bankAccount->save();
+            if($result)
              return redirect()->back()->with('success','success');
+             else{
+                return redirect()->back()->with('fail','Fail to store');
+             }
          }
          else{
-          echo 'error';
+          return redirect()->back()->with('fail','Not registered ');
          }
 
 
@@ -59,30 +63,34 @@ class BankAccountController extends Controller
      * @param  \App\Models\BankAccount  $bankAccount
      * @return \Illuminate\Http\Response
      */
-    public function show(BankAccount $bankAccount)
+    public function showForFinanceOfficer()
     {
         $data=BankAccount::all();
-        return $data;
+        return view('financeOfficer.fviewBankAcounts',['data'=>$data]);
+    }
+    public function showForHealthEx()
+    {
+        $data=BankAccount::all();
+        return view('healthEx.hviewBankAcounts',['data'=>$data]);
+    }
+    public function showForBoard()
+    {
+        $data=BankAccount::all();
+        return view('board.bviewBankAcounts',['data'=>$data]);
+    }
+    public function deleteAcount($id){
+        $acount=BankAccount::find($id);
+        $acount->delete();
+        return redirect()->back()->with('success','success');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\BankAccount  $bankAccount
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(BankAccount $bankAccount)
     {
-        //
+        
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BankAccount  $bankAccount
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, BankAccount $bankAccount)
     {
         //

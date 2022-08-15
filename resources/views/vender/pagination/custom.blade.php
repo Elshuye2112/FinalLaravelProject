@@ -3,10 +3,10 @@
     <ul class="pagination justify-content-end">
         @if ($paginator->onFirstPage())
             <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                <a class="page-link" href="#" tabindex="-1">{{__('field.prev')}}</a>
             </li>
         @else
-            <li class="page-item"><a class="page-link" href="{{ $paginator->previousPageUrl() }}">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="{{ $paginator->previousPageUrl() }}">{{__('field.prev')}}</a></li>
         @endif
       
         @foreach ($elements as $element)
@@ -30,11 +30,11 @@
         
         @if ($paginator->hasMorePages())
             <li class="page-item">
-                <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">Next</a>
+                <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">{{__("field.next")}}</a>
             </li>
         @else
             <li class="page-item disabled">
-                <a class="page-link" href="#">Next</a>
+                <a class="page-link" href="#">{{__('field.next')}}</a>
             </li>
         @endif
     </ul>

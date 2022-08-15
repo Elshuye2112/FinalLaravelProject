@@ -46,7 +46,7 @@
     <td>{{$member->status}}</td>
     <td>{{$member->phone}}</td>
     <td>
-        <img style='height:40px;width:20px;' src="../storage/images/{{$member->photo}}" alt="image doesn't exist">
+        <img style='width:70px;' src="../storage/images/{{$member->photo}}" alt="image doesn't exist">
     </td>
     <td>
     <form method="POST" action="{{ route('member.delete', $member->memberID) }}">

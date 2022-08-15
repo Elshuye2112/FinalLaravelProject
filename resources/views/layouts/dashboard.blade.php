@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>Password reset</title>
+  <title>{{__('field.resetPassword')}}</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css"/>
 
@@ -21,7 +21,7 @@
 <body>
 
 <div class="container">
-    <h2 style="margin-top: 12px;" class="alert alert-success">password reset page -
+    <h2 style="margin-top: 12px; background-color:blue;color:white;" class="alert alert-success">{{__('field.resetPassword')}}
      </h2><br>
      <div class="row" style="clear: both;margin-top: 18px;">
  

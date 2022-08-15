@@ -18,7 +18,7 @@ class Children extends Model
           'dateOfBirth',
           'gender',
           'status',
-         'photo',
-        'employeeID',
+          'photo',
+          'employeeID',
     ];
 }

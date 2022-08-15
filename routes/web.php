@@ -48,9 +48,9 @@ Route::get('lang/change', [LangController::class, 'change'])->name('changeLang')
 // Route::get('/',function(){
 //     return('home');
 // });
-// Route::get('/', function () {
-//     return view('Home/navBar');
-// });
+//  Route::get('/', function () {
+//          return view('Home/navBar');
+//  });
 Route::get('/about',function(){
     // App::setlocale('amh');
     return view('Home.about');
@@ -127,6 +127,7 @@ Route::get('/giveMembershipID/{id}',[MemberController::class,'giveMembershipID']
 Route::get('/generateMembershipID',[MemberController::class,'generateMembershipID']);
 Route::get('/viewRequestFromMember',[HealthExtensionController::class,'viewRequest']);
 Route::delete('deleteRequest/{id}',[HealthExtensionController::class,'deleteRequest'])->name('request.delete');
+Route::get('/hviewBankAcount',[BankAccountController::class,'showForHealthEx']);
 // Route::get('/viewRegistredMember',function () {
 //     return view('healthEx/viewMembers');
 // });
@@ -139,10 +140,14 @@ return view('memberpage/index');
 Route::get('/familyMember',function(){
     return view('healthEx/familyMember');
 });
+Route::get('/familyDetails',[MemberController::class,'familyDetails']);
 Route::get('/mviewnotification',function () {
     return view('memberpage/viewNotification');
 });
 Route::get('/memberProfile',[MemberController::class,'memberViewProfile']);
+Route::get('/memberViewDetail/{id}',[MemberController::class,'memberViewDetail']);
+Route::get('/memberViewChild',[ChildrenController::class,'memberViewChild']);
+Route::get('/childDetail/{id}',[ChildrenController::class,'memberViewChildDetail']);
 Route::get('/memberRequest',[UpdateRequestController::class,'updateRequest']);
 Route::post('/storeRequest',[UpdateRequestController::class,'store']);
 ///////////////////////admin
@@ -198,6 +203,10 @@ Route::post('/insert',[BankAccountController::class,'create']);
 Route::get('/show',[BankAccountController::class,'show']);
 Route::post('/insertScheme',[SchemeController::class,'create']);
 Route::post('/sendNotificationdemlew',[BoardController::class,'sendNotification']);
+Route::get('/bviewBankAcount',[BankAccountController::class,'showForBoard']);
+Route::delete('/delete/{id}',[BankAccountController::class,'deleteAcount'])->name('acount.delete');
+
+
 
 //Cardofficer
 
@@ -249,4 +258,6 @@ Route::get('/generateReport',function(){
 Route::get('/financeViewNotification',function(){
     return view('financeOfficer/viewNotification');
 });
+Route::get('/fviewBankAcount',[BankAccountController::class,'showForFinanceOfficer']);
+
 

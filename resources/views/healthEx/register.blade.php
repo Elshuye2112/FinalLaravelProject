@@ -9,25 +9,26 @@
                     <div class='alert alert-danger'>{{Session::get('fail')}}</div>
                     @endif    
     @csrf
-        <div style="padding: 30px">
-            <div class="container">
+      <div class="container">
+        <div style="padding: 20px">
+            <!-- <div class="container"> -->
                 <center>
-                    <h3 style="color:rgb(19, 112, 252)">{{__('field.registerMemberForm')}}</h3>
+                    <h4 >{{__('field.registerMemberForm')}}</h4>
                 </center>
                 <hr>
                 <div>
                     <div class="bodyleft">
                     <label> {{__('field.memberID')}}</label><br>
-                        <input type="text" name="memberID" placeholder="{{__('memberID')}}" size="15"  /> <br>
+                        <input type="text" name="memberID"  size="15"  /> <br>
                         <span style='color:red'>@error('memberID'){{$message}}@enderror</span><br>
                         <label> {{__('field.fName')}} </label><br>
-                        <input type="text" name="fName" placeholder="Firstname" size="15" /> <br>
+                        <input type="text" name="fName"  /> <br>
                         <span style='color:red'>@error('fName'){{$message}}@enderror</span><br>
                         <label> {{__('field.mName')}} </label><br>
-                        <input type="text" name="mName" placeholder="Middlename" size="15" /> <br>
+                        <input type="text" name="mName"  size="15" /> <br>
                         <span style='color:red'>@error('mName'){{$message}}@enderror</span><br>
                         <label> {{__('field.lName')}} </label><br>
-                        <input type="text" name="lName" placeholder="Lastname" size="15" /> <br>
+                        <input type="text" name="lName"  size="15" /> <br>
                         <span style='color:red'>@error('lName'){{$message}}@enderror</span><br>
                         <label style="padding: 6px">{{__('field.gender')}}</label><br>
                         <input type="radio" value="Male" name="gender" checked> <label>{{__('field.wond')}}</label>

@@ -1,7 +1,6 @@
 @extends('healthEx/healthExtensionHome')
 @section('content')
 <link rel="stylesheet" href="../css/inputForm.css">
-<link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}" />
 
 <body>
     <div style="padding: 20px">

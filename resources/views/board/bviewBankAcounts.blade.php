@@ -1,14 +1,8 @@
-@extends('memberpage/index')
+@extends('financeOfficer.financeOfficerHomepage')
 @section('content')
-<head>
-    <link rel="stylesheet" href="css/layout.css">
-</head>
-<h4>Welcome to the view profile page <hr></h4>
-
-<style>
 <style>
     a{
-        margin-left:20px;
+        margin-left:5px;
         border-radius:20px;
     }
     table{
@@ -21,51 +15,41 @@
     td,th{
         border:1px solid #ddd;
         text-align:left;
-        padding:8px;
+        padding:3px;
 
     }
     tr:nth-child(even){
         background-color:#ddd;
     }
 </style>
-
-
+<h4>{{__('field.cashinHeader')}}</h4><hr>
 <table>
+    <tr>
+        <th>{{__('field.cashier')}}</th>
+        <th>{{__('field.amount')}}</th>
+        <th>{{__('field.dateOfPayment')}}</th>
+        <th>{{__('field.waysOfPayment')}}</th>
+        <th>{{__('field.actions')}}</th>
+    </tr>
+    @foreach($data as $adata)
+    <tr>
+        <td>{{$adata->accountID}}</td>
+        <td>{{$adata->ownerName}}</td>
+        <td>{{$adata->accountNumber}}</td>
+        <td>{{$adata->type}}</td>
+         <td><a href={{"/editBankAcount/".$adata->accountID}} class='btn btn-primary'>{{__('field.edit')}}</a></td>
+       <td> 
+      <form method="POST" action="{{ route('acount.delete', $adata->accountID) }}">
+        @csrf
+     <input name="_method" type="hidden" value="DELETE">
+     <button type="submit" class="btn btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>{{__('field.deleteI')}}</button>
+    </form>
+  </td>
 
-<tr> 
-    <th>{{__('field.id')}}</th>
-    <th>{{__('field.memberID')}}</th>
-    <th> {{__('field.fName')}}</th>
-    <th> {{__('field.lName')}}</th>
-    <th> {{__('field.photo')}}</th>
-    <th colspan='2'> {{__('field.actions')}}</th>
 
-</tr>
-  @foreach($family as $data)
-  
-    <tr >
-    <td>{{$data->id}}</td>
-    <td>{{$data->memberID}}</td>
-    <td>{{$data->firstName}}</td>
-    <td>{{$data->lastName}}</td>
-    
-    <td>
-        <img style='width:100px;' src="../storage/images/{{$data->photo}}" alt="image doesn't exist">
-    </td>
-    <td>
-        <a href={{"familyDetails/".$data->id}} class='btn btn-success'>{{__('field.edit')}}</a>
-
-    </td>
-    <td>        
-        <!-- <a href={{"deleteChild/".$data->id}} class='button delete-confirm'>delete</a> -->
-    
-    </td>
-
-    </tr> 
+    </tr>
     @endforeach
-
 </table>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
@@ -89,4 +73,6 @@
       });
   
 </script>
+
+
 @endsection

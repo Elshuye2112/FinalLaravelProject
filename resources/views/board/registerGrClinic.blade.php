@@ -3,12 +3,9 @@
 @section('content')
 <head>
 <link rel="stylesheet" type='text/css' href="{{asset('css/inputForm.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('css/layout.css')}}"> 
 <link rel="stylesheet" href="../css/inputForm.css">
-<link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">  
 </head>
 <body>
-<link rel="stylesheet" href="../css/inputForm.css">
               <form action="{{url('/registerGClinic')}}" method ='post'>
               @if(Session::has('success'))
                     <div class='alert alert-success'>{{Session::get('success')}}</div>
@@ -25,7 +22,7 @@
                 <hr>
                 <div>
                     <div class="bodyleft">    
-                    <label for="G-ClinicID">{{__('field.clinicID')}}</label>
+                    <label for="G-ClinicID">{{__('field.clinicID')}} required</label>
                     <input type="text" name="G-ClinicID" placeholder="G-ClinicID" size="15"  /> <br>
                         <span style='color:red'>@error('G-ClinicID'){{$message}}@enderror</span><br>       
           

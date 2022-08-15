@@ -111,6 +111,20 @@ class ChildrenController extends Controller
     
       return view('healthEx.editFamilyMember',['data'=>$data]);
     }
+    public function memberViewChild(){
+      $email=Session()->get('loginEmail');
+      $data=DB::table('members')
+      ->join('childrens','members.memberID','=','childrens.memberID')
+      ->select('childrens.id','childrens.memberID','childrens.firstName',
+      'childrens.lastName','members.photo','childrens.photo')
+      ->where('members.email','=',$email)
+      ->get();
+     return view('memberpage.viewChild',['family'=>$data]);
+    }
+    public function memberViewChildDetail($id){
+      $data=Children::find($id);
+      return view('memberpage.childDetail',['data'=>$data]);
+    }
     
     /**
      * Update the specified resource in storage.

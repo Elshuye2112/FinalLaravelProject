@@ -27,8 +27,7 @@
 
 <tr>
 
-    <th>          {{__('field.memberID')}} 
-</th>
+    <th> {{__('field.memberID')}} </th>
     <th>{{__('field.subject')}} </th>
     <th>{{__('field.Description')}} </th> 
     <th>{{__('field.Dateofsend')}} </th> 

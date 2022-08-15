@@ -260,11 +260,15 @@ class MemberController extends Controller
       $member->password=$hashedPassword;
      // $member->member_employeeID=$request->input('employeeID');
       $member->member_employeeID=$staffID;
-      $member->save();
-    
+     $result= $member->save();
+
+      if($result){ 
       return redirect()->back()->with('success','successfully updated');
+          }
       // ->back()->with('success','member registered successfully');
-       
+      else{
+        return redirect()->back()->with('fail','Some problem occur to  update');
+       }
 
    
     }
@@ -298,14 +302,30 @@ class MemberController extends Controller
     }
     public function memberViewProfile(){
 
+     $email=Session()->get('loginEmail');
+     $member=Member::where('email','=',$email)->first(); 
+    return view('memberpage.memberProfile',['data'=>$member]);
+    
+    } 
+    public function memberViewChild(){
       $email=Session()->get('loginEmail');
-     $data=DB::table('members')
-     ->join('childrens','members.memberID','=','childrens.memberID')
-     ->select('childrens.id','childrens.memberID','childrens.firstName',
-     'childrens.lastName','members.photo','childrens.photo')
-     ->where('members.email','=',$email)
-     ->get();
-     return view('memberpage/viewProfile',['family'=>$data]); 
+      $data=DB::table('members')
+      ->join('childrens','members.memberID','=','childrens.memberID')
+      ->select('childrens.id','childrens.memberID','childrens.firstName',
+      'childrens.lastName','members.photo','childrens.photo')
+      ->where('members.email','=',$email)
+      ->get();
+    }
+    public function memberViewDetail($id){
+      $data=Member::find($id);
+      return view('memberpage.memberDetail',['data'=>$data]);
+
+    }
+    public function memberViewChildDetail($id){
+
+      $data=Children::find($id);
+      return $data;
+
     }
     public function renew($id){
       $data=Member::find($id);
