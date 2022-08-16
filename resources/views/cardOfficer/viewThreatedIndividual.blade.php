@@ -27,18 +27,16 @@
     <tr>
     <th>{{__('field.memberID')}}</th>
     <th>{{__('field.fName')}}</th>
-    <th>{{__('field.lName')}}</th>
+    <th>{{__('field.mName')}}</th>
     <th>{{__('field.clinicID')}}</th>
-    <th>{{__('field.phone')}}</th>
     <th>{{__('field.dateOfTreatment')}}</th>
     </tr>
     @foreach($allData as $data)
     <tr>
-        <td>{{$data->memberId}}</td>
+        <td>{{$data->memberID}}</td>
         <td>{{$data->firstName}}</td>
         <td>{{$data->lastName}}</td>
-        <td>{{$data->gratitudeclinicID}}</td>
-        <td>{{$data->phone}}</td>
+        <td>{{$data->name}}</td>
         <td>{{$data->created_at}}</td>
     </tr>
     @endforeach

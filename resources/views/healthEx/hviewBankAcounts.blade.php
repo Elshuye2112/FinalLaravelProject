@@ -1,4 +1,4 @@
-@extends('financeOfficer.financeOfficerHomepage')
+@extends('healthEx.healthExtensionHome')
 @section('content')
 <style>
     a{
@@ -39,9 +39,7 @@
     </tr>
     @endforeach
 </table>
-<div class="col-md-12" >
- {{ $adata->links('vender.pagination.custom')}}
-</div>
+
 
 
 @endsection

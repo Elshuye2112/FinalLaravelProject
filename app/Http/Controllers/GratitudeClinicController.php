@@ -27,6 +27,19 @@ class GratitudeClinicController extends Controller
   
     public function create(Request $request)
     {
+        $this->validate($request,[
+            'G-ClinicID'=>'required',
+            'name'=>'required',
+            'region'=>'required',
+            'zone'=>'required',
+            'woreda'=>'required',
+            'services'=>'required',
+            'fax'=>'required|numeric',
+            'postalCode'=>'required|',
+            'email'=>'required|email',
+            'officeTelephone'=>'required|numeric',
+            'accountID'=>'required|exists:bank_acounts',
+          ]);
         $email=$request->session()->get("loginEmail");
         $board=staff::where('email','=',$email)->first();
         $boardID=$board->employeeID;
@@ -45,7 +58,6 @@ class GratitudeClinicController extends Controller
         $gratitudeClinic->officeTelephone =$request->input('officeTelephone');
         $gratitudeClinic->staffID=$boardID;
         $gratitudeClinic->accountID= $request->input('accountID');
-
         $result=$gratitudeClinic->save();
         if($result)
         return redirect()->back()->with('success','registered successfully');

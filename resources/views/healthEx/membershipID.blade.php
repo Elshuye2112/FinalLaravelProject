@@ -32,9 +32,7 @@
 <tr > 
    
     <th>{{__('field.fName')}}</th>
-    <th>{{__('field.mName')}}</th>
-    <th>{{__('field.lName')}}</th>
- 
+    <th>{{__('field.mName')}}</th> 
     <th>{{__('field.photo')}}</th> 
     
    
@@ -43,7 +41,6 @@
   <tr>
     <td>{{$data->firstName}}</td>
     <td>{{$data->middleName}}</td>
-    <td>{{$data->lastName}}</td>
     <td>
         <img style='width:100px;' src="{{public_path("storage/images/".$data->photo)}}" alt="{{$data->photo}}">
 </td>

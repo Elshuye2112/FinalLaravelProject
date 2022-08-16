@@ -62,9 +62,9 @@
                               <input type="text" name="officeTelephone"   /> <br>
                         <span style='color:red'>@error('officeTelephone'){{$message}}@enderror</span><br>  
                   
-                              <label for="staffID">{{__('field.employeeID')}}</label>
+                              <!-- <label for="staffID">{{__('field.employeeID')}}</label>
                               <input type="text" name="saffID"   /> <br>
-                        <span style='color:red'>@error('staffID'){{$message}}@enderror</span><br> 
+                        <span style='color:red'>@error('staffID'){{$message}}@enderror</span><br>  -->
                               <label for="accountID">{{__('field.acountID')}}</label>
                               <input type="text" name="accountID"  /> <br>
                         <span style='color:red'>@error('accountID'){{$message}}@enderror</span><br> 

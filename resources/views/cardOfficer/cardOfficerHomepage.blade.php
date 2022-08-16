@@ -18,7 +18,7 @@ integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7T
 <body>
   <div>
     <div class="wellcome" >
-        <center><h1>Community based health insurance</h1></center>
+        <center><h1>{{__('field.header')}}</h1></center>
     </div>
      <div style='margin-top:102px;'>
       <div style='float:left;'>
@@ -29,10 +29,10 @@ integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7T
                    <span class='fas fa-times' id='times'></span>
                    <span class='fas fa-bars' id='bars'></span>
               </label>
-              <div class='head'>Menu</div>
+              <div class='head'>{{__('field.menu')}}</div>
           <ol>
             <li> <a href="{{url('/validateEligibility')}}" class="{{'validateEligibility'==request()->path()? 'active':''}}">{{__('field.searchforeligablity')}} </a></li>
-            <li>  <a href="{{url('/viewNotification') }}" class="{{'viewNotification'==request()->path()? 'active':''}}">{{__('field.viewnotification')}} </a></li>
+            <!-- <li>  <a href="{{url('/viewNotification') }}" class="{{'viewNotification'==request()->path()? 'active':''}}">{{__('field.viewnotification')}} </a></li> -->
             <li>  <a href="{{url('/registerIndividual') }}" class="{{'registerIndividual'==request()->path()? 'active':''}}" >{{__('field.registerTreatedIndividual')}} </a></li>
             <!-- <li>  <a href="{{ url('/generatReport') }}">Generate report</a></li> -->
             <li><a href="{{url('/viewThreatedIndividual')}}" class="{{'viewThreatedIndividual'==request()->path()? 'active':''}}">{{__('field.viewtreatedindividual')}} </a></li>
@@ -40,7 +40,7 @@ integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7T
             </div>
      </div>
      <div class='navAndMain'>
-              <div class='topNav'><h3>{{__('field.welcomeToCardOfficerPage')}}</h3>
+              <div class='topNav'><h3>{{__('field.cardOfficerHeader')}}</h3>
                   <a class="logout" href="{{url('/logout')}}" >{{__('navbar.logout')}}</a>
               </div>
               <div class='displayBody'>

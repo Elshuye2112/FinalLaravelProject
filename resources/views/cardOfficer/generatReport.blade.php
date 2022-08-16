@@ -35,11 +35,11 @@
     </tr>
     @foreach($treated as $data)
     <tr>
-        <td>{{$data->memberId}}</td>
+        <td>{{$data->memberID}}</td>
         <td>{{$data->firstName}}</td>
         <td>{{$data->lastName}}</td>
+        <td>{{$data->name}}</td>
         <td>{{$data->gratitudeclinicID}}</td>
-        <td>{{$data->phone}}</td>
         <td>{{$data->created_at}}</td>
     </tr>
     @endforeach

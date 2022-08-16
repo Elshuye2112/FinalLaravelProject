@@ -46,7 +46,7 @@ class MemberController extends Controller
       [  
         'memberID'=>'required|unique:members|max:255',
         'photo'=>'nullable|mimes:jpeg,png,jpg,gif|image|' ,
-        'phone'=>'required|min:10|numeric',
+        'phone'=>'required|min:10|numeric|unique:members',
         'fName'=>'required|min:3|string',
         'mName'=>'required|min:3|string',
         'lName'=>'required|min:3|string',
@@ -107,9 +107,12 @@ class MemberController extends Controller
       $member->password=$hashedPassword;
      // $member->member_employeeID=$request->input('employeeID');
       $member->member_employeeID=$staffID;
-      $member->save();
-    
+     $result= $member->save();
+      if($result)
       return redirect()->back()->with('success','Successfully registered');
+      else{
+      return redirect()->back()->with('fail','Some problem occur');
+      }
       // ->back()->with('success','member registered successfully');
        
 
@@ -135,16 +138,44 @@ class MemberController extends Controller
      
      }
     public function searchMember(Request $request){
-      $member=Member::find($request->search);
-     return view('healthEx/searchedValue',['member'=>$member]);
-      ;
+      // $member=Member::find($request->search);
+          
+      $this->validate($request,[ 
+        'search'=>'required',
+      ]
+    );
+      $result=$request['search'];
+       $phone=DB::select('select memberID,firstName,middleName,lastName,status,photo,phone from members where phone=?',[$result]);
+       $memberID=DB::select('select memberID,firstName,middleName,lastName,status,photo,phone from members where memberID=?',[$result]);
+       $userName=DB::select('select memberID,firstName,middleName,lastName,status,photo,phone from members where userName=?',[$result]);
+       $email=DB::select('select memberID,firstName,middleName,lastName,status,photo,phone from members where email=?',[$result]);
+
+
+       if($phone){
+        return view('healthEx/searchedValue',['member'=>$phone]);
+      }
+       else if($memberID){
+        return view('healthEx/searchedValue',['member'=>$memberID]);
+      }
+       else if($userName){
+        return view('healthEx/searchedValue',['member'=>$userName]);
+
+       }
+       else if($email){
+        return view('healthEx/searchedValue',['member'=>$email]);
+
+       }
+       else{
+        return redirect()->back()->with('fail','No user  with the input requirements');
+       }
+      
+      
     }
     public function show()
     {   
         
         $member = Member::paginate(5);
-        // return view('healthEx.viewMembers');
-        // DB::table('members')->paginate(15) //you can  use in iin theplace of $member
+
          return view('healthEx/viewMembers',['members'=>$member]);
 
     }
@@ -161,12 +192,7 @@ class MemberController extends Controller
        return $pdf->download('memberID.pdf');
    
      
-      // return $result;
-      // return view('healthEx.membershipID',['data'=>$data,'result'=>$result]);
-      // $data=DB::table('members')
-      // ->join('childrens','members.memberID','=','childrens.memberID')
-      // ->select('childrens.firstName','childrens.middleName','childrens.photo')->get();
-      //return $data;
+
       
     }
     public function generateMembershipID($id){
@@ -198,10 +224,25 @@ class MemberController extends Controller
      * @return \Illuminate\Http\Response
      */
     // for children
-    public function edit($id)
+    public function edit($id,Request $request)
     {
-       $data=Member::find($id) ;
-      return view('healthEx.editMember',['data'=>$data]);
+      $email=$request->session()->get("loginEmail");
+      $staff=Staff::where('email','=',$email)->first();
+      $rr= Member::where('memberID','=',$id)->first();
+     
+      $staffID=$staff->employeeID;
+      $data=Member::find($id) ;
+      $result=$data->member_employeeID;
+      $str2=implode(" ",$data);
+      $str3=implode(" ",$staffID);
+      
+      dd(strcmp($str2,$str3));
+      if($rr===$staffID){
+             return view('healthEx.editMember',['data'=>$data]);
+    }
+      else{
+        return redirect()->back()->with('fail','you have not privilagefor editing');
+      }
     }
 
     /**
@@ -291,11 +332,29 @@ class MemberController extends Controller
     }
     //for card officer validity of eligibility
     public function validatePhone(Request $request){
-      $phone=$request['search'];
+    
+      $this->validate($request,[ 
+        'search'=>'required',
+      ]
+    );
+      $result=$request['search'];
       // $result=Member::where('phone','like','%'.$phone.'%')->get();
-       $result=DB::select('select memberID,firstName,middleName,lastName,status,photo from members where phone=?',[$phone]);
-       if($result){
-        return view('cardOfficer.validatedResultPage',['result'=>$result]) ;
+       $phone=DB::select('select memberID,firstName,middleName,lastName,status,photo from members where phone=?',[$result]);
+       $memberID=DB::select('select memberID,firstName,middleName,lastName,status,photo from members where memberID=?',[$result]);
+       $userName=DB::select('select memberID,firstName,middleName,lastName,status,photo from members where userName=?',[$result]);
+
+       if($phone){
+        return view('cardOfficer.validatedResultPage',['result'=>$phone]) ;
+       }
+       else if($memberID){
+        return view('cardOfficer.validatedResultPage',['result'=>$memberID]) ;
+       }
+       else if($userName){
+        return view('cardOfficer.validatedResultPage',['result'=>$userName]) ;
+
+       }
+       else{
+        return redirect()->back()->with('fail','No user  with the input requirements');
        }
       
    

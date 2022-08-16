@@ -10,7 +10,10 @@
 <body>
     <div>
         <div class="wellcome">
-            <center> <h1>{{__('localization.welcome')}}</h1></center>
+            <div style="width: 30%;">
+                <img class="logo" src="/assets/logo.jpg" alt="LOGO" height="80px" width="80px">
+            </div >
+            <center> <h1>{{__('field.header')}}</h1></center>
         </div>
         <div style="margin-top: 114px">
             <nav>
@@ -25,11 +28,11 @@
                   <li><a href="{{url('/services')}}" class="{{'services'==request()->path()? 'active':''}}">{{__('navbar.profile')}}</a></li>
                   <li><a href="{{url('/contact')}}" class="{{'contact'==request()->path()? 'active':''}}">{{__("localization.contact")}}</a></li>
                   <!-- <li><a href="{{url('/help')}}" class="{{'help'==request()->path()? 'active':''}}">{{__('navbar.help')}}</a></li> -->
-                  <li><select class="changeLang">
-                  <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>{{__('field.english')}}</option>
+                  <li ><select style='height: 30px; width:70px' class="changeLang">
+                  <option  value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>{{__('field.english')}}</option>
                   <option value="amh" {{ session()->get('locale') == 'amh' ? 'selected' : '' }}>{{__('field.amharic')}}</option>
                   </select></li>
-                  <li><a href="{{url('/login')}}" class="{{'login'==request()->path()? 'active':''}}">{{__('navbar.login')}}</a></li>
+                  <li style='margin-left:100px;'><a style='background-color:indigo;' href="{{url('/login')}}" class="{{'login'==request()->path()? 'active':''}}">{{__('navbar.login')}}</a></li>
                
                </ul>
 

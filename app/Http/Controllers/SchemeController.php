@@ -24,6 +24,17 @@ class SchemeController extends Controller
      */
     public function create(Request $request)
     {
+        $this->validate($request,[
+            'schemeID'=>'required',
+            'schemeName'=>'required',
+            'region'=>'required|numeric',
+            'zone'=>'required|numeric',
+            'woreda'=>'required',
+            'officetelephone'=>'required|numeric',
+            'fax'=>'required|numeric',
+            'email'=>'required|unique:scheme',
+            'accountID'=>'required|exists:bank_accounts',
+          ]);
         $scheme=new Scheme();
 
         if($request){
@@ -41,8 +52,12 @@ class SchemeController extends Controller
             return redirect()->back()->with('success','success');
         }
         else{
-         echo 'error';
+         return redirect()->back()->with('fail','Not registered ');
         }
+    }
+    public function bViewScheme(){
+       $result= Scheme::all();
+       return view('board.viewScheme',['scheme'=>$result]);
     }
 
     /**

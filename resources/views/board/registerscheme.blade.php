@@ -14,19 +14,26 @@
                         
                             <label for="schemeID">{{__('field.schemeID')}}</label><br>
 
-                            <input type="text" id="Name" name="schemeID" required><br>
+                            <input type="text" id="Name" name="schemeID" ><br>
+                            <span style='color:red'>@error('schemeID'){{$message}}@enderror</span><br> 
+
                          
                               <label for="lname">{{__('field.name')}}</label><br>
                             
                               <input type="text" id="name" name="schemeName" ><br>
+                              <span style='color:red'>@error('schemeName'){{$message}}@enderror</span><br> 
+
           
                               <label for="region">{{__('field.region')}}</label><br>
                           
                               <input type="text" id="region" name="region" ><br>
-                            
+                              <span style='color:red'>@error('region'){{$message}}@enderror</span><br> 
+
                               <label for="zone">{{__('field.zone')}} </label><br>
                           
                               <input type="text" id="zone" name="zone" ><br>
+                              <span style='color:red'>@error('zone'){{$message}}@enderror</span><br> 
+
                        
                               <label for="woreda">{{__('field.woreda')}} </label><br>
                           
@@ -35,18 +42,26 @@
                               <label for="officetel">{{__('field.officeTelephone')}} </label><br>
                            
                               <input type="tel" id="officetele" name="officetelephone" ><br>
+                              <span style='color:red'>@error('officetelephone'){{$message}}@enderror</span><br> 
+
                            
                               <label for="fax">{{__('field.fax')}} </label><br>
                             
                               <input type="text" id="fax" name="fax" ><br>
+                              <span style='color:red'>@error('fax'){{$message}}@enderror</span><br> 
+
                            
                               <label for="email">{{__('field.email')}} </label><br>
                            
                               <input type="email" id="email" name="email" ><br>
+                              <span style='color:red'>@error('email'){{$message}}@enderror</span><br> 
+
                             
                               <label for="bankAccountID">{{__('field.acountID')}}  </label><br>
                             
-                              <input type="text" id="bankaccountID" name="accountID" required>
+                              <input type="text" id="bankaccountID" name="accountID" >
+                              <span style='color:red'>@error('accountID'){{$message}}@enderror</span><br> 
+
                           <div class="buttonContainer" id="button">
                             <input class="btn btn-danger" type="reset" value="{{__('field.reset')}}">
                             <input class="btn btn-primary" type="submit" value="{{__('field.register')}}">

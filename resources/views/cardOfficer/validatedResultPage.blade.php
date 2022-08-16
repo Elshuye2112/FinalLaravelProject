@@ -1,6 +1,6 @@
 @extends('cardOfficer.cardOfficerHomepage')
 @section('content')
-<h1>Validated Individuals</h1>
+<h1>{{__('field.treatedIndividualHeader')}}</h1>
 
 <style>
 #customers {
@@ -47,7 +47,7 @@
         <td>
         <img style='width:100px; height:70px;' src="../storage/images/{{$data->photo}}" alt="image doesn't exist">
     </td>
-    <td><a href={{'/listOfFamily/'.$data->memberID }}>{{__('field.viewFamilyMember')}}</a></td>
+    <td><a href={{'/listOfFamily/'.$data->memberID }}>{{__('field.familyMember')}}</a></td>
         
     </tr>
     @endforeach

@@ -25,8 +25,8 @@
                     <label for="memberID">{{__('field.memberID')}}</label>
                   </div>
                   <div class="col-75">
-                    <input type="text" id="memberID" name="memberID" >
-                    <span style='color:red'>@error('memberID'){{$message}}@enderror</span><br>
+                    <input type="text" id="memberID" name="memberID" ></br>
+                    <span style='color:red'>@error('memberID'){{$message}}@enderror</span>
 
                   </div>
                 </div>
@@ -35,7 +35,7 @@
                     <label for="fname">{{__('field.fName')}}</label>
                   </div>
                   <div class="col-75">
-                    <input type="text" id="fname" name="fName"  >
+                    <input type="text" id="fname" name="fName"  ></br>
                     <span style='color:red'>@error('fName'){{$message}}@enderror</span><br>
 
                   </div>
@@ -57,7 +57,7 @@
                       <label for="familyID">{{__('field.phone')}}</label>
                     </div>
                     <div class="col-75">
-                      <input type="tel" id="phone" name="phone"  >
+                      <input type="tel" id="phone" name="phone"  ></br>
                       <span style='color:red'>@error('phone'){{$message}}@enderror</span><br>
 
                     </div>
@@ -68,7 +68,7 @@
                     <label for="Clinic">{{__('field.clinicID')}}</label>
                   </div>
                   <div class="col-75">
-                    <input type="text" id="clinic" name="clinicID"  >
+                    <input type="text" id="clinic" name="clinicID"  ></br>
                     <span style='color:red'>@error('clinicID'){{$message}}@enderror</span><br>
 
                   </div>

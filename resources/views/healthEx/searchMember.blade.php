@@ -17,6 +17,7 @@
                 <form class="example" action="{{url('/searchMember')}}" method='post'>
                     @csrf
                     <label for="search"> {{__('field.searchByID')}}</label><br>
+                    <span style='color:red'>@error('search'){{$message}}@enderror</span><br>
                     <input type="text"  name="search" class='input 5rem'>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                 </form>

@@ -85,6 +85,8 @@ return[
 'membershipID'=>'MembershipId for CBHI',
 'membershipNo'=>'Membership Identification Number',
 'treatedIndividual'=>'Threated Individuals',
+'registerTreatedIndividual'=>'Register treated individuals',
+'menu'=>'Tasks',
 'amount'=>'Amount of money',
 'cashier'=>'Reciever/payer',
 'registerPayment'=>'payment register',
@@ -166,6 +168,20 @@ systems in the country.The first type of health insurance system is Community Ba
     Create conducive conditions to expand and strengthen health insurance, encourage and coordinate those engaged in the field',
     'service-c3p2'=>'Approximately three quarters (391, 76.5%) of the household members agreed that the health care providers favored CBHI members in the course of treatments and about half (251, 49.1%) of the household members agreed the total CBHI members’ cost of care was tolerable, with the large majority of the households (480, 93.9%) being self-sponsored
     After joining a CBHI scheme, members have a one-month waiting period before they can use covered services.',
+    'header'=>'Community based health insurance',
+    'cardOfficerHeader'=>'Welcome to the Card Officer page ',
+    'boardHeader'=>'Welcome to the Board page',
+    'adminHeader'=>'Welcome to the Admin page',
+    'memberHeader'=>'Welcome to the Member page',
+    'financeOfficerHeader'=>'Welcome to the Finance Officer page ',
+    'clinicalAuditorHeader'=>'Welcome to the Clinical Auditor page',
+    'healthExHeader'=>'Welcome to the health Extension page',
+    'viewBankAccount'=>'View Bank Acounts',
+    'registerPayment'=>'Register Payment',
+    'forUpdate'=>'for update',
+    'forRenewal'=>'for renewal',
+    'forRegister'=>'for register',
+    'viewPayment'=>'view Payment',
 
 
 

@@ -4,9 +4,8 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>CBHIIS</title>
    <link rel="stylesheet" href="../css/sideBar.css">
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <!-- Latest compiled and minified JavaScript -->
@@ -16,7 +15,7 @@
 <body>
   <div>
   <div class="wellcome" >
-        <center><h1>Community based health insurance</h1></center>
+        <center><h1>{{__('field.header')}}</h1></center>
     </div>
      <div style='margin-top:102px;'>
       <div style='float:left;'>
@@ -27,20 +26,20 @@
                    <span class='fas fa-times' id='times'></span>
                    <span class='fas fa-bars' id='bars'></span>
               </label>
-              <div class='head'>Menu</div>
-               <ul>
-                  <li> <a href="{{url('/registerPayment') }}" class="{{'registerPayment'==request()->path()? 'active':''}}">{{__('field.registerpayment')}} </a></li>
-                  <li> <a href="{{ url('/viewCashin') }}" class="{{'viewCashin'==request()->path()? 'active':''}}">{{__('field.viewcashin')}} </a></li>
-                  <li> <a href="{{ url('/viewCashout') }}" class="{{'viewCashout'==request()->path()? 'active':''}}">{{__('field.viewcashout')}} </a></li>
-                  <li> <a href="{{url('/generateReport') }}" class="{{'generateReport'==request()->path()? 'active':''}}">{{__('field.search')}} </a></li>
-                  <li> <a href="{{url('/financeViewNotification') }}" class="{{'financeViewNotification'==request()->path()? 'active':''}}" >{{__('field.viewnotification')}} </a></li>
-                  <li lass='link'><a href="{{ url('/fviewBankAcount') }}" class="{{'fviewBankAcount'==request()->path()? 'active':''}}">View Bank Acounts</a></li>
+              <div class='head'>{{__('field.menu')}}</div>
+               <ol>
+                  <li> <a href="{{url('/registerPayment') }}" class="{{'registerPayment'==request()->path()? 'active1':''}}">{{__('field.registerpayment')}} </a></li>
+                  <li> <a href="{{ url('/viewCashin') }}" class="{{'viewCashin'==request()->path()? 'active1':''}}">{{__('field.viewcashin')}} </a></li>
+                  <li> <a href="{{ url('/viewCashout') }}" class="{{'viewCashout'==request()->path()? 'active1':''}}">{{__('field.viewcashout')}} </a></li>
+                  <li> <a href="{{url('/generateReport') }}" class="{{'generateReport'==request()->path()? 'active1':''}}">{{__('field.search')}} </a></li>
+                  <!-- <li> <a href="{{url('/financeViewNotification') }}" class="{{'financeViewNotification'==request()->path()? 'active1':''}}" >{{__('field.viewnotification')}} </a></li> -->
+                  <li lass='link'><a href="{{ url('/fviewBankAcount') }}" class="{{'fviewBankAcount'==request()->path()? 'active1':''}}">View Bank Acounts</a></li>
 
-               </ul>
+               </ol>
             </div>
      </div>
      <div class='navAndMain'>
-              <div class='topNav'><h3>{{__('field.financeofficerpage')}} </h3>
+              <div class='topNav'><h3>{{__('field.financeOfficerHeader')}} </h3>
                   <a class="logout" href="{{url('/logout')}}" >{{__('navbar.logout')}}</a>
               </div>
               <div class='displayBody'>

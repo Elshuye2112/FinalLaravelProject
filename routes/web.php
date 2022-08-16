@@ -19,6 +19,7 @@ use App\Http\Controllers\HealthExtensionController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\LangController;
+use App\Http\Controllers\MemberPaymentController;
 
   
 Route::get('/', [LangController::class, 'index']);
@@ -128,6 +129,10 @@ Route::get('/generateMembershipID',[MemberController::class,'generateMembershipI
 Route::get('/viewRequestFromMember',[HealthExtensionController::class,'viewRequest']);
 Route::delete('deleteRequest/{id}',[HealthExtensionController::class,'deleteRequest'])->name('request.delete');
 Route::get('/hviewBankAcount',[BankAccountController::class,'showForHealthEx']);
+Route::get('/hregisterPayment',[MemberPaymentController::class,'registerPayment']);
+Route::post('/memberCreatePayment',[MemberPaymentController::class,'create']);
+Route::get('/viewPaymentHex',[MemberPaymentController::class,'viewPayment']);
+Route::get('/extensiongiveReceite/{id}',[MemberPaymentController::class,'giveReceite']);
 // Route::get('/viewRegistredMember',function () {
 //     return view('healthEx/viewMembers');
 // });
@@ -205,18 +210,19 @@ Route::post('/insertScheme',[SchemeController::class,'create']);
 Route::post('/sendNotificationdemlew',[BoardController::class,'sendNotification']);
 Route::get('/bviewBankAcount',[BankAccountController::class,'showForBoard']);
 Route::delete('/delete/{id}',[BankAccountController::class,'deleteAcount'])->name('acount.delete');
+Route::get('/bViewScheme',[SchemeController::class,'bViewScheme']);
 
 
 
 //Cardofficer
-
+Route::get('/registerIndividual',function(){
+    return view('cardOfficer.registerIndividuals');
+});
 Route::post('/registertreated',[RegisterThreatedIndividualController::class,'create']);
 Route::get('/cardOfficer',function(){
     return view('cardOfficer.cardOfficerHomepage');
 });
-Route::get('/registerIndividual',function(){
-    return view('cardOfficer.registerIndividuals');
-});
+
 Route::get('/generatReport',[RegisterThreatedIndividualController::class,'generateReport']);
 Route::get('/viewThreatedIndividual',[RegisterThreatedIndividualController::class,'showThreatedIndividual']);
 Route::get('/validateEligibility',function(){

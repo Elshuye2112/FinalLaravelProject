@@ -23,7 +23,16 @@ class PaymentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
+
     {
+        $this->validate($request,[
+          'paymentID'=>'required|unique:payments',
+          'dateOfPayment'=>'required|date',
+          'type'=>'required',
+          'amount'=>'required|numeric',
+          'waysOfPayment'=>'required',
+          'accountID'=>'required|exists:bank_acounts'
+        ]);
 
     $payment= new Payment();
     $payment->paymentID=$request->input('paymentID');
@@ -47,6 +56,7 @@ class PaymentController extends Controller
     {
         //
     }
+   
 
 
     public function show(Payment $payment)

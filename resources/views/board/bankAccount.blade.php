@@ -18,19 +18,27 @@
                     @endif  
                 @csrf
                             <label for="account-id">{{__('field.acountID')}}</label><br>
-                                      <input type="text" id="Name" name="accountID" required><br>
+                                      <input type="text" id="Name" name="accountID" ><br>
+                                      <span style='color:red'>@error('accountID'){{$message}}@enderror</span><br> 
+
                    
                               <label for="lname">{{__('field.acountName')}}</label><br>
                            
-                              <input type="text" id="account_name" name="ownerName" required ><br>
+                              <input type="text" id="account_name" name="ownerName"  ><br>
+                              <span style='color:red'>@error('ownerName'){{$message}}@enderror</span><br> 
+
                            
                               <label for="Account-number">{{__('field.acountNo')}}</label><br>
                           
-                              <input type="text" id="Account-number" name="accountNumber" required><br>
+                              <input type="text" id="Account-number" name="accountNumber" ><br>
+                              <span style='color:red'>@error('accountNumber'){{$message}}@enderror</span><br> 
+
                           
-                              <label for="acountType">{{__('field.acountType')}}required</label><br>
+                              <label for="acountType">{{__('field.acountType')}}</label><br>
                             
-                              <input type="text" id="account_type" name="accountType" required><br>
+                              <input type="text" id="account_type" name="accountType" ><br>
+                              <span style='color:red'>@error('accountType'){{$message}}@enderror</span><br> 
+
                             
                           <div class="buttonContainer" id="button">
                             <input class="btn btn-danger" type="reset" value="{{__('field.reset')}}">

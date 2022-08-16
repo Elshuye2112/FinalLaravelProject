@@ -6,14 +6,9 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>  
     <style>
-       .carousel-inner img {
-    width: 100%;
-    height: 550px;;
-
-  } 
 </style>
 <div style="width: 100%">
-    <div id="demo" class="carousel slide" data-ride="carousel">
+    <div id="demo" class="carousel slide" data-ride="carousel" data-interval="2000">
   <!-- Indicators -->
   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -257,8 +252,7 @@ footer a:hover{
     padding-left: 0;
   }
 }</style>
-<!--- -->
-<!--  -->
+
 <div>
     <div>
         <a href="https://www.ehia.gov.et/" ><b>Agency site</b></a>

@@ -16,7 +16,7 @@
 <body>
   <div>
     <div class="wellcome" >
-        <center><h1>Community based health insurance</h1></center>
+        <center><h1>{{__('field.header')}}</h1></center>
     </div>
      <div style='margin-top:102px;'>
       <div style='float:left;'>
@@ -27,22 +27,25 @@
                    <span class='fas fa-times' id='times'></span>
                    <span class='fas fa-bars' id='bars'></span>
               </label>
-              <div class='head'>Menu</div>
+              <div class='head'>{{__('field.menu')}}</div>
               <ol>
-              <li> <a href="{{url('/registerGc') }}" class="{{'registerGc'==request()->path()? 'active':''}}">{{__('field.registerClinic')}}</a></li>
+                   <li>  <a href="{{url('/registerGc') }}" class="{{'registerGc'==request()->path()? 'active':''}}">{{__('field.registerClinic')}}</a></li>
                    <li>  <a href="{{ url('/viewMember') }}" class="{{'viewMember'==request()->path()? 'active':''}}">{{__('field.viewMembers')}}</a></li>
                    <li>  <a href="{{ url('/viewStaff') }}" class="{{'viewStaff'==request()->path()? 'active':''}}">{{__('field.viewStaffs')}}</a></li>
                    <li>  <a href="{{ url('/sendNotification') }}" class="{{'sendNotification'==request()->path()? 'active':''}}">{{__('field.sendNotification')}}</a></li>
                    <li>  <a href="{{ url('/account') }}" class="{{'account'==request()->path()? 'active':''}}">{{__('field.registerAcount')}}</a></li>
-                   <li>  <a href="{{ url('/registerscheme') }}" class="{{'registerscheme'==request()->path()? 'active':''}}">{{__('field.registerScheme')}}</a></li></ul>
-                   <li lass='link'><a href="{{ url('/bviewBankAcount') }}" class="{{'bviewBankAcount'==request()->path()? 'active':''}}">View Bank Acounts</a></li>
+                   <li>  <a href="{{ url('/registerscheme') }}" class="{{'registerscheme'==request()->path()? 'active':''}}">{{__('field.registerScheme')}}</a></li>
+                   <li>  <a href="{{ url('/bviewBankAcount') }}" class="{{'bviewBankAcount'==request()->path()? 'active':''}}">View Bank Acounts</a></li>
+                   <li>  <a href="{{ url('/bViewScheme') }}" class="{{'bviewBankAcount'==request()->path()? 'active':''}}">view Scheme Info</a></li>
+
+                 
 
       
                </ol>
             </div>
      </div>
      <div class='navAndMain'>
-              <div class='topNav'><h3>Board</h3>
+              <div class='topNav'><h3>{{__('field.boardHeader')}}</h3>
                   <a class="logout" href="{{url('/logout')}}" >{{__('navbar.logout')}}</a>
               </div>
               <div class='displayBody'>

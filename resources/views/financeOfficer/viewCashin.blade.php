@@ -1,8 +1,8 @@
 @extends('financeOfficer.financeOfficerHomepage')
 @section('content')
-<!-- <head>
-    <link rel="stylesheet" href="css/layout.css">
-</head> -->
+<head>
+    <link rel="stylesheet" href="css/sideBar.css">
+</head>
 <style>
     a{
         margin-left:5px;

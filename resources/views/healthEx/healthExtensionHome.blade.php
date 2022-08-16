@@ -4,7 +4,6 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>CBHIIS</title>
    <link rel="stylesheet" href="../css/sideBar.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!-- Optional theme -->
@@ -16,7 +15,7 @@
 <body>
   <div>
     <div class="wellcome" >
-        <center><h1>Community based health insurance</h1></center>
+        <center><h1>{{__('field.header')}}</h1></center>
     </div>
      <div style='margin-top:102px;'>
       <div style='float:left;'>
@@ -27,21 +26,23 @@
                    <span class='fas fa-times' id='times'></span>
                    <span class='fas fa-bars' id='bars'></span>
               </label>
-              <div class='head'>Menu</div>
+              <div class='head'>{{__('field.menu')}}</div>
               <ol>
                    <li class="link" > <a href="{{ url('/register') }}" class="{{'register'==request()->path()? 'active':''}}">{{__('field.registermember')}} </a></li>
                    <li class="link" > <a href="{{ url('/search') }}" class="{{'search'==request()->path()? 'active':''}}">{{__('field.searchmember')}} </a></li>
                    <li class="link" > <a href="{{ url('/sendnotification') }}" class="{{'sendnotification'==request()->path()? 'active':''}}">{{__('field.sendnotification')}} </a></li>
-                   <!-- <li class="link" > <a href="{{ url('/viewnotification') }}" >View notification</a></li> -->
                    <li class="link" > <a href="{{ url('/listOfMembers') }}" class="{{'listOfMembers'==request()->path()? 'active':''}}">{{__('field.viewmembers')}} </a></li>
                    <li><a href="{{url('/viewRequestFromMember')}}" class="{{'viewRequestFromMember'==request()->path()? 'active':''}}">{{__('field.viewrequest')}} </a></li>
-                   <li lass='link'><a href="{{ url('/hviewBankAcount') }}" class="{{'hviewBankAcount'==request()->path()? 'active':''}}">View Bank Acounts</a></li>
+                   <li lass='link'><a href="{{ url('/hviewBankAcount') }}" class="{{'hviewBankAcount'==request()->path()? 'active':''}}">{{__('field.viewBankAccount')}}</a></li>
+                   <li lass='link'><a href="{{ url('/hregisterPayment') }}" class="{{'hviewBankAcount'==request()->path()? 'active':''}}">{{__('field.registerPayment')}}</a></li>
+                   <li lass='link'><a href="{{ url('/viewPaymentHex') }}" class="{{'hviewBankAcount'==request()->path()? 'active':''}}">{{__('field.viewPayment')}}</a></li>
+
       
                </ol>
             </div>
      </div>
      <div class='navAndMain'>
-              <div class='topNav'><h3>This is the main body</h3>
+              <div class='topNav'><h3>{{__('field.healthExHeader')}}</h3>
                   <a class="logout" href="{{url('/logout')}}" >{{__('navbar.logout')}}</a>
               </div>
               <div class='displayBody'>

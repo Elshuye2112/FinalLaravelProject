@@ -37,19 +37,20 @@
     <th colspan='4' ><center>{{__('field.actions')}}</center></th> 
 </tr>
 
-   
+ @foreach($member as $data)
     <tr >
-    <td>{{$member->memberID}}</td>
-    <td>{{$member->firstName}}</td>
-    <td>{{$member->middleName}}</td>
-    <td>{{$member->lastName}}</td>
-    <td>{{$member->status}}</td>
-    <td>{{$member->phone}}</td>
+    <td>{{$data->memberID}}</td>
+    <td>{{$data->firstName}}</td>
+    <td>{{$data->middleName}}</td>
+    <td>{{$data->lastName}}</td>
+    <td>{{$data->status}}</td>
+    <td>{{$data->phone}}</td>
+  
     <td>
-        <img style='width:100px;' src="../storage/images/{{$member->photo}}" alt="image doesn't exist">
+        <img style='width:100px;' src="../storage/images/{{$data->photo}}" alt="image doesn't exist">
     </td>
     <td>
-    <form method="POST" action="{{ route('member.delete', $member->memberID) }}">
+    <form method="POST" action="{{ route('member.delete',  $data->memberID) }}">
         @csrf
      <input name="_method" type="hidden" value="DELETE">
      <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>{{__('field.deleteI')}}</button>
@@ -58,16 +59,16 @@
     </td>
     
     <td>
-    <a href={{"/edit/".$member->memberID}} class='btn btn-success'>{{__('field.edit')}}</a>
-    <a href={{"/renew/".$member->memberID}} class='btn btn-success'>{{__('field.renewed')}}</a>
+    <a href={{"/edit/".$data->memberID}} class='btn btn-success'>{{__('field.edit')}}</a>
+    <a href={{"/renew/".$data->memberID}} class='btn btn-success'>{{__('field.renewed')}}</a>
 
 
-    <a href={{"/viewProfile/".$member->memberID}} class='btn btn-primary'>{{__('field.familyMember')}}</a>
-   <a href={{"/giveMembershipID/".$member->memberID}} class='btn btn-success'>{{__('field.giveMembershipID')}}</a>
+    <a href={{"/viewProfile/".$data->memberID}} class='btn btn-primary'>{{__('field.familyMember')}}</a>
+   <a href={{"/giveMembershipID/".$data->memberID}} class='btn btn-success'>{{__('field.giveMembershipID')}}</a>
    
 </td>
     </tr> 
-   
+   @endforeach
 
 </table>
 

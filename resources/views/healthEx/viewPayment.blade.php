@@ -1,5 +1,7 @@
-@extends('board.boardHomepage')
+@extends('healthEx/healthExtensionHome')
 @section('content')
+
+<h4>{{__('field.listOfMember')}}</h4><hr>
 <style>
     a{
         margin-left:5px;
@@ -22,34 +24,63 @@
         background-color:#ddd;
     }
 </style>
-<h4>{{__('field.boardHeader')}}</h4><hr>
+@if(Session::has('success'))
+                    <div class='alert alert-success'>{{Session::get('success')}}</div>
+                    @endif
+                    @if(Session::has('fail'))
+                    <div class='alert alert-danger'>{{Session::get('fail')}}</div>
+                    @endif 
 <table>
-    <tr>
-        <th>{{__('field.accountID')}}</th>
-        <th>{{__('field.ownerName')}}</th>
-        <th>{{__('field.accountNumber')}}</th>
-        <th>{{__('field.type')}}</th>
-        <th colspan='2'>{{__('field.actions')}}</th>
-    </tr>
-    @foreach($data as $adata)
-    <tr>
-        <td>{{$adata->accountID}}</td>
-        <td>{{$adata->ownerName}}</td>
-        <td>{{$adata->accountNumber}}</td>
-        <td>{{$adata->type}}</td>
-         <td><a href={{"/editBankAcount/".$adata->accountID}} class='btn btn-primary'>{{__('field.edit')}}</a></td>
-       <td> 
-      <form method="POST" action="{{ route('acount.delete', $adata->accountID) }}">
+
+<tr > 
+    <th>memberID</th>
+    <th>firstName</th>
+    <th>lastname</th>
+    <th>amount</th>
+    <th>dateOfPayment</th>
+    <th colspan='4' ><center>{{__('field.actions')}}</center></th> 
+</tr>
+
+     @foreach($payment as $memberPayment)
+    <tr >
+    <td>{{$memberPayment->memberID}}</td>
+    <td>{{$memberPayment->firstName}}</td>
+    <td>{{$memberPayment->middleName}}</td>
+    <td>{{$memberPayment->amount}}</td>
+    <td>{{$memberPayment->dateOfPayment}}</td>
+  
+    <td>
+    <form method="POST" action="{{ route('member.delete', $memberPayment->memberID) }}">
         @csrf
      <input name="_method" type="hidden" value="DELETE">
      <button type="submit" class="btn btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>{{__('field.deleteI')}}</button>
     </form>
-  </td>
 
+    </td>
+    
+    <td>
 
-    </tr>
+    <a href={{"/extensiongiveReceite/".$memberPayment->id}} class='btn btn-success'>Give Recite</a>
+
+</td>
+    </tr> 
     @endforeach
+
 </table>
+
+<!-- customize the pagination -->
+<div class="col-md-12" >
+</div>
+<!-- <span>
+ 
+
+    
+</span>
+<style>
+    .w-5{
+        display:none;
+    }
+</style> -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
@@ -73,6 +104,5 @@
       });
   
 </script>
-
 
 @endsection

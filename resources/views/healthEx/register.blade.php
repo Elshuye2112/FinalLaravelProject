@@ -2,7 +2,7 @@
 @section('content')
 <link rel="stylesheet" href="css/inputForm.css">
     <form method='post' action="{{url('/registerMember')}}" enctype="multipart/form-data">
-                  @if(Session::has('succes'))
+                  @if(Session::has('success'))
                     <div class='alert alert-success'>{{Session::get('success')}}</div>
                     @endif
                     @if(Session::has('fail'))

@@ -24,7 +24,12 @@ class BankAccountController extends Controller
      */
     public function create(Request $request)
     {    
-
+        $this->validate($request,[
+            'accountID'=>'required|unique:bank_accounts',
+            'ownerName'=>'required',
+            'accountNumber'=>'required|numeric',
+            'accountType'=>'required',
+          ]);
 
         if($request){
              $bankAccount=new BankAccount();
@@ -34,7 +39,7 @@ class BankAccountController extends Controller
              $bankAccount->type=$request->input('accountType');
             $result= $bankAccount->save();
             if($result)
-             return redirect()->back()->with('success','success');
+             return redirect()->back()->with('success','successfulley  stored');
              else{
                 return redirect()->back()->with('fail','Fail to store');
              }

@@ -15,7 +15,8 @@ return new class extends Migration
     {
 
         Schema::create('register_threated_individuals', function (Blueprint $table) {
-            $table->string('memberId')->primary();
+            $table->string('id')->primary();
+            $table->string('memberId');
             $table->string('firstName');
             $table->string('lastName');
             $table->string('phone')->unique();

@@ -5,6 +5,7 @@ use App\Models\Staff;
 use App\Models\RegisterThreatedIndividual;
 use Illuminate\Http\Request;
 use PDF;
+use DB;
 class RegisterThreatedIndividualController extends Controller
 {
     /**
@@ -26,11 +27,11 @@ class RegisterThreatedIndividualController extends Controller
     { 
         
         $this->validate($request,[
-        'memberID'=>'required|exists:members|max:255',
-        'phone'=>'required|min:10|numeric',
+        'memberID'=>'required|exists:members,memberID|',
+        'phone'=>'required|numeric|min:10',
         'fName'=>'required|min:3',
         'lName'=>'required|min:3',
-        'clinicID'=>'required|exists:gratitude_clinics,g_clinicID|max:255',
+        'clinicID'=>'required|exists:gratitude_clinics,g_clinicID',
         ]);
         
         $email=$request->session()->get("loginEmail");
@@ -44,7 +45,7 @@ class RegisterThreatedIndividualController extends Controller
       //  $RegisterThreated->gender= $request->input('gender');
         $RegisterThreated->phone=$request->input('phone');
         $RegisterThreated->gratitudeclinicID=  $request->input('clinicID');
-        $RegisterThreated->cardOfficerID= $cardOfficerID;
+        $RegisterThreated->cardOfficer= $cardOfficerID;
 
         $result=$RegisterThreated->save();
         if($result)
@@ -57,19 +58,13 @@ class RegisterThreatedIndividualController extends Controller
         // $data=new RegisterThreatedIndividual();
         $dataOfArray=array();
 
-    $allData=RegisterThreatedIndividual::all();
-    // foreach($allData as $data){
-    //     // $dataOfArray[]=array(
-    //     //     'memberID'=>$data['memberId'],
-    //     //     'firstName'=>$data['firstName'],
-    //     //     'lastName'=>$data['lastName'],
-    //     //     'gratitudeclinicID'=>$data['gratitudeclinicID'],
-    //     //     'phone'=>$data['phone'],
-    //     //     'created_at'=>$data['created_at'],
+    $allData=DB::table('register_threated_individuals')
+    ->join('gratitude_clinics','register_threated_individuals.gratitudeclinicID',
+    '=','gratitude_clinics.g_clinicID')
+    ->select('register_threated_individuals.memberID','register_threated_individuals.firstName',
+    'register_threated_individuals.lastName','register_threated_individuals.gratitudeclinicID','gratitude_clinics.name','register_threated_individuals.created_at')
+    ->get();
 
-    //     // );
-        
-    // }
 
     $treated =[
         'treated'=>$allData
@@ -90,7 +85,13 @@ class RegisterThreatedIndividualController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function showThreatedIndividual(){
-        $treatedIndividual=RegisterThreatedIndividual::all();
+        $treatedIndividual=DB::table('register_threated_individuals')
+        ->join('gratitude_clinics','register_threated_individuals.gratitudeclinicID','=','gratitude_clinics.g_clinicID')
+        ->select('register_threated_individuals.memberID','register_threated_individuals.firstName',
+        'register_threated_individuals.lastName','gratitude_clinics.name',
+        'register_threated_individuals.phone','register_threated_individuals.created_at')
+        ->get();
+        // $treatedIndividual=RegisterThreatedIndividual::all();
         return view('cardOfficer.viewThreatedIndividual',['allData'=>$treatedIndividual]);
     }
     public function store(Request $request)

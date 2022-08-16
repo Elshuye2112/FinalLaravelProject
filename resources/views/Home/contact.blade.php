@@ -289,11 +289,11 @@ body, button, input {
    <div class="article">
      <div class="left box">
        <div class="upper">
-         <div class="topic">About us</div>
-         <p>The Ethiopian Health Insurance Agency was established as an autonomous federal government organ through Regulation No. 191/2010 with the objective of implementing health insurance system in the country. The Agency has established 24 branch offices to implement the health insurance system all over the country</p>
+         <div class="topic">{{__('field.footer-tabout')}}</div>
+         <p>{{__('field.footer-babout')}}</p>
        </div>
        <div class="lower">
-         <div class="topic">Contact us</div>
+         <div class="topic">{{__('field.contact-us')}}</div>
          <div class="phone">
            <a href="#"><i class="fas fa-phone-volume"></i>+251948263781</a>
          </div>
@@ -303,17 +303,16 @@ body, button, input {
        </div>
      </div>
      <div class="middle box">
-       <div class="topic">Our Objectives</div>
-       <div><p>Protect people from health emergencies </p></div>
-       <div><p>Accelerate progress towards universal health coverage</p></div>
-       <div><p>Woreda transformation </p></div>
-       <div><p>Improve health system responsiveness
-</p></div>
+       <div class="topic">{{__('field.ourObjective')}}</div>
+       <div><p>{{__('field.objectiveli1')}} </p></div>
+       <div><p>{{__('field.objectiveli2')}} </p></div>
+       <div><p>{{__('field.objectiveli3')}} </p></div>
+       <div><p>{{__('field.objectiveli4')}} </p></div>
        <div><p> </p></div>
        <div><a></a></div>
      </div>
      <div class="right box">
-     <div class="topic">Comment here about the services</div>
+     <div class="topic">{{__('field.coment')}} </div>
        <form action="#">
        <textarea id="textarea" name="text area" rows="4" cols="30">
        </textarea>

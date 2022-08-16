@@ -1,4 +1,4 @@
-@extends('financeOfficer/financeOfficerHomepage')
+@extends('healthEx.healthExtensionHome')
 @section('content')
 <head>
     <link rel="stylesheet" href="css/inputForm.css">
@@ -83,7 +83,7 @@ input[type=submit]:hover {
     <div class="container">
         <h4> {{__('field.registerPayment')}}</h4><hr>
         <div style="padding: 30px">
-      <form action="{{url('/createPayment')}}" method='post'>
+      <form action="{{url('/memberCreatePayment')}}" method='post'>
       @if(Session::has('success'))
         <div class='alert alert-success'>{{Session::get('success')}}</div>
         @endif
@@ -91,9 +91,9 @@ input[type=submit]:hover {
         <div class='alert alert-danger'>{{Session::get('fail')}}</div>
         @endif 
       @csrf
-          <label for="id">{{__('field.paymentID')}}</label><br>
+          <!-- <label for="id">{{__('field.paymentID')}}</label><br>
           <input type="text" id="date" name='paymentID'><br>
-          <span style='color:red;' >@error('paymentID'){{$message}}@enderror</span><br>
+          <span style='color:red;' >@error('paymentID'){{$message}}@enderror</span><br> -->
 
           <label for="date">{{__('field.dateOfPayment')}}</label><br>
           <input type="Date" id="date" name="dateOfPayment" ><br>
@@ -102,7 +102,6 @@ input[type=submit]:hover {
           <label for="fname">{{__('field.typesOfPayment')}}</label><br>
         <select id="type" name="type"><br>
             <option value="cashin">{{__('field.cashin')}}</option>
-            <option value="cashout">{{__('field.cashout')}}</option>
           </select><br>
           <span style='color:red'>@error('type'){{$message}}@enderror</span><br>
 
@@ -110,14 +109,15 @@ input[type=submit]:hover {
           <input type="text" id="cashier" name="amount"><br>
           <span style='color:red'>@error('amount'){{$message}}@enderror</span><br>
 
-          <label for="cashier">{{__('field.cashier')}}</label><br>
-          <input type="text" id="cashier" name="cashier" ><br>
+          <label for="cashier">{{__('field.memberID')}}</label><br>
+          <input type="text" id="cashier" name="memberID" ><br>
           <span style='color:red'>@error('cashier'){{$message}}@enderror</span><br>
 
           <label for="waysofpayment">{{__('field.waysOfPayment')}}</label><br>
         <select id="type" name="waysOfPayment"><br>
-            <option value="in-cash">{{__('field.byCash')}}</option>
-            <option value="by-bank">{{__('field.byBank')}}</option>
+            <option value="in-cash">{{__('field.forUpdate')}}</option>
+            <option value="by-bank">{{__('field.forRegister')}}</option>
+            <option value="by-bank">{{__('field.forRenewal')}}</option>
           </select><br>
           <span style='color:red'>@error('waysOfPayment'){{$message}}@enderror</span><br>
 
