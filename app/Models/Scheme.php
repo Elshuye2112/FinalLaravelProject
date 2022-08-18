@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Scheme extends Model
 {
     use HasFactory;
+    protected $primaryKey='schemeID';
+    public $table = "schemes";
     protected $fillable = [
        'schemeID',
        'name',

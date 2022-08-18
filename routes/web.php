@@ -20,7 +20,7 @@ use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\MemberPaymentController;
-
+use App\Http\Controllers\ClinicalAuditorController;
   
 Route::get('/', [LangController::class, 'index']);
 Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
@@ -100,7 +100,7 @@ Route::get('/editMember/{id}',[MemberController::class,'edit']);
 // Route::get('/viewProfile/edit/{id}',[ChildrenController::class,'edit']);
 Route::get('/viewProfile/editFamilyMemberInfo/{id}',[ChildrenController::class,'edit']);
 Route::post('/updateChildren',[ChildrenController::class,'update']);
-Route::post('/update',[MemberController::class,'update']);
+Route::post('/updatemember',[MemberController::class,'update']);
 Route::get('/extension', function (){
     return view('healthEx/healthExtensionHome');
 });
@@ -111,10 +111,12 @@ route::get('/viewchild',function (){
     return view('healthEx/viewCild');
 });
 Route::get('/renew/{id}',[MemberController::class,'renew']);
-Route::get('/search',function () {Route::get('lang/home', [LangController::class, 'index']);
-    Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
+Route::get('/search',function () {
     return view('healthEx/searchMember');
 });
+Route::get('lang/home', [LangController::class, 'index']);
+Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
+
 Route::post('/searchMember',[MemberController::class,'searchMember']);
 // Route::get('/viewnotification',function () {
 //     return view('healthEx/viewNotification');
@@ -204,14 +206,16 @@ Route::get('/account',function(){
     return view('board.bankAccount');
 });
 Route::view('/registerscheme','board/registerscheme');
+Route::delete('/deleteScheme/{id}',[SchemeController::class,'deleteScheme'])->name('scheme.delete');
 Route::post('/insert',[BankAccountController::class,'create']);
 Route::get('/show',[BankAccountController::class,'show']);
 Route::post('/insertScheme',[SchemeController::class,'create']);
 Route::post('/sendNotificationdemlew',[BoardController::class,'sendNotification']);
 Route::get('/bviewBankAcount',[BankAccountController::class,'showForBoard']);
-Route::delete('/delete/{id}',[BankAccountController::class,'deleteAcount'])->name('acount.delete');
+Route::delete('/remove/{accounntID}',[BankAccountController::class,'deleteBankAccount'])->name('bankAccount.remove');
 Route::get('/bViewScheme',[SchemeController::class,'bViewScheme']);
-
+Route::get('/viewAuditReport',[ClinicalAuditorController::class,'viewAuditReport']);
+Route::get('/downloadreport/{fileUpload}',[ClinicalAuditorController::class,'download']);
 
 
 //Cardofficer
@@ -241,9 +245,11 @@ Route::get('/auditor',function(){
 Route::get('/registerClinicalAudit',function(){
     return view('clinicalAuditor/registerClinicalAudit');
 });
+Route::post('/registerAuditResult',[ClinicalAuditorController::class,'store']);
 Route::get('/viewNotificaton',function(){
     return view('clinicalAuditor/viewNotification');
 });
+Route::get('/viewGratitudeClinics',[ClinicalAuditorController::class,'viewGratitudeClinics']);
 
 //fainance officer
 Route::get('/financeOfficer',function(){
@@ -254,13 +260,20 @@ Route::get('/registerPayment',function(){
 });
 Route::get('showPayment',[PaymentController::class,'show']);
 Route::post('/createPayment',[PaymentController::class,'create']);
-
+Route::get('/cashinfromfinance',[PaymentController::class,'cashinfromfinance']);
 Route::get('/viewCashin',[PaymentController::class,'viewCashIn']);
 Route::get('/viewCashout',[PaymentController::class,'viewCashOut']);
 
-Route::get('/generateReport',function(){
-    return view('financeOfficer/generateReport');
-});
+Route::delete('/financedelete/{paymentID}',[PaymentController::class,'financedelete'])->name('data.financedelete');
+
+Route::get('/editPayment/{paymentID}',[PaymentController::class,'editPayment']);
+
+Route::post('/editPaymentSave',[PaymentController::class,'editPaymentSave']);
+Route::get('/generate',[PaymentController::class,'generate']);
+
+// Route::get('/generateReport',function(){
+//     return view('financeOfficer/generateReport');
+// });
 Route::get('/financeViewNotification',function(){
     return view('financeOfficer/viewNotification');
 });

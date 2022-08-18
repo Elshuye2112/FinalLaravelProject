@@ -1,9 +1,9 @@
 @extends('admin/adminHomepage')
 @section('content')
     <head>
-        <link rel="stylesheet" href="../css/layout.css">
+        <!-- <link rel="stylesheet" href="../css/layout.css"> -->
         <link rel="stylesheet" href="../css/inputForm.css">
-        {{-- <style>
+        <!-- {{-- <style>
 * {
   box-sizing: border-box;
 }
@@ -88,7 +88,7 @@ input[type=submit]:hover {
                     margin-top: 0;
                 }
             }
-        </style>
+        </style> -->
     </head>
 
     <body>

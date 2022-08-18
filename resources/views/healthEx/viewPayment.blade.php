@@ -33,12 +33,12 @@
 <table>
 
 <tr > 
-    <th>memberID</th>
-    <th>firstName</th>
-    <th>lastname</th>
-    <th>amount</th>
-    <th>dateOfPayment</th>
-    <th colspan='4' ><center>{{__('field.actions')}}</center></th> 
+    <th>{{__('field.memberID')}}</th>
+    <th>{{__('field.fName')}}</th>
+    <th>{{__('field.mName')}}</th>
+    <th>{{__('field.amount')}}</th>
+    <th>{{__('field.dateOfPayment')}}</th>
+    <th colspan='1' ><center>{{__('field.actions')}}</center></th> 
 </tr>
 
      @foreach($payment as $memberPayment)
@@ -49,15 +49,6 @@
     <td>{{$memberPayment->amount}}</td>
     <td>{{$memberPayment->dateOfPayment}}</td>
   
-    <td>
-    <form method="POST" action="{{ route('member.delete', $memberPayment->memberID) }}">
-        @csrf
-     <input name="_method" type="hidden" value="DELETE">
-     <button type="submit" class="btn btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>{{__('field.deleteI')}}</button>
-    </form>
-
-    </td>
-    
     <td>
 
     <a href={{"/extensiongiveReceite/".$memberPayment->id}} class='btn btn-success'>Give Recite</a>

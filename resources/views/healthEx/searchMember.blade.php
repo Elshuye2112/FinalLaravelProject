@@ -15,6 +15,12 @@
         <div class="container">
             <div style="padding: 30px">
                 <form class="example" action="{{url('/searchMember')}}" method='post'>
+                @if(Session::has('success'))
+             <div class='alert alert-success'>{{Session::get('success')}}</div>
+              @endif
+             @if(Session::has('fail'))
+              <div class='alert alert-danger'>{{Session::get('fail')}}</div>
+             @endif 
                     @csrf
                     <label for="search"> {{__('field.searchByID')}}</label><br>
                     <span style='color:red'>@error('search'){{$message}}@enderror</span><br>

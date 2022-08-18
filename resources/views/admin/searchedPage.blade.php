@@ -34,7 +34,7 @@
     <th>{{__('field.phone')}}</th>
     <th colspan='3' ><center>{{__('field.actions')}}</center></th> 
 </tr>
-
+     
       <tr >
     <td>{{$staff->employeeID}}</td>
     <td>{{$staff->firstName}}</td>

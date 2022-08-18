@@ -25,9 +25,9 @@
 <h4>{{__('field.cashinHeader')}}</h4><hr>
 <table>
     <tr>
-        <th>{{__('field.cashier')}}</th>
-        <th>{{__('field.amount')}}</th>
-        <th>{{__('field.dateOfPayment')}}</th>
+        <th>{{__('field.acountID')}}</th>
+        <th>{{__('field.acountOwner')}}</th>
+        <th>{{__('field.acountNo')}}</th>
         <th>{{__('field.waysOfPayment')}}</th>
     </tr>
     @foreach($data as $adata)

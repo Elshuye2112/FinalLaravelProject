@@ -24,23 +24,25 @@ class SchemeController extends Controller
      */
     public function create(Request $request)
     {
+  
         $this->validate($request,[
             'schemeID'=>'required',
-            'schemeName'=>'required',
-            'region'=>'required|numeric',
-            'zone'=>'required|numeric',
+            'name'=>'required',
+            'region'=>'required',
+            'zone'=>'required',
             'woreda'=>'required',
             'officetelephone'=>'required|numeric',
             'fax'=>'required|numeric',
-            'email'=>'required|unique:scheme',
-            'accountID'=>'required|exists:bank_accounts',
+            'email'=>'required|unique:schemes',
+            'accountID'=>'required|exists:bank_acounts',
           ]);
+        
         $scheme=new Scheme();
 
         if($request){
         
             $scheme->schemeID=$request->input('schemeID');
-            $scheme->name=$request->input('schemeName');
+            $scheme->name=$request->input('name');
             $scheme->region=$request->input('region');
             $scheme->zone=$request->input('zone');
             $scheme->woreda=$request->input('woreda');
@@ -58,6 +60,11 @@ class SchemeController extends Controller
     public function bViewScheme(){
        $result= Scheme::all();
        return view('board.viewScheme',['scheme'=>$result]);
+    }
+    public function deleteScheme($id){
+        $data=Scheme::find($id);
+        $data->delete();
+        return redirect()->back()->with('success','the scheme info is deleted');
     }
 
     /**

@@ -66,7 +66,7 @@ return[
 'cardOfficer'=>'card-officer',
 'healthExtension'=>'health-extension',
 'clinicalAuditor'=>'clinical-auditor',
-'searchByID'=>'Search by ID',
+'searchByID'=>'Search by ID,userName ,email or phone',
 'TVET'=>'TVET',
 'degree'=>'degree',
 'master'=>'master',
@@ -97,6 +97,7 @@ return[
 'registerAcountHeader'=>'Register account of scheme and  gratitude clinic',
 'acountName'=>'Acount Name',
 'acountNo'=>'Acount number',
+'acountOwner'=>'Acount owner',
 'acountType'=>'Branch',
 'registerClinic'=>'Register G-Clinic',
 'viewMembers'=>'View Members',
@@ -162,6 +163,7 @@ systems in the country.The first type of health insurance system is Community Ba
     institutions with one sick person within a month, and 185 (36.2%) were sick for 1–5 days',
     'service-c1p2'=>'The majority of the household members recognized that health centers (479, 93.8%) and hospitals (444, 86.9%) entered into a contract to treat members within the acceptable distance range',
     'service-c1p3'=>'Receive and investigate suggestions and complaints by members regarding service provision and provide appropriate solutions',
+    'service-c1p4'=>'Our agency gives different services for those who are registered to our system based on the principles which is provided on the agency',
     'service-c2p1'=>'The CBHI benefit package covers all outpatient and inpatient services at the health center and nearby hospital level except false teeth, eye glasses, and cosmetic procedures',
     'service-c2p2'=>'Women and children are empowered and better served: Because CBHI scheme members can access health services with no fee at time of service, women and children in particular are benefiting from this system. A mother and her children can access health services without asking the male head of household for money by simply taking her CBHI membership card to the facility',
     'service-c3p1'=>'A CBHI National Coordination Unit was set up under the supervision of the FMOH/Ethiopian Health Insurance Agency (EHIA) to serve as the executive unit.
@@ -182,6 +184,15 @@ systems in the country.The first type of health insurance system is Community Ba
     'forRenewal'=>'for renewal',
     'forRegister'=>'for register',
     'viewPayment'=>'view Payment',
+    'bdc'=>'Bahir Dar City Adminnstration',
+    'cbhi'=>'Community Based Health Insurance',
+    'idm'=>'manual card is no obligatory to get the service!!!',
+    'manual'=>'thanks to CBHIIS',
+    'nodie'=>'No one must die by lack of money !!!',
+    'allRight'=>'All rights reserved',
+    'viewMembersPayment'=>'payments from member',
+    'paymentRegisteredByF'=>'Payments registered by Finance officer',
+    'viewBankAcount'=>'View bank acounts',
 
 
 

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     use HasFactory;
+    protected $primaryKey='paymentID';
     protected $fillable = [
         'paymentID',
         'dateOfPayment',
@@ -15,7 +16,8 @@ class Payment extends Model
         'amount',
         'cashier',
         'waysOfPayment',
-        'accountID'
+        'accountID',
+        'staffID',
         
 
 

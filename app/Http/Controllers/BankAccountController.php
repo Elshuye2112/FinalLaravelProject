@@ -83,8 +83,9 @@ class BankAccountController extends Controller
         $data=BankAccount::all();
         return view('board.bviewBankAcounts',['data'=>$data]);
     }
-    public function deleteAcount($id){
-        $acount=BankAccount::find($id);
+    public function deleteBankAccount($temp){
+        $acount=BankAccount::find($temp)->first();
+        return $acount;
         $acount->delete();
         return redirect()->back()->with('success','success');
     }

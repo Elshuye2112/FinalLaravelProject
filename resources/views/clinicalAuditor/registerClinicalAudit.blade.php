@@ -2,8 +2,10 @@
 @section('content')
 
     <head>
-        <link rel="stylesheet" href="css/layout.css">
+      
         <link rel="stylesheet" href="css/inputForm.css">
+        <script src="https://cdn.ckeditor.com/4.7.0/standard/ckeditor.js"></script> 
+
     </head>
     <style>
         /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
@@ -18,6 +20,14 @@
                 width: 90%;
                 margin-top: 12px;
             }
+            .editor1{
+                    width:50%;
+                    float:center;
+                }
+              
+                .size{
+                    height: 12px;
+                }
         }
     </style>
 
@@ -26,13 +36,34 @@
             <div class="container">
                 <h4>Well Come To The Audit Writting Page</h4><hr>
                 <div style="padding: 30px">
-                    <form action="/action_page.php">
+
+                    <form action="{{url('/registerAuditResult')}}" method='post'  enctype="multipart/form-data">
+                    @if(Session::has('success'))
+                    <div class='alert alert-success'>{{Session::get('success')}}</div>
+                    @endif
+                    @if(Session::has('fail'))
+                    <div class='alert alert-danger'>{{Session::get('fail')}}</div>
+                    @endif      
+                    @csrf
                         <div class="row">
                             <div class="col-25">
-                                <label for="fname">Name of the clinic</label>
+                                <label for="name">Name of the clinic</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="fname" name="firstname" placeholder="enter the gratitude clinic name">
+                                <input type="text" id="name" name="nameOfClinic" placeholder="enter the gratitude clinic name"><br>
+                                <span style='color:red'>@error('nameOfClinic'){{$message}}@enderror</span><br>
+
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="name">clinic ID</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="name" name="clinicID" placeholder="enter the gratitude clinic ID"><br>
+                                <span style='color:red'>@error('clinicID'){{$message}}@enderror</span><br>
+
                             </div>
                         </div>
                         <div class="row">
@@ -40,7 +71,18 @@
                                 <label for="audit result">Audit result</label>
                             </div>
                             <div class="col-75">
-                                <textarea id="audit" name="Audit result" placeholder="write the audit result here.." style="height:200px"></textarea>
+                            <!-- <textarea name="editor1" id="editor1" rows="4" styel="height=200px;"
+                placeholder="This is my textarea to be replaced with CKEditor. " > 
+        
+                </textarea> 
+                <script> 
+                    // Replace the <textarea id="editor1"> with a CKEditor 
+                    // instance, using default configuration. 
+                    CKEDITOR.replace( 'editor1' ); 
+                </script>  -->
+                                <textarea id="editor1" name="auditResult" placeholder="write the audit result here.." style="height:200px"></textarea><br>
+                                <span style='color:red'>@error('auditResult'){{$message}}@enderror</span><br>
+
                             </div>
                         </div>
                         <div class="row">
@@ -48,7 +90,9 @@
                                 <label for="upload">Upload the file</label>
                             </div>
                             <div class="col-75">
-                                <input type="file" id="uploadfile" name="fileupload" placeholder="Your name..">
+                                <input type="file" id="uploadfile" name="fileupload" placeholder="Your report.."><br>
+                                <span style='color:red'>@error('uploadfile'){{$message}}@enderror</span><br>
+
                             </div>
                         </div>
                         <div class="buttonContainer">
@@ -61,3 +105,40 @@
         </div>
     </body>
 @endsection
+<!--
+    <!DOCTYPE html> 
+    <html> 
+        <head>
+            <script src="https://cdn.ckeditor.com/4.7.0/standard/ckeditor.js"></script> 
+            <style>
+                .editor1{
+                    width:50%;
+                    float:center;
+                }
+                form{
+                    width:50%;
+                    height: 45px;
+                }
+                .size{
+                    height: 12px;
+                }
+            </style>
+        </head> 
+        <body> 
+            <div class="size">
+            <form> 
+                <textarea name="editor1" id="editor1" rows="4" 
+                placeholder="This is my textarea to be replaced with CKEditor. " > 
+        
+                </textarea> 
+                <script> 
+                    // Replace the <textarea id="editor1"> with a CKEditor 
+                    // instance, using default configuration. 
+                    CKEDITOR.replace( 'editor1' ); 
+                </script> 
+            </form> 
+            </div>
+        </body> 
+    </html>
+
+-->

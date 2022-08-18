@@ -115,9 +115,9 @@ input[type=submit]:hover {
 
           <label for="waysofpayment">{{__('field.waysOfPayment')}}</label><br>
         <select id="type" name="waysOfPayment"><br>
-            <option value="in-cash">{{__('field.forUpdate')}}</option>
-            <option value="by-bank">{{__('field.forRegister')}}</option>
-            <option value="by-bank">{{__('field.forRenewal')}}</option>
+            <option value="for update">{{__('field.forUpdate')}}</option>
+            <option value="fro register">{{__('field.forRegister')}}</option>
+            <option value="for renewal">{{__('field.forRenewal')}}</option>
           </select><br>
           <span style='color:red'>@error('waysOfPayment'){{$message}}@enderror</span><br>
 

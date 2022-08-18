@@ -9,7 +9,7 @@
           <h4>{{__('field.sendNotificationHeader')}}</h4><hr>
              <div style="padding:30px"> 
             <form  method='post' action="{{url('/notificationFromHealthEx')}}">
-              @if(Session::has('succes'))
+              @if(Session::has('success'))
                     <div class='alert alert-success'>{{Session::get('success')}}</div>
                     @endif
                     @if(Session::has('fail'))

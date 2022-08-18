@@ -20,8 +20,8 @@
                          
                               <label for="lname">{{__('field.name')}}</label><br>
                             
-                              <input type="text" id="name" name="schemeName" ><br>
-                              <span style='color:red'>@error('schemeName'){{$message}}@enderror</span><br> 
+                              <input type="text" id="name" name="name" ><br>
+                              <span style='color:red'>@error('name'){{$message}}@enderror</span><br> 
 
           
                               <label for="region">{{__('field.region')}}</label><br>
@@ -38,7 +38,8 @@
                               <label for="woreda">{{__('field.woreda')}} </label><br>
                           
                               <input type="text" id="woreda" name="woreda" ><br>
-                           
+                              <span style='color:red'>@error('woreda'){{$message}}@enderror</span><br> 
+
                               <label for="officetel">{{__('field.officeTelephone')}} </label><br>
                            
                               <input type="tel" id="officetele" name="officetelephone" ><br>

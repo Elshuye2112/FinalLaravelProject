@@ -92,6 +92,6 @@
           });
       });
   
-</script> -->
+</script>
 
 @endsection

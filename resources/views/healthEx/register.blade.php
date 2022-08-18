@@ -47,13 +47,15 @@
                         </select>
                         <span style='color:red'>@error('status'){{$message}}@enderror</span><br>
                         <label for="email"><b>{{__('field.email')}}</b></label><br>
-                        <input type="email"  name="email" ><br>
+                        <input type="email" name="email" ><br>
                         <span style='color:red'>@error('email'){{$message}}@enderror</span><br>
                    
                     </div>
                     <div class="bodyright">
                        <label for="occupation"><b>{{__('field.occopation')}}</b></label><br>
                         <input type="text"  name="occopation"><br>
+                        <span style='color:red'>@error('occopation'){{$message}}@enderror</span><br>
+
                         <label>{{__('field.region')}} </label><br>
                         <input type="text"  name="region" ><br>
                         <span style='color:red'>@error('region'){{$message}}@enderror</span><br>

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('cashier');
             $table->string('waysOfPayment');
              $table->string('accountID');
-
+             $table->string('staffID');
             $table->timestamps();
         });
     }

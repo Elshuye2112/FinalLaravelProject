@@ -1,10 +1,13 @@
 @extends('healthEx.healthExtensionHome')
 @section('content')
 
-<link rel="stylesheet" type="text/css" href="{{asset('css/layout.css')}}">
+<!-- <link rel="stylesheet" type="text/css" href="{{asset('css/layout.css')}}"> -->
+<link rel="stylesheet" type="text/css" href="{{asset('css/sideBar.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/navBar.css')}}">
+
 
 <link rel="stylesheet" type='text/css' href="{{asset('css/inputForm.css')}}">
-    <form method='post' action="{{url('/update')}}" enctype="multipart/form-data">
+    <form method='post' action="{{url('/updatemember')}}" enctype="multipart/form-data">
     @if(Session::has('success'))
                     <div class='alert alert-success'>{{Session::get('success')}}</div>
                     @endif
@@ -21,6 +24,7 @@
                 <div>
                     <div class="bodyleft">
                     <label> {{__('field.memberID')}} </label><br>
+
                         <input type="text" name="memberID" value='{{$data->memberID}}' /> <br>
                         <label> {{__('field.fName')}}  </label><br>
                         <input type="text" name="fName" value='{{$data->firstName}}' /> <br>

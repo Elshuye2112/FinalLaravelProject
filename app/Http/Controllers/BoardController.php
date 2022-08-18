@@ -103,7 +103,7 @@ public function boardStaffView(){
   
         FacadsNotification::send($member, new EmailNotification($project));
    
-        dd('Notification sent!');
+       return redirect()->back()->with('success','the notification send');
 
     }
 

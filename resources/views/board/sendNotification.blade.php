@@ -10,7 +10,12 @@
             <center><h2>{{__('field.sendNotification')}}</center><hr>
             <div style="padding:30px;">
               <form  method='post' action="{{url('/sendNotificationdemlew')}}">
-  
+              @if(Session::has('success'))
+                    <div class='alert alert-success'>{{Session::get('success')}}</div>
+                    @endif
+                    @if(Session::has('fail'))
+                    <div class='alert alert-danger'>{{Session::get('fail')}}</div>
+                    @endif 
                 @csrf
                             <label for="greeting">{{__('field.greeting')}}</label><br>
                   

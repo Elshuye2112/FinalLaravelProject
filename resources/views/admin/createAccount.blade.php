@@ -1,7 +1,6 @@
 @extends('admin/adminHomepage')
 @section('content')
     <head>
-        <link rel="stylesheet" href="css/layout.css">
         <link rel="stylesheet" href="css/inputForm.css">
         {{-- <style>
 * {

@@ -97,7 +97,7 @@ class AdminController extends Controller
   
         FacadsNotification::send($staff, new EmailNotification($project));
    
-        dd('Notification sent!');
+       return redirect()->back()->with('success','notification sent successfully');
     }
     }
 

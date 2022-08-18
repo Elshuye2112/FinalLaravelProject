@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MemberPayment;
 use Illuminate\Http\Request;
+use App\Models\Staff;
 use DB;
 use PDF;
 
@@ -38,7 +39,7 @@ class MemberPaymentController extends Controller
           ]);
         
           $email=$request->session()->get("loginEmail");
-          $healthextension=staff::where('email','=',$email)->first();
+          $healthextension=Staff::where('email','=',$email)->first();
           $staffID=$healthextension->employeeID;
       $payment= new MemberPayment();
     //   $payment->paymentID=$request->input('paymentID');

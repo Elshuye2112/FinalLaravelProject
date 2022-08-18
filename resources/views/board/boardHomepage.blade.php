@@ -37,9 +37,7 @@
                    <li>  <a href="{{ url('/registerscheme') }}" class="{{'registerscheme'==request()->path()? 'active':''}}">{{__('field.registerScheme')}}</a></li>
                    <li>  <a href="{{ url('/bviewBankAcount') }}" class="{{'bviewBankAcount'==request()->path()? 'active':''}}">View Bank Acounts</a></li>
                    <li>  <a href="{{ url('/bViewScheme') }}" class="{{'bviewBankAcount'==request()->path()? 'active':''}}">view Scheme Info</a></li>
-
-                 
-
+                   <li>  <a href="{{ url('/viewAuditReport') }}" class="{{'bviewBankAcount'==request()->path()? 'active':''}}">view Audit report </a></li>
       
                </ol>
             </div>

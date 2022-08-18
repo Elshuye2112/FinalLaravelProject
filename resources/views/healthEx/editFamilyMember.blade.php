@@ -2,10 +2,9 @@
 @section('content')
 <!-- <link rel="stylesheet" href="../css/inputForm.css">
 <link rel="stylesheet" href="../css/layout.css"> -->
-<link rel="stylesheet" type="text/css" href="{{asset('css/layout.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/sideBar.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/navBar.css')}}">
 <link rel="stylesheet" type='text/css' href="{{asset('css/inputForm.css')}}">
-
-
 <body>
     <div style="padding: 20px">
     <div class="container">

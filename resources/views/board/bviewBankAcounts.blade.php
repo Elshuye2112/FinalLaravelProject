@@ -1,5 +1,7 @@
 @extends('board.boardHomepage')
 @section('content')
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <style>
     a{
         margin-left:5px;
@@ -37,16 +39,13 @@
         <td>{{$adata->ownerName}}</td>
         <td>{{$adata->accountNumber}}</td>
         <td>{{$adata->type}}</td>
-         <td><a href={{"/editBankAcount/".$adata->accountID}} class='btn btn-primary'>{{__('field.edit')}}</a></td>
-       <td> 
-      <form method="POST" action="{{ route('acount.delete', $adata->accountID) }}">
+       <td>
+      <form method="POST" action="{{ route('bankAccount.remove', $adata->accountID) }}">
         @csrf
      <input name="_method" type="hidden" value="DELETE">
      <button type="submit" class="btn btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>{{__('field.deleteI')}}</button>
     </form>
-  </td>
-
-
+    </td> 
     </tr>
     @endforeach
 </table>

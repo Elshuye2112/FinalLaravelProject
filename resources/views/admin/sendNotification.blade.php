@@ -9,7 +9,13 @@
             <center><h2>{{__('field.sendNotification')}}</center><hr>
             <div style="padding:30px;">
               <form  method='post' action="{{url('/notificationFromAdmin')}}">
-                @csrf
+              @if(Session::has('success'))
+        <div class='alert alert-success'>{{Session::get('success')}}</div>
+        @endif
+        @if(Session::has('fail'))
+        <div class='alert alert-danger'>{{Session::get('fail')}}</div>
+        @endif 
+                     @csrf
                          <label for="greeting">{{__('field.greeting')}}</label><br>
                           <input type="text" id="Name" name="greeting" placeholder="{{__('field.greeting')}} " required>  <br> 
                           <label for="body">{{__('field.body')}}</label><br>

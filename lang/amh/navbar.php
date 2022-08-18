@@ -4,6 +4,7 @@ return [
     'homepage'=>'የፊት ገጽ',
     'profile'=>'መገለጫ',
     'about'=>'ስለኛ',
+    'services'=>'አገልግሎቶች',
     "login"=>'ይግቡ',
     "logout"=>"ዘግተህዉጣ",
     'help'=>'እጋዛ',

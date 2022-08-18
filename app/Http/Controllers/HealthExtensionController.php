@@ -39,7 +39,7 @@ public function index()
   
         FacadsNotification::send($member, new EmailNotification($project));
    
-        dd('Notification sent!');
+        return redirect()->back()->with('success','notification sent  successfully');
     }
 
     public function viewRequest(){

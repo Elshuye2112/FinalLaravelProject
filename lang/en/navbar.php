@@ -18,6 +18,7 @@ return [
     "about-div2"=>"The second type of health insurance system is Social Health Insurance (SHI), which comprises the population engaged in the formal sectors of the economy. SHI has been widely implemented in many European, Asian and African countries for years, and now preparatory activities are being finalized to commence implementation of SHI in Ethiopia too. What is Health Insurance?",
     "about-div3"=>"Health insurance is a system where individuals or households pay small contributions or prepayments to get health services at the time of illness and to protect them from catastrophic health expenditures. In other words, health insurance is a prepayment system where small contributions are pooled together to insure citizens’ access to health services by avoiding financial barrier. Ethiopian Health Insurance Agency was established as an autonomous federal organ through Regulation No. 191/2010 issued by the council of ministers.",
     "about-download"=>"download",
+    'allRight'=>'All rights reserved',
 ]
 
 ?>

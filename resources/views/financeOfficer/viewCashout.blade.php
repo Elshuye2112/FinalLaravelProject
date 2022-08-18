@@ -1,7 +1,7 @@
 @extends('financeOfficer.financeOfficerHomepage')
 @section('content')
 <head>
-    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/sideBar.css">
 </head>
 <h4>{{__('field.cashoutHeader')}}</h4><hr>
 <style>

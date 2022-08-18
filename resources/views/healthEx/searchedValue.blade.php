@@ -1,7 +1,7 @@
 @extends('healthEx/healthExtensionHome')
 @section('content')
 
-<h4>Welcome to the view Members page</h4><hr>
+<h4>{{__('field.individualDetail')}}</h4><hr>
 <style>
     a{
         margin-left:5px;
@@ -59,7 +59,7 @@
     </td>
     
     <td>
-    <a href={{"/edit/".$data->memberID}} class='btn btn-success'>{{__('field.edit')}}</a>
+    <a href={{"/editMember/".$data->memberID}} class='btn btn-success'>{{__('field.edit')}}</a>
     <a href={{"/renew/".$data->memberID}} class='btn btn-success'>{{__('field.renewed')}}</a>
 
 

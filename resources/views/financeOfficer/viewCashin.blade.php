@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="css/sideBar.css">
 </head>
+
 <style>
     a{
         margin-left:5px;
@@ -28,17 +29,25 @@
 <h4>{{__('field.cashinHeader')}}</h4><hr>
 <table>
     <tr>
-        <th>{{__('field.cashier')}}</th>
+        <th>{{__('field.acountID')}}</th>
         <th>{{__('field.amount')}}</th>
         <th>{{__('field.dateOfPayment')}}</th>
         <th>{{__('field.waysOfPayment')}}</th>
+        <th>{{__('field.memberID')}}</th>
+        
+    
     </tr>
     @foreach($cashin as $data)
     <tr>
-        <td>{{$data->cashier}}</td>
+        <td>{{$data->accountID}}</td>
         <td>{{$data->amount}}</td>
         <td>{{$data->dateOfPayment}}</td>
         <td>{{$data->waysOfPayment}}</td>
+        <td>{{$data->employeeID}}</td>
+                
+ 
+       
+
     </tr>
     @endforeach
 </table>

@@ -9,7 +9,7 @@ use App\Models\AdminAcount;
 use App\Models\Scheme;
 use Illuminate\Support\Facades\Hash;
 use Image;
-
+use DB;
 class StaffController extends Controller
 {
     /**
@@ -32,7 +32,7 @@ class StaffController extends Controller
         $this->validate($request,
         [  
           'employeeID'=>'required|unique:staff|max:255',
-          'phone'=>'required|numeric',
+          'phone'=>'required|numeric|unique:staff',
           'fName'=>'required|min:3',
           'mName'=>'required|min:3',
           'lName'=>'required|min:3',
@@ -148,14 +148,34 @@ else{
         return view('admin/editAccount',compact('staff','id'));
     }
     public function viewBySearch(Request $request){
-        
-        $staff=Staff::find($request->input('employeeID'));
-        if($staff)
-       
-         return view('admin/searchedPage',['staff'=>$staff]);
-        else{
-            dd('The ID you entered is not matched in the database');
-        }
+    
+        $this->validate($request,[ 
+            'employeeID'=>'required',
+          ]
+        );
+        $staffID=$request->input('employeeID');
+      
+        $phone=DB::select('select employeeID,firstName,middleName,
+        lastName,role,phone from staff where employeeID=?',[$staffID]);
+        // $staffID=DB::select('select employeeID,firstName,middleName,
+        // lastName,role,phone from staff where employeeID=?',[$staffID]);
+        // $userName=DB::select('select employeeID,firstName,middleName,
+        // lastName,role,phone from staff where userName=?',[$userName]);
+        // $email=DB::select('select employeeID,firstName,middleName,
+        // lastName,role,phone from staff where email=?',[$email]);
+        return view('admin/searchedPage',['staff'=>$phone]);
+
+        // if($staffID){
+        // return view('admin/searchedPage',['staff'=>$staffID]);}
+        // else if($phone){
+        //     return view('admin/searchedPage',['staff'=>$phone]);
+        // }
+        // else if($email){
+        //     return view('admin/searchedPage',['staff'=>$email]);
+        // }
+        // else {
+        //     return redirect()->back()->with('fail','no staff found with the input parameter');
+        // }
 
         
     }

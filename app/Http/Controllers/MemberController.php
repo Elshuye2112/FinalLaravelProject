@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Staff;
 use PDF;
+use Carbon\Carbon;
 
 
 
@@ -46,12 +47,12 @@ class MemberController extends Controller
       [  
         'memberID'=>'required|unique:members|max:255',
         'photo'=>'nullable|mimes:jpeg,png,jpg,gif|image|' ,
-        'phone'=>'required|min:10|numeric|unique:members',
+        'phone'=>'required|regex:/(09)[0-9]{8}/|unique:members',
         'fName'=>'required|min:3|string',
         'mName'=>'required|min:3|string',
         'lName'=>'required|min:3|string',
         'userName'=>'required|unique:members|max:255',
-        'email'=>'required|unique:members|regex:/(.+)@(.+)\.(.+)/i',
+        'email' =>'required|email|unique:members,email',
         'password'=>'required|min:4',
         'status'=>'required',
         'dateOfBirth'=>'required|date',
@@ -233,16 +234,16 @@ class MemberController extends Controller
       $staffID=$staff->employeeID;
       $data=Member::find($id) ;
       $result=$data->member_employeeID;
-      $str2=implode(" ",$data);
-      $str3=implode(" ",$staffID);
+      // $str2=implode(" ",$data);
+      // $str3=implode(" ",$staffID);
       
-      dd(strcmp($str2,$str3));
-      if($rr===$staffID){
+      // dd(strcmp($str2,$str3));
+      // if($rr===$staffID){
              return view('healthEx.editMember',['data'=>$data]);
-    }
-      else{
-        return redirect()->back()->with('fail','you have not privilagefor editing');
-      }
+    //}
+      // else{
+      //   return redirect()->back()->with('fail','you have not privilagefor editing');
+      // }
     }
 
     /**
@@ -388,16 +389,26 @@ class MemberController extends Controller
     }
     public function renew($id){
       $data=Member::find($id);
+      $data2=$data->updated_at;
+      $today=Carbon::now()->subday(340);
       $renewed='renewed';
       $not_renewed='not_renewed';
-      if($data->status==$renewed){
-        $data->update(['status'=>$not_renewed]);
-        return redirect()->back()->with('success','not renewed');
+      if($data2<=$today){
+        if($data->status==$renewed){
+          $data->update(['status'=>$not_renewed]);
+          return redirect()->back()->with('success','not renewed');
+        }
+        else {
+          $data->update(['status'=>$renewed]);
+          return redirect()->back()->with('success','renewed');
+        }
       }
-      else {
-        $data->update(['status'=>$renewed]);
-        return redirect()->back()->with('success','renewed');
+      else{
+        return redirect()->back()->with('fail','due to renewal period');
+
       }
+      
+    
      
     }
    

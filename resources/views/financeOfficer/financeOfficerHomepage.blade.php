@@ -29,11 +29,11 @@
               <div class='head'>{{__('field.menu')}}</div>
                <ol>
                   <li> <a href="{{url('/registerPayment') }}" class="{{'registerPayment'==request()->path()? 'active1':''}}">{{__('field.registerpayment')}} </a></li>
-                  <li> <a href="{{ url('/viewCashin') }}" class="{{'viewCashin'==request()->path()? 'active1':''}}">{{__('field.viewcashin')}} </a></li>
+                  <li> <a href="{{ url('/viewCashin') }}" class="{{'viewCashin'==request()->path()? 'active1':''}}">{{__('field.viewMembersPayment')}}  </a></li>
                   <li> <a href="{{ url('/viewCashout') }}" class="{{'viewCashout'==request()->path()? 'active1':''}}">{{__('field.viewcashout')}} </a></li>
-                  <li> <a href="{{url('/generateReport') }}" class="{{'generateReport'==request()->path()? 'active1':''}}">{{__('field.search')}} </a></li>
+                  <li> <a href="{{url('/cashinfromfinance') }}" class="{{'generateReport'==request()->path()? 'active1':''}}">{{__('field.paymentRegisteredByF')}} </a></li>
                   <!-- <li> <a href="{{url('/financeViewNotification') }}" class="{{'financeViewNotification'==request()->path()? 'active1':''}}" >{{__('field.viewnotification')}} </a></li> -->
-                  <li lass='link'><a href="{{ url('/fviewBankAcount') }}" class="{{'fviewBankAcount'==request()->path()? 'active1':''}}">View Bank Acounts</a></li>
+                  <li lass='link'><a href="{{ url('/fviewBankAcount') }}" class="{{'fviewBankAcount'==request()->path()? 'active1':''}}">{{__('field.viewBankAcount')}}</a></li>
 
                </ol>
             </div>
